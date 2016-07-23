@@ -13,6 +13,7 @@ var elixir = require('laravel-elixir');
 
 elixir(function(mix) {
     mix.styles(['../bootstrap/css/bootstrap.min.css',
+            '../bootstrap/css/datepicker.css',
             '../bootstrap/css/myStyle.css'
             ], 'public/css/app.css')
         .version([
@@ -22,7 +23,8 @@ elixir(function(mix) {
         
     mix.scripts([
             '../bootstrap/js/jquery.js',
-            '../bootstrap/js/bootstrap.min.js'
+            '../bootstrap/js/bootstrap.min.js',
+            '../bootstrap/js/datepicker.js'
             ], 'public/js/app.js')
         .version([
             'public/css/app.css',
