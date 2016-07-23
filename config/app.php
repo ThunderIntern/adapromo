@@ -206,5 +206,4 @@ return [
         'Html' => Illuminate\Html\HtmlFacade::class,
         'Input' => Illuminate\Support\Facades\Input::class,
     ],
-
 ];
