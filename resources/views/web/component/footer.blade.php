@@ -7,7 +7,7 @@
     							<div class="col-md-1"></div>
     							<div class="col-md-10" style="margin-top:20px;">
     							<div class="col-md-2">
-    								<img src="adapromologo.png" style="width:100%">
+    								<img src="{{ url('adapromologo.png') }}" style="width:100%">
     							</div>
     							<div class="col-md-3">
     								<div class="footer-head-text"><b>
@@ -18,7 +18,7 @@
     								Jln. TB Simatupang No. 18C<br>
     								Jakarta Selatan, 12430, Indonesia<br>
     								contact[at].adapromo.id<br>
-    								<img src="facebook.png" width=20>&nbsp&nbsp&nbsp<img src="twitter.png" width=20>
+    								<img src="{{ url('facebook.png') }}" width=20>&nbsp&nbsp&nbsp<img src="{{ url('twitter.png') }}" width=20>
     								</div>
     							</div>
     							<div class="col-md-3">
@@ -64,7 +64,7 @@
     				</form>
     				</div>
     				<div class="background-footer">
-    					<center><img src="adapromologo.png" style="width:40%"></center><br>
+    					<center><br><img src="{{ url('adapromologo.png') }}" style="width:40%"></center><br>
     					<div class="footer-head-text">
     						<b>
     							<center>PT. ADA PROMO</center>
@@ -75,8 +75,8 @@
     						Jln. TB Simatupang No. 18C<br>
     						Jakarta Selatan, 12430, Indonesia<br>
     						contact[at].adapromo.id<br>
-    						<img src="facebook.png" width=20>&nbsp&nbsp&nbsp
-    						<img src="twitter.png" width=20></center>
+    						<img src="{{ url('facebook.png') }}" width=20>&nbsp&nbsp&nbsp
+    						<img src="{{ url('twitter.png') }}" width=20></center>
     					</div>
     				</div>
     

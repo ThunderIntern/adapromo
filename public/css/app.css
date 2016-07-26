@@ -491,7 +491,7 @@
                 font-family: Noto Sans, Arial;
                 color: #3E3E3E;
             }
-            .search-menu{
+            .search-menu, .navbar-red{
                 background: #e52127;
                 width: 100%;
                 padding: 15px 0px;
@@ -547,13 +547,14 @@
             #box .date{
                 padding: 0px 15px;
             }
-            #box status{
+            #box status, #content-detail status{
                 float: right;
                 background: #0e6598;
                 color: white;
                 border-radius: 3px;
                 padding: 1px 4px;
             }
+            #content-detail status{ float: left;}
             #box .button{
                 width: 100%;
                 color: white;
@@ -583,9 +584,38 @@
                 background: #C7C7C7;
                 padding: 0;
                 margin: 0;
+                float: left;
             }
-            
-            /* toni */
+            .white{
+                color:white;
+            }
+            #content-detail{
+                padding: 20px 15px;
+                width: 100%;
+                border: 1px solid #ccc;
+                font-size: 13px;
+                margin-bottom: 20px;
+            }
+            #content-detail h3{
+                text-transform: uppercase;
+                font-weight: bold;
+                letter-spacing: 2px;
+            }
+            #content-detail hr{
+                margin: 5px 0;               
+            }
+            #content-detail .more{
+                color: white;
+                font-weight: normal;
+                background: #e52127;
+                text-align: center;
+                font-size: 13px;
+                padding: 8px;
+                border-radius: 2px;
+            }
+            #content-detail .more:hover{
+                text-decoration: none;
+            }
             .lurus{
             	padding-top:30px;
             	font-family:"noto sans";
@@ -638,31 +668,116 @@
     			background-color:#5e605e;
     		}
     		.navbar-nav li:hover{
-    			border-bottom:5px solid #0e6598;
+    			border-bottom:3px solid #0e6598;
     		}
     		.menu-active{
-    			border-bottom:5px solid #0e6598;
+    			border-bottom:3px solid #0e6598;
     		}
     		.putih{
     			padding:0 10px;
     		}
-    		.lurus img{
+    		.lurus img, .navbar-red img{
     			width:20%;
     		}
             .navbar-toggler{
-                background: white;
+                color: white;
                 float: right;
-                border:1px solid #e52127;
-            }
-            .navbar-toggler:focus{
-                border-radius: 5px 5px 0 0;
-                border:none;
             }
             .navbar-light .navbar-nav .nav-link { color: black; border-radius: 5px;}
             .navbar-light .navbar-nav .nav-link:hover{ color: black; }
-            .menu-first{ border-radius: 5px 0 0 0;}
-            .menu-last{ border-radius: 0 0 5px 5px;}
-            /* end toni */
+            .navbar-light .navbar-nav .white { color: white; border-radius: 5px;}
+
+            .page-item.active .page-link,.page-item.active .page-link:focus,.page-item.active .page-link:hover{
+                background-color:#0e6598;
+                border:2px solid #0e6598;
+            }
+
+            .page-link{
+                color:#5e605e;
+                border:2px solid #acadac;
+                margin-left:4px;
+                border-radius: 3px;
+                padding:3px 10px;
+            }
+
+            .page-link:focus,.page-link:hover{
+                color:white;
+                background-color:#0e6598;
+                border:2px solid #0e6598;
+            }
+            
+            /*modal menu*/
+            .modal.left .modal-dialog,
+            .modal.right .modal-dialog {
+                position: fixed;
+                margin: auto;
+                width: 320px;
+                height: 100%;
+                -webkit-transform: translate3d(0%, 0, 0);
+                    -ms-transform: translate3d(0%, 0, 0);
+                     -o-transform: translate3d(0%, 0, 0);
+                        transform: translate3d(0%, 0, 0);
+            }
+
+            .modal.left .modal-content,
+            .modal.right .modal-content {
+                height: 100%;
+                overflow-y: auto;
+            }
+            
+            .modal.left .modal-body,
+            .modal.right .modal-body {
+                padding: 15px 15px 80px;
+            }
+
+        /*Left*/
+            .modal.left.fade .modal-dialog{
+                left: -320px;
+                -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
+                   -moz-transition: opacity 0.3s linear, left 0.3s ease-out;
+                     -o-transition: opacity 0.3s linear, left 0.3s ease-out;
+                        transition: opacity 0.3s linear, left 0.3s ease-out;
+            }
+            
+            .modal.left.fade.in .modal-dialog{
+                left: 0;
+            }
+                
+        /*Right*/
+            .modal.right.fade .modal-dialog {
+                right: -320px;
+                -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+                   -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+                     -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+                        transition: opacity 0.3s linear, right 0.3s ease-out;
+            }
+            
+            .modal.right.fade.in .modal-dialog {
+                right: 0;
+            }
+
+        /* ----- MODAL STYLE ----- */
+            .modal-content {
+                border-radius: 0;
+                border: none;
+            }
+
+            .modal-header {
+                border-bottom-color: #EEEEEE;
+                background-color: #FAFAFA;
+            }
+            .modal-menu{
+                width: 100%;
+                color: #3E3E3E;
+                border-bottom: 1px solid #ccc;
+                padding: 10px;
+                font-weight: bold;
+            }
+            .modal-menu:hover, .menu-active2{
+                background: #ccc;
+                text-decoration: none;
+            }
+            /*end modal menu*/
             
             @media (max-width: 768px) {
                 .search-menu{
@@ -702,9 +817,10 @@
     			}
     			.navbar-nav .nav-item+.nav-item{margin-left:0; padding-left:10px;}
                 .menu-active{ padding-left: 10px; }
-    			.lurus img{
+    			.lurus img, .navbar-red img{
     				width:65%;
     			}
+                .navbar-light .navbar-nav .white { color: black; border-radius: 5px;}
             }
             @media (min-width: 992px) {
                 .hideDesk {

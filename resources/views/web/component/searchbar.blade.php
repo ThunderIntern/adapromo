@@ -17,7 +17,7 @@
                                 <div class="hideDesk">
                                 <div class="col-md-12">
                                     <input type="text" name="nama" placeholder="Ketik Nama Promo"/>
-                                    <button type="submit" class="btn btn-primary"><i class="fa fa-search"></i> Cari</button>
+                                    <button type="submit" class="btn btn-primary button"><i class="fa fa-search"></i> Cari</button>
                                 </div>
                                 </div>
                             </form>

@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', function(){
-    return view('web.page.home_page');
-});
+Route::get('/', 'HomeController@home');
+Route::get('/promo/detail/{id}', 'HomeController@promo_detail');
+Route::get('/promo', 'HomeController@promo');
