@@ -14,3 +14,5 @@
 Route::get('/', 'HomeController@home');
 Route::get('/promo/detail/{id}', 'HomeController@promo_detail');
 Route::get('/promo', 'HomeController@promo');
+Route::get('/aktivasi', 'HomeController@aktivasi');
+Route::get('/signin', 'HomeController@signin');

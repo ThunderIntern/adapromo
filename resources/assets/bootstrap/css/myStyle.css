@@ -201,7 +201,7 @@
 
             .page-item.active .page-link,.page-item.active .page-link:focus,.page-item.active .page-link:hover{
                 background-color:#0e6598;
-                border:2px solid #0e6598;
+                border:1px solid #0e6598;
             }
 
             .page-link{
@@ -216,6 +216,61 @@
                 color:white;
                 background-color:#0e6598;
                 border:2px solid #0e6598;
+            }
+            .simple-box{
+                border:1px solid #ccc;
+                text-align: center;
+                margin-top: 100px;
+                padding: 20px 30px;
+                max-width: 50%;
+            }
+            .margin-bottom-300{
+                margin-bottom: 300px;
+            }
+            .border-left{
+                border-left:1px solid #ccc;
+            }
+
+            .padding-15{
+                padding:15px;
+            }
+
+            .min-height-200{
+                min-height:200px;
+                max-height:400px;
+            }
+
+            #content-detail{
+                   padding: 20px 15px;
+                   width: 100%;
+                   border: 1px solid #ccc;
+                   font-size: 13px;
+                   margin-bottom: 20px;
+               }
+
+            #content-detail .more{
+                   color: white;
+                   font-weight: normal;
+                   background: #e52127 ;
+                   text-align: center;
+                   font-size: 13px;
+                   padding: 8px;
+                   border-radius: 2px;
+               }
+            #content-detail input[type=text]{
+                border-radius:5px;
+                padding: 5px;
+                margin:5px 0;
+                width:100%;
+                border:1px solid #ccc;
+            }
+
+            #content-detail a.link-a {
+                font-size:13px;
+            }
+
+            #content-detail input[type=radio],#content-detail input[type=checkbox]{
+                margin-top:9px;
             }
             
             /*modal menu*/
@@ -323,10 +378,6 @@
     				border-top-right-radius: 0px;
     				border-bottom-right-radius: 0px;
     			}
-    			.navbar-nav li{
-    				width:100%;
-                    background: white;
-    			}
     			.navbar-nav .nav-item+.nav-item{margin-left:0; padding-left:10px;}
                 .menu-active{ padding-left: 10px; }
     			.lurus img, .navbar-red img{
@@ -334,7 +385,7 @@
     			}
                 .navbar-light .navbar-nav .white { color: black; border-radius: 5px;}
             }
-            @media (min-width: 992px) {
+            @media (min-width: 769px) {
                 .hideDesk {
                     display: none;
                 }

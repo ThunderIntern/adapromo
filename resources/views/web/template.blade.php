@@ -13,6 +13,7 @@
     @yield('searchbar')
     @yield('content')
     @yield('footer')
+    @yield('simple-footer')
     
     </body>
     {!! Html::script(elixir('js/app.js')) !!}
