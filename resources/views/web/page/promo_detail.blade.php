@@ -11,8 +11,13 @@
                 <div class="col-sm-1">&nbsp;</div>
                 <div class="col-md-10">
                     <div class="col-md-8" style="padding: 0 17px;">
+                        <?php 
+                            $data = json_decode($data); 
+                            $related = json_decode($related);
+                        ?>
+                        @foreach($data as $content)
                         <div id="content-detail">
-                            <h3>Promo Ekstra Diskon Pembelian ASUS, ACER & Gigabyte</h3>
+                            <h3>{{ $content->title }}</h3>
                             <hr />
                             <status>Promo Aktif</status> &nbsp;| <i class="fa fa-heart"></i> <info>Favorites</info> |
                             <img src="../../facebook.png" width=20>&nbsp;&nbsp;<img src="../../twitter.png" width=20>
@@ -21,61 +26,31 @@
                             <hr />
                             <i class="fa fa-calendar"></i> Jadwal : 18-06-2016 s/d 20-07-2016 
                             <hr /><br />
-                            Welcome To The Online Best Model Winner Contest At Look Of the Year.
-                            Welcome To The Online Best Model Winner Contest At Look Of the Year.
-                            Welcome To The Online Best Model Winner Contest At Look Of the Year.
-                            Syarat dan Ketentuan Berlaku.<br /><br />
+                            {{ $content->isi }}<br /><br />
                             <i class="fa fa-tag"></i> Fashion<br /><br />
                             <a href="" class="more">Promo selengkapnya</a>
                         </div>
+                        @endforeach
                     </div>
                     <div class="col-md-4" style="padding: 0 17px;">
                         <h4><b>RELATED PROMO:</b></h4>
+                        @foreach($related as $relateds)
                         <div id="box">
                             <img src="../../promo3.jpg" />
                             <div class="detail">
-                                <a href="">Promo Daster Slim Matahari Mall 50%</a><br />
+                                <a href="">{{ $relateds->title }}</a><br />
                                 <i class="fa fa-heart"></i> <info>Favorites</info> <status>Iklan Aktif</status>
                             </div>
                             <hr />
                             <div class="date"><i class="fa fa-calendar"></i> <info>18-06-2016 s/d 20-07-2016</info></div>
                             <hr />
                             <div class="detail">
-                            Welcome To The Online Best Model Winner Contest At Look Of the Year.
+                            {{ $relateds->isi }}
                             <br /><br /><i class="fa fa-tag"></i> Fashion<br /><br />
                             <a href=""><div class="button">Lihat Promo</div></a>
                             </div>
                         </div>
-                        <div id="box">
-                            <img src="../../promo3.jpg" />
-                            <div class="detail">
-                                <a href="">Promo Daster Slim Matahari Mall 50%</a><br />
-                                <i class="fa fa-heart"></i> <info>Favorites</info> <status>Iklan Aktif</status>
-                            </div>
-                            <hr />
-                            <div class="date"><i class="fa fa-calendar"></i> <info>18-06-2016 s/d 20-07-2016</info></div>
-                            <hr />
-                            <div class="detail">
-                            Welcome To The Online Best Model Winner Contest At Look Of the Year.
-                            <br /><br /><i class="fa fa-tag"></i> Fashion<br /><br />
-                            <a href=""><div class="button">Lihat Promo</div></a>
-                            </div>
-                        </div>
-                        <div id="box">
-                            <img src="../../promo3.jpg" />
-                            <div class="detail">
-                                <a href="">Promo Daster Slim Matahari Mall 50%</a><br />
-                                <i class="fa fa-heart"></i> <info>Favorites</info> <status>Iklan Aktif</status>
-                            </div>
-                            <hr />
-                            <div class="date"><i class="fa fa-calendar"></i> <info>18-06-2016 s/d 20-07-2016</info></div>
-                            <hr />
-                            <div class="detail">
-                            Welcome To The Online Best Model Winner Contest At Look Of the Year.
-                            <br /><br /><i class="fa fa-tag"></i> Fashion<br /><br />
-                            <a href=""><div class="button">Lihat Promo</div></a>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
                 <div class="col-sm-1">&nbsp;</div>

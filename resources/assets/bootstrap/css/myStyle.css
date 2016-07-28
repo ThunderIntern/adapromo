@@ -197,7 +197,7 @@
             }
             .navbar-light .navbar-nav .nav-link { color: black; border-radius: 5px;}
             .navbar-light .navbar-nav .nav-link:hover{ color: black; }
-            .navbar-light .navbar-nav .white { color: white; border-radius: 5px;}
+            .navbar-light .navbar-nav .white, .navbar-light .navbar-nav .white:hover { color: white; border-radius: 5px;}
 
             .page-item.active .page-link,.page-item.active .page-link:focus,.page-item.active .page-link:hover{
                 background-color:#0e6598;
@@ -383,7 +383,11 @@
     			.lurus img, .navbar-red img{
     				width:65%;
     			}
-                .navbar-light .navbar-nav .white { color: black; border-radius: 5px;}
+                .navbar-light .navbar-nav .white, .navbar-light .navbar-nav .white:hover { color: black; border-radius: 5px;}
+                .border-left{
+                    border-left:0px;
+                    border-top:1px solid #ccc;
+                }
             }
             @media (min-width: 769px) {
                 .hideDesk {
