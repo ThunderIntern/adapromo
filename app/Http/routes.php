@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function(){
-    return view('web.page.home_page');
+Route::get('/', 	['uses' => 'Web\\HomeController@home',					'as' => 'home']);
+Route::get('/coba', function()
+{
+	echo phpinfo();
 });

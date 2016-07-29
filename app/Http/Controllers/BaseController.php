@@ -2,6 +2,7 @@
 
 use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Support\MessageBag;
+use Illuminate\Routing\Controller as Controller;
 use Input, Redirect, URL, App;
 
 use \App\Http\Controllers\Modules\Mobile_Detect;
