@@ -1,97 +1,81 @@
-        @section('footer')
-        <!-- footer --> 
-        <div class="container-fluid">
-    		<div class="row">
-    			<div class="desktop">
-    				<footer class="background-footer">
-    							<div class="col-md-1"></div>
-    							<div class="col-md-10" style="margin-top:20px;">
-    							<div class="col-md-2">
-    								<img src="adapromologo.png" style="width:100%">
-    							</div>
-    							<div class="col-md-3">
-    								<div class="footer-head-text"><b>
-    									PT. ADA PROMO
-    								</b></div>
-    								<div class="footer-text">
-    								THE CEO BUILDING , Lt 12<br>
-    								Jln. TB Simatupang No. 18C<br>
-    								Jakarta Selatan, 12430, Indonesia<br>
-    								contact[at].adapromo.id<br>
-    								<img src="facebook.png" width=20>&nbsp&nbsp&nbsp<img src="twitter.png" width=20>
-    								</div>
-    							</div>
-    							<div class="col-md-3">
-    								<div class="footer-head-text"><b>
-    									Tentang AdaPromo.id
-    								</b></div>
-    								<div class="footer-text">
-    								About Us<br>
-    								Contact Us<br>
-    								FAQ<br>
-    								Syarat dan Ketentuan<br>
-    								Daftarkan Promosi Anda<br>
-    								</div>
-    							</div>
-    							<div class="col-md-4">
-    								<div class="footer-head-text"><b>
-    									Newsletter
-    								</b></div>
-    								<input type="text" class="footer-textbox" placeholder="alamat email anda">
-    								<button type=button class="footer-button">subscribe</button>
-    								<br><div class="footer-text">
-    									Dapatkan informasi promo-promo terbaru dengan subscribe email anda
-    								</div>
-    							</div>
-    							</div>
-    							<div style="clear:both"></div>
-    				</footer>
-    			</div>
-    			<footer class="mobile">
-    				<hr>
-    				<div class="putih">
-    				<div class="footer-head-text"><br>
-    					<center><b>NEWSLETTER</b></center><br>
-    				</div>
-    				<div class="footer-text">
-    				<center>	
-    				Dapatkan informasi promo-promo terbaru dengan subscribe email anda<br><br>
-    				</center>
-    				</div>
-    				<form>
-    					<input class="footer-textbox" placeholder="alamat email anda">
-    					<button type="submit" class="footer-button" style="letter-spacing:4px">Subscribe</button><br><br>
-    				</form>
-    				</div>
-    				<div class="background-footer">
-    					<center><img src="adapromologo.png" style="width:40%"></center><br>
-    					<div class="footer-head-text">
-    						<b>
-    							<center>PT. ADA PROMO</center>
-    						</b>
-    					</div>
-    					<div class="footer-text">
-    						<center>THE CEO BUILDING , Lt 12<br>
-    						Jln. TB Simatupang No. 18C<br>
-    						Jakarta Selatan, 12430, Indonesia<br>
-    						contact[at].adapromo.id<br>
-    						<img src="facebook.png" width=20>&nbsp&nbsp&nbsp
-    						<img src="twitter.png" width=20></center>
-    					</div>
-    				</div>
-    
-    
-    			</footer>
-    
-    			<footer class="background-footer-2">
-    					<div class="col-md-1"></div>
-    					<div class="col-md-10">
-    						<div class="col-md-3 footer-text-2" style="color:white; padding-top:10px">
-    							&copy; 2015 - 2016 adapromo.id
-    						</div>
-    					</div>
-    					<div style="clear:both"></div>
-    			</footer>
-    		</div>
-    	</div>
-        <!-- end footer -->
+<!-- footer --> 
+<footer class="container-fluid">
+	<div class="row grey-soft">
+		<div class="col-md-12">
+		  	<div class="container">
+				<div class="row text-sm-center text-md-left m-t-2">
+					<div class="col-xs-12 col-sm-12 col-md-2 col-lg-2">
+						{!! Html::image('images/adapromologo.png', null, ['class' => 'img-fluid']) !!}
+					</div>
+					<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+						<h6 class="font-weight-bold">PT. ADA PROMO</h6>
+						<p>
+							THE CEO BUILDING, Lt 12<br/>
+							Jln. TB Simatupang No. 18c<br/>
+							Jakarta Selatan, 12430, Indonesia<br/>
+							contact[at].adapromo.id
+						</p>
+						<p>
+							<a href="#">
+								<span class="fa-stack fa-lg">
+									<i class="fa fa-circle fa-stack-2x facebook-text"></i>
+									<i class="fa fa-facebook fa-stack-1x white-text"></i>
+								</span>
+							</a>
+							<a href="#">
+								<span class="fa-stack fa-lg">
+									<i class="fa fa-circle fa-stack-2x twitter-text"></i>
+									<i class="fa fa-twitter fa-stack-1x white-text"></i>
+								</span>
+							</a>
+						</p>
+					</div>
+					<div class="col-md-3 col-lg-3">
+						<h6 class="font-weight-bold">Tentang ADAPROMO.ID</h6>
+						<ul class="list-unstyled">
+							<li><a href="#" class="dark-text">About US</a></li>
+							<li><a href="#" class="dark-text">Contact US</a></li>
+							<li><a href="#" class="dark-text">FAQ</a></li>
+							<li><a href="#" class="dark-text">Syarat dan Ketentuan</a></li>
+							<li><a href="#" class="dark-text">Daftarkan Promosi Anda</a></li>
+						</ul>
+					</div>
+					<div class="col-md-4 col-lg-4 hidden-sm-down">
+						<div class="row hidden-md-down">
+							<div class="col-md-12 col-lg-12">
+							  	<h6 class="font-weight-bold">Newsletter</h5>
+							</div>
+						</div>
+						<div class="row hidden-md-down">
+							<div class="col-md-12 col-lg-12">
+								{!! Form::open() !!}
+									<fieldset class="form-group">
+										<div class="input-group">
+										  	{!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'alamat email anda']) !!}
+											<div class="input-group-btn">
+												{!! Form::submit('Subscribe', ['class' => 'btn red white-text']) !!}
+											</div>
+										</div>
+										<small class="text-muted">Dapatkan informasi promo-promo terbaru dengan subscribe email anda.</small>
+									</fieldset>
+								{!! Form::close() !!}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row dark white-text">
+		<div class="col-md-12 col-lg-12">
+			<div class="container">
+		  		<div class="row">
+					<div class="col-md-12 col-lg-12">
+					  	&copy; 2105 - 2016 adapromo.id
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+<!-- end footer -->
