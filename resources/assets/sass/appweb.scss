@@ -1,0 +1,23 @@
+$appweb_color1: #E52127;
+$appweb_color2: #FFFFFF;
+$appweb_color3: #E6E8E6;
+$appweb_color4: #CED0CE;
+$appweb_color5: #191919;
+$appweb_color6: #5E605E;
+$appweb_color7: #0E6598;
+$appweb_color8: #FBFBFB;
+$appweb_color_facebook: #475FA6;
+$appweb_color_twitter: #39C2F7;
+
+@import "font-awesome.scss";
+@import "bootstrap/bootstrap";
+@import "selectize.bootstrap3.scss";
+@import "color.scss";
+
+body{
+	font-family: 'Noto Sans', sans-serif !important;
+}
+
+.icon-awesome-placeholder {
+	font-family: 'FontAwesome', 'Noto Sans' !important;
+}
