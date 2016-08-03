@@ -11,7 +11,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
 	</head>
 	<body>
-	
+	tes
 	<!-- navbar -->
     @include('web.component.navbar')
 
