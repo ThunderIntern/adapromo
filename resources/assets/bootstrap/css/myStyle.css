@@ -3,7 +3,7 @@
                 font-family: Noto Sans, Arial;
                 color: #3E3E3E;
             }
-            .search-menu, .navbar-red{
+            /*.search-menu, .navbar-red{
                 background: #e52127;
                 width: 100%;
                 padding: 15px 0px;
@@ -116,7 +116,7 @@
             #content-detail hr{
                 margin: 5px 0;               
             }
-            #content-detail .more{
+            #content-detail .more, #content-detail button{
                 color: white;
                 font-weight: normal;
                 background: #e52127;
@@ -124,8 +124,10 @@
                 font-size: 13px;
                 padding: 8px;
                 border-radius: 2px;
+                width: 100%;
+                border:1px solid #e52127;
             }
-            #content-detail .more:hover{
+            #content-detail .more:hover, #content-detail button:hover{
                 text-decoration: none;
             }
             .lurus{
@@ -272,7 +274,8 @@
             #content-detail input[type=radio],#content-detail input[type=checkbox]{
                 margin-top:9px;
             }
-            
+            */
+
             /*modal menu*/
             .modal.left .modal-dialog,
             .modal.right .modal-dialog {
@@ -297,7 +300,7 @@
                 padding: 15px 15px 80px;
             }
 
-        /*Left*/
+            /*Left*/
             .modal.left.fade .modal-dialog{
                 left: -320px;
                 -webkit-transition: opacity 0.3s linear, left 0.3s ease-out;
@@ -310,7 +313,7 @@
                 left: 0;
             }
                 
-        /*Right*/
+            /*Right*/
             .modal.right.fade .modal-dialog {
                 right: -320px;
                 -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
@@ -323,7 +326,7 @@
                 right: 0;
             }
 
-        /* ----- MODAL STYLE ----- */
+            /* ----- MODAL STYLE ----- */
             .modal-content {
                 border-radius: 0;
                 border: none;
@@ -346,7 +349,13 @@
             }
             /*end modal menu*/
             
+            
             @media (max-width: 768px) {
+                .navbar-brand img{
+                    width: 50%;
+                }
+            }
+            /*
                 .search-menu{
                     padding: 0 0 15px 0;
                 }
@@ -397,3 +406,4 @@
     				display:none;
     			}
             }
+            */

@@ -1,4 +1,10 @@
 @extends('web.template')
+@section('navbar')
+	@include('web.component.navbar')
+@stop
+@section('searchbar')
+	@include('web.component.searchbar')
+@stop
 @section('content')
 	<!-- content -->
 	<div class="container">
@@ -42,4 +48,7 @@
 		</div>
 	</div>
 	<!-- end content -->
+@stop
+@section('footer')
+	@include('web.component.footer')
 @stop

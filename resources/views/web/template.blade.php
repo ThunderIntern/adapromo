@@ -11,18 +11,20 @@
 		<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">
 	</head>
 	<body>
-	tes
+	
 	<!-- navbar -->
-    @include('web.component.navbar')
+    @yield('navbar')
+    @yield('navbar-red')
 
     <!-- searchbar -->
-    @include('web.component.searchbar')
+    @yield('searchbar')
 
     <!-- content -->
     @yield('content')
 
     <!-- footer -->
-	@include('web.component.footer')
+    @yield('footer')
+    @yield('simple-footer')
 	
 	</body>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>

@@ -1,0 +1,14 @@
+            body{
+                font-family: Noto Sans, Arial;
+                color: #3E3E3E;
+            }
+            .border-left-card{
+                border-left: 1px solid #ccc;
+            }
+
+            @media (max-width:768px){
+                .border-left-card{
+                    border-left: 0px;
+                    border-top:1px solid #ccc;
+                }
+            }
