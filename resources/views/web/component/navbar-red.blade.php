@@ -4,7 +4,7 @@
         <a class="navbar-brand" href="#">
             {!! Html::image('images/adapromologo.png', null, ['class' => 'img-fluid'] ) !!}
         </a>
-    <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="modal" data-target="#myModal2">
+    <button class="navbar-toggler hidden-sm-up white-text" type="button" data-toggle="modal" data-target="#myModal2">
       &#9776;
     </button>
     <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">

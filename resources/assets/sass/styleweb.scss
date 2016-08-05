@@ -5,6 +5,10 @@
             .border-left-card{
                 border-left: 1px solid #ccc;
             }
+            .underline-menus:hover, .active{
+                border-bottom: 2px solid $appweb_color7;
+                text-align: center;
+            }
 
             @media (max-width:768px){
                 .border-left-card{
