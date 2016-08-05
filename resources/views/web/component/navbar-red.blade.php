@@ -2,7 +2,7 @@
 <nav class="navbar navbar-light red" style="line-height: 50px;">
     <div class="container">
         <a class="navbar-brand" href="#">
-            {!! Html::image('images/adapromologo.png', null, ['class' => 'img-fluid'] ) !!}
+            {!! Html::image('images/adapromologo-white.png', null, ['class' => 'img-fluid'] ) !!}
         </a>
     <button class="navbar-toggler hidden-sm-up white-text" type="button" data-toggle="modal" data-target="#myModal2">
       &#9776;
