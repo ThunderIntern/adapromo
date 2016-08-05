@@ -9,21 +9,6 @@
             </div>
         </div>
         
-        <?php
-        if($request->session()->has('auth')){
-        ?>
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-4 col-lg-4">&nbsp;</div>
-                <div class="col-md-4 col-lg-4">
-                    <div id="content-detail">
-                    <center>Login berhasil dengan email: <?php echo session('auth'); ?></center>
-                    </div>
-                </div>
-                <div class="col-md-4 col-lg-4">&nbsp;</div>
-            </div>
-        </div>
-        <?php } else { ?>
         <div class="container-fluid m-b-3">
             <div class="row">        
                 <div class="col-md-1 col-lg-1">&nbsp;</div>
@@ -32,7 +17,7 @@
                         <h6>Jika sudah mempunyai akun silahkan login di bawah ini</h6><br>
                         <div class="card p-a-2">
                             <center><h5><b>LOGIN USER</b></h5></center>
-                                {!! Form::open(['action' => 'HomeController@auth', 'method' => 'post']) !!}
+                                {!! Form::open() !!}
                                         <label>Email:</label>
                                         {!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'Email']) !!}
                                         <label>Password:</label>
@@ -47,7 +32,7 @@
                         <h6>Jika sudah mempunyai akun silahkan login di bawah ini</h6><br>
                         <div class="card p-a-2">
                             <center><h5><b>DAFTAR USER BARU</b></h5></center>
-                                {!! Form::open(['action' => 'HomeController@auth', 'method' => 'post']) !!}
+                                {!! Form::open() !!}
                                     <label>Nama Lengkap:</label>
                                     {!! Form::text('nama', null, ['class' => 'form-control', 'placeholder' => 'Nama Lengkap']) !!}
                                     <label>Email:</label>
@@ -73,7 +58,6 @@
                 <div class="col-sm-1 col-lg-1">&nbsp;</div>
             </div>
         </div>
-        <?php } ?>
         <!-- container -->
         <!-- end content -->
         @stop

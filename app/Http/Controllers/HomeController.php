@@ -53,7 +53,7 @@ class HomeController extends Controller
     public function aktivasi(){
         return View::make('web.page.aktivasi');
     }
-    public function signin(){
+    public function signin(Request $request){
         return View::make('web.page.sign_in_sign_up');
     }
     public function about_us(){
