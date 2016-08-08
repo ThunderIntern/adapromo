@@ -53,7 +53,24 @@ class HomeController extends Controller
     public function aktivasi(){
         return View::make('web.page.aktivasi');
     }
-    public function signin(){
+    public function signin(Request $request){
         return View::make('web.page.sign_in_sign_up');
+    }
+    public function about_us(){
+        $data = array(
+            array('title' => 'About Us', 
+                  'isi' => 'AdaPromo.id dibuat sebagai media promosi bagi para pelaku usaha yang ingin mempromosikan produk atau jasanya melalui sebuah website yang bisa dilihat oleh kalangan luas.')
+            );
+        $data = json_encode($data);
+        $related = array(
+            array('title' => 'Promo Ekstra Diskon Pembelian ASUS, ACER & Gigabyte', 
+                  'isi' => 'Welcome To The Online Best Model Winner Contest At Look Of the Year. Syarat dan Ketentuan Berlaku.'),
+            array('title' => 'Promo Ekstra Diskon Pembelian ASUS, ACER & Gigabyte', 
+                  'isi' => 'Welcome To The Online Best Model Winner Contest At Look Of the Year. Syarat dan Ketentuan Berlaku.'),
+            array('title' => 'Promo Ekstra Diskon Pembelian ASUS, ACER & Gigabyte', 
+                  'isi' => 'Welcome To The Online Best Model Winner Contest At Look Of the Year. Syarat dan Ketentuan Berlaku.')
+            );
+        $related = json_encode($related);
+        return View::make('web.page.info')->with(['data' => $data, 'related' => $related]);
     }
 }

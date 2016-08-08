@@ -1,6 +1,6 @@
         @extends('web.template')
-        @section('navbar-no-background')
-            @include('web.component.navbar-no-background')
+        @section('navbar')
+            @include('web.component.navbar')
         @stop
         @section('searchbar')
             @include('web.component.searchbar')
@@ -9,62 +9,47 @@
         <!-- content -->
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-12" style="padding-top: 20px;">
+                <div class="col-md-12 col-lg-12 p-t-2">
                     <center><h4><b>DAFTAR PROMO</b></h4></center>
                 </div>
             </div>
         </div>
         
-        
-                
-        
-        <div class="container-fluid">
-            <div class="row">        
-                <div class="col-sm-1">&nbsp;</div>
-                <div class="col-md-10">
-        
-                <?php $promo= json_decode($promo); 
-                $count=0; ?>
-                @foreach($promo as $promos)
-                <?php $count++; ?>
-                    <div class="col-md-4" style="padding: 0 17px;">
-                        <div id="box">
-                            <img src="{{ url('promo3.jpg') }}" />
-                            <div class="detail">
-                                <a href="">{{ $promos->title }}</a><br />
-                                <i class="fa fa-heart"></i> <info>Favorites</info> <status>Iklan Aktif</status>
+        <div class="container">
+        <div class="row">
+            @for ($x=1; $x<=6; $x++)
+                <div class="col-md-4 col-lg-4">
+                    <div class="card">
+                        {!! Html::image('images/promo3.jpg', null, ['class' => 'card-img-top img-fluid']) !!}
+                        <div class="card-block">
+                            <h5 class="card-title">
+                                <a href="" class="dark-blue-text">Promo Daster Slim Matahari Mall 50%</a>
+                            </h5>
+                            <div class="row">
+                                <div class="col-md-6 col-lg-6">
+                                    <span class="tag dark-text"><i class="fa fa-heart"></i> Favorite</span>
+                                </div>
+                                <div class="col-md-6 col-lg-6 text-xs-right">
+                                    <span class="tag grey dark-text">Iklan Tidak Aktif</span>
+                                </div>
                             </div>
-                            <hr />
-                            <div class="date"><i class="fa fa-calendar"></i> <info>18-06-2016 s/d 20-07-2016</info></div>
-                            <hr />
-                            <div class="detail">
-                            {{ $promos->isi }}
-                            <br /><br /><i class="fa fa-tag"></i> Fashion<br /><br />
-                            <a href=""><div class="button">Lihat Promo</div></a>
-                            </div>
+                            <p class="tag dark-text"><i class="fa fa-calendar"></i> 18-06-2016 s/d 20-07-2016</p>
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                            <p class="card-text"><small class="dark-blue-text"><i class="fa fa-tag dark-blue-text"></i> Fashion</small></p>
+                            <a href="#" class="btn btn-block red white-text">Lihat Promo</a>
                         </div>
                     </div>
-                <?php if($count % 3 == 0){?>
                 </div>
-                <div class="col-sm-1">&nbsp;</div>
-            </div>
+            @endfor
         </div>
-        <div class="container-fluid">
-            <div class="row">        
-                <div class="col-sm-1">&nbsp;</div>
-                <div class="col-md-10">
-                <?php } ?>    
-                @endforeach
-                </div>
-                <div class="col-sm-1">&nbsp;</div>
-                </div>
-            </div>
-
+    </div>
+            
+            <!-- pagination -->
             <div class="container-fluid">
                 <div class="row">        
-                <div class="col-sm-1">&nbsp;</div>
-                <div class="col-md-10">
-                    <div class="col-md-12" style="padding-bottom: 20px;">
+                <div class="col-md-1 col-lg-1">&nbsp;</div>
+                <div class="col-md-10 col-lg-10">
+                    <div class="col-md-12 col-lg-12">
                          <center><nav>
                           <ul class="pagination">
                             <li class="page-item">
@@ -89,7 +74,7 @@
                         </nav></center>  
                     </div>       
                 </div>
-                <div class="col-sm-1">&nbsp;</div>
+                <div class="col-md-1 col-lg-1">&nbsp;</div>
             </div>
         </div>
         <!-- container -->

@@ -16,35 +16,13 @@
                         ?>
                         @foreach($data as $content)
                         <div class="card p-a-2">
-                            <h3>{{ $content->title }}</h3>
-                            <hr />
-                            <span class="tag grey dark-text">Iklan Tidak Aktif</span> &nbsp;| 
-                            <span class="tag dark-text"><i class="fa fa-heart"></i> Favorite</span> |
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x facebook-text"></i>
-                                    <i class="fa fa-facebook fa-stack-1x white-text"></i>
-                                </span>
-                            </a>
-                            <a href="#">
-                                <span class="fa-stack fa-lg">
-                                    <i class="fa fa-circle fa-stack-2x twitter-text"></i>
-                                    <i class="fa fa-twitter fa-stack-1x white-text"></i>
-                                </span>
-                            </a>
-                            <hr />
-                            {!! Html::image('images/promo3.jpg', null, ['class' => 'card-img-top img-fluid']) !!}
-                            <hr />
-                            <i class="fa fa-calendar"></i> Jadwal : 18-06-2016 s/d 20-07-2016 
-                            <hr />
-                            {{ $content->isi }}<br /><br />
-                            <i class="fa fa-tag"></i> Fashion<br /><br />
-                            <a href="#" class="btn red white-text">Promo Selengkapnya</a>
+                            <h3 class="dark-blue-text"><b>{{ $content->title }}</b></h3><hr />
+                            <div class="text-justify"> {{ $content->isi }}</div>
                         </div>
                         @endforeach
                     </div>
                     <div class="col-md-4 col-lg-4">
-                        <h4><b>RELATED PROMO:</b></h4>
+                        <h4><b>NEW PROMO:</b></h4>
                         @foreach($related as $relateds)
                         <div class="col-md-12 col-lg-12">
                             <div class="card">

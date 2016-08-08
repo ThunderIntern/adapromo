@@ -13,6 +13,8 @@ $appweb_color_twitter: #39C2F7;
 @import "web/bootstrap/bootstrap";
 @import "plugins/selectize.bootstrap3.scss";
 @import "web/color.scss";
+@import "web/styleweb.scss";
+@import "web/modal.scss";
 
 body{
 	font-family: 'Noto Sans', sans-serif !important;
