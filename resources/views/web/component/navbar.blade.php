@@ -1,4 +1,4 @@
-menu -->
+<!-- menu -->
 <nav class="navbar navbar-light bg-faded" style="line-height: 50px;">
 	<div class="container">
 		<a class="navbar-brand" href="#">
@@ -71,11 +71,13 @@ menu -->
                                     </div>
 
                                 </div><!-- modal-content -->
-                            </div><!-- modal-dialog -->
-                        </div><!-- modal -->
+                            <!-- </div> -->
+                            <!-- modal-dialog -->
+                        <!-- </div> -->
+                        <!-- modal -->
 
-                    <div style="clear: both;"></div>
+                    <!-- <div style="clear: both;"></div>
     			</div>
-    		</div>
+    		</div> -->
         <!-- </div>
         end menu -->

@@ -10,11 +10,15 @@ $appweb_color_facebook: #475FA6;
 $appweb_color_twitter: #39C2F7;
 
 @import "plugins/font-awesome.scss";
-@import "web/bootstrap/bootstrap";
+@import "cms/bootstrap/bootstrap";
 @import "plugins/selectize.bootstrap3.scss";
-@import "web/color.scss";
+@import "cms/themes.scss";
+@import "plugins/selectize.bootstrap3.scss";
+@import "cms/spacing.scss";
 
-body{
+html, body { 
+	padding-top:70px;
+	background: $gray-lighter;
 	font-family: 'Noto Sans', sans-serif !important;
 }
 

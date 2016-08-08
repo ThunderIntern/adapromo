@@ -1,0 +1,64 @@
+.main-nav { 
+	.nav-link { color:white !important; font-weight:bold; text-transform:uppercase;}
+}
+.navbar2 { 
+	margin-top:45px;
+	padding: 0px;
+	background:#fff;
+	border-bottom:1px solid $brand-primary;
+	.navbar-nav { 
+		margin:0;
+		ul.list-inline {
+			margin:0 !important;
+			padding: 0 14px 0 14px;
+			li.list-inline-item { 
+				width:85px;
+				a:hover{
+					text-decoration: none !important;
+				}
+				&:not(:first-child) { 
+					margin-left:-6px !important;
+				}
+				&:hover { 
+					background: $gray-lighter;
+					border:0px;
+					transition: 0.5s;
+				}
+			}
+		}
+	}
+}
+
+// MODALS
+.fullscreen-modal { 
+	.modal-dialog {
+		margin:0px;
+		border-radius:0px;
+		width:100%;
+		.modal-content { 
+			border-radius:0px;
+			height:100% !important;
+			background: white;
+			width:100%;
+		}
+	}
+}
+
+// HR
+.thick { border-width:10px; }
+.dotted { border-style:dotted; }
+
+// jumbotron
+.jumbotron-white { background:#fff;}
+
+// positioning
+.inline-block { display:inline-block;}
+.block { display:block;}
+
+//side menu
+@media screen and (min-width: 993px) {
+	.static-sidemenu{
+		position: fixed;
+	    width: 23%;
+	}
+}

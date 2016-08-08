@@ -33,18 +33,13 @@ elixir(function(mix) {
 
 	// dashboard
 	mix
-		// .sass('dashboard.scss')
-		// .scripts(['bootstrap.min.js', 
-		// 			'selectize.min.js', 
-		// 			'inputmask.js', 
-		// 			'inputmask.date.extensions.js', 
-		// 			'jquery.inputmask.js', 
-		// 			'inputmask.binding.js',
-		// 			'plugin_selectize.js'], 'public/js/dashboard.js')
-		// .copy('public/css/dashboard.css', 'resources/assets/css/dashboard.css')
-		// .styles(['font-awesome.min.css', 'dashboard.css'], 'public/css/css_dashboard.css')
-		// .version(['public/js/js_dashboard.js', 'public/css/css_dashboard.css'])
-		// .copy('resources/assets/fonts/', 'public/fonts/')
+		.sass('appcms.scss')
+		.scripts(['bootstrap.min.js', 
+					'selectize.min.js', 
+					'inputmask.js', 
+					'inputmask.date.extensions.js', 
+					'jquery.inputmask.js', 
+					'inputmask.binding.js'], 'public/js/appcms.js')
 	// web
 		.sass('appweb.scss')
 		.scripts(['bootstrap.min.js', 
@@ -56,7 +51,7 @@ elixir(function(mix) {
 					'adapromo_ui.js',
 					'adapromo.js'], 'public/js/appweb.js')
 		.scripts(['tether.min.js'], 'public/js/tether.js')
-		.version(['public/js/appweb.js', 'public/css/appweb.css'])
+		.version(['public/js/appweb.js', 'public/css/appweb.css', 'public/js/appcms.js', 'public/css/appcms.css'])
 		.copy('resources/assets/fonts/', 'public/fonts/')
 		.copy('resources/assets/images/', 'public/images/')
 		;
