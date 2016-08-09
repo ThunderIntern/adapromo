@@ -1,4 +1,4 @@
-@extends('cms.layout.layout')
+@extends('cms.template')
 @section('content')
 <div class="container-fluid">
 	<div class="row clearfix">
@@ -10,11 +10,10 @@
 	<div class="row">
 		<div class="col-xs-12 col-lg-3">
 		@include('cms.widgets.sidebar', [
-			'title' 		=> 'CRM',
-			'description' 	=> 'Pengaturan Newsletter',
+			'title' 		=> 'Promo',
+			'description' 	=> 'Pengaturan Promo',
 			'components' => [
-								'0' => ['link' => '#', 'caption' => 'Subscribber'],
-								'1' => ['link' => '#', 'caption' => 'Newsletter'],
+								'0' => ['link' => '#', 'caption' => 'Promo'],
 		]])
 		</div>
  

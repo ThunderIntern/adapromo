@@ -21,7 +21,7 @@ class DashboardController extends BaseController
 
 	function home()
 	{
-		$this->page_attributes->page_title 		= $this->page_title;
+		$this->page_attributes->page_title = $this->page_title;
 
 		$view_source 	= $this->view_root . '.dashboard.overview';
 		$route_source 	= Request::route()->getName();
