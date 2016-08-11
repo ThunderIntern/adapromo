@@ -10,10 +10,11 @@
 	<div class="row">
 		<div class="col-xs-12 col-lg-3">
 		@include('cms.widgets.sidebar', [
-			'title' 		=> 'Promo',
-			'description' 	=> 'Pengaturan Promo',
+			'title' 		=> 'Web Config',
+			'description' 	=> 'Pengaturan Web Config',
 			'components' => [
-								'0' => ['link' => route('cms.promo.promo.index'), 'caption' => 'Promo'],
+								'0' => ['link' => route('cms.website.faq.index'), 'caption' => 'FAQ'],
+								'2' => ['link' => route('cms.website.info.index'), 'caption' => 'Info'],
 		]])
 		</div>
  

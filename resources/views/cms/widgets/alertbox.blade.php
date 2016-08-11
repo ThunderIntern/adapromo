@@ -1,19 +1,10 @@
 @if(Session::has('msg'))
-	<div class="card-block" style="padding-top:0px;padding-bottom:0px;">
-		<div class="row">
-		    <div class="col-lg-12">
-		        <div class="alert alert-{{Session::get('msg-type')}} alert-dismissable m-b-none" style="margin-top: 0px;margin-bottom:0px">
-		            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
 	                @if(Session::has('msg'))
-		                <div class="text-success"><h5>{!!Session::get('msg')!!}</h5></div>
+		                <div class="alert alert-success m-x-2" role="alert">{!!Session::get('msg')!!}</div>
 		                @if(Session::has('msg-action') && Session::has('msg-title'))
 		                	<a href="{!! Session::get('msg-action') !!}">
 		                		{!! Session::get('msg-title') !!}
 		                	</a>
 		                @endif
 	                @endif
-		        </div>
-		    </div>
-		</div>
-	</div>
 @endif

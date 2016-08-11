@@ -13,7 +13,7 @@
 													'link'	=> route('cms.promo.promo.edit', ['id'=> $page_datas->id] )
 												],												
 								'delete'	=> 	[
-													'link'	=> route('cms.promo.promo.destroy', ['id' => $page_datas->id] )
+													'link'	=> route('cms.promo.promo.destroy', ['id' => $page_datas->id])
 												],
 							]		
 	]])

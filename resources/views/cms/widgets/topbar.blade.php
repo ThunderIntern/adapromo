@@ -21,6 +21,11 @@
 					<i class="fa fa-list-alt fa-2x fa-fw"></i><br>Promo
 				</a>
 			</li>
+			<li class="list-inline-item text-xs-center">
+				<a href="{{ route('cms.website.faq.index') }}" class="block p-y-1 p-x-0 ">
+					<i class="fa fa-desktop fa-2x fa-fw"></i><br>Website
+				</a>
+			</li>
 		</ul>
 	</div>
 </nav>
