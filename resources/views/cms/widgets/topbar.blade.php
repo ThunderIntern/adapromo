@@ -26,6 +26,11 @@
 					<i class="fa fa-desktop fa-2x fa-fw"></i><br>Website
 				</a>
 			</li>
+			<li class="list-inline-item text-xs-center">
+				<a href="{{ route('cms.users.index') }}" class="block p-y-1 p-x-0 ">
+					<i class="fa fa-users fa-2x fa-fw"></i><br>User
+				</a>
+			</li>
 		</ul>
 	</div>
 </nav>

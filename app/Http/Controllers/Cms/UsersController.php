@@ -3,25 +3,25 @@
 namespace app\Http\Controllers\Cms;
 
 use app\Http\Controllers\BaseController;
-use app\Models\WebConfig;
+use app\Models\Users;
 use Request, Input, URL, Redirect;
 
-class InfoController extends BaseController
+class UsersController extends BaseController
 {
     // init
     protected $view_root    = 'cms.pages';
-    protected $page_title   = 'Web Info';
+    protected $page_title   = 'Data User';
     protected $breadcrumb   = [];
 
     public function index()
     {
-        $datas                                  = WebConfig::where('type', 'info')->paginate(10);
+        $datas                                  = Users::paginate(10);
         $this->page_datas->datas                = $datas;
         $this->page_datas->id                   = null;
         //page attributes
         $this->page_attributes->page_title      = $this->page_title;
         //generate view
-        $view_source                            = $this->view_root . '.website.info.index';
+        $view_source                            = $this->view_root . '.users.index';
         $route_source                           = Request::route()->getName();        
         return $this->generateView($view_source , $route_source);
     }
@@ -32,7 +32,7 @@ class InfoController extends BaseController
         $datas                                  = null;
         
         if($id != null){
-            $datas                              = WebConfig::find($id);
+            $datas                              = Users::find($id);
         }
         //set data
         $this->page_datas->datas                = $datas;
@@ -44,7 +44,7 @@ class InfoController extends BaseController
         }
         $this->page_datas->id                   = $id;
         //generate view
-        $view_source                            = $this->view_root . '.website.info.create';
+        $view_source                            = $this->view_root . '.users.create';
         $route_source                           = Request::route()->getName();        
         return $this->generateView($view_source , $route_source);
     }
@@ -52,29 +52,39 @@ class InfoController extends BaseController
     public function store($id = null)
     {
         //get input
-        $input                                  = Input::only('judul', 'Isi');
+        $input                                  = Input::only('name', 'email', 'dob', 'role', 'password', 'password2');
         //create or edit
-        $faq                                    = WebConfig::findOrNew($id);
+        $users                                  = Users::findOrNew($id);
         //save data
-        $faq->content                           = ['judul' => $input['judul'],
-                                                    'Isi' => $input['Isi']
-                                                  ];
-        $faq->type                              = 'info';
-        $faq->save();
+        if(is_null($id)){
+            if($input['password']==$input['password2']){
+                $users->password                = $input['password'];        
+            }
+            else{
+                return Redirect::to('/cms/users/create')->with('msg', 'Konfirmasi Password Salah.');        
+            }
+        }
+        
+        $users->name                            = $input['name'];
+        $users->email                           = $input['email']; 
+        $users->dob                             = $input['dob']; 
+        $users->role                            = $input['role']; 
+
+        $users->save();
         $this->page_attributes->msg             = 'Data telah disimpan';
-        return Redirect::to('/cms/website/info')->with('msg', 'Data telah disimpan.');
+        return Redirect::to('/cms/users')->with('msg', 'Data telah disimpan.');
     }
 
     public function show($id)
     {
         //get data
-        $datas                                  = WebConfig::find($id);
+        $datas                                  = Users::find($id);
         $this->page_datas->datas                = $datas;
         $this->page_datas->id                   = $id;
         //page attributes
         $this->page_attributes->page_title      = 'Detail ' . $this->page_title;
         //generate view
-        $view_source                            = $this->view_root . '.website.info.show';
+        $view_source                            = $this->view_root . '.users.show';
         $route_source                           = Request::route()->getName();        
         return $this->generateView($view_source , $route_source);
     }

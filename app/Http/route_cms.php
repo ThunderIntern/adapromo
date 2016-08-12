@@ -33,4 +33,14 @@ Route::group(['namespace' => 'Cms\\', 'prefix' => 'cms'], function(){
 			'update' 	=> 'cms.website.info.update', 
 			'destroy' 	=> 'cms.website.info.destroy'
 	]]);
+
+	Route::resource('/users', 'UsersController', ['names' => [
+			'index' 	=> 'cms.users.index',
+			'create'	=> 'cms.users.create', 
+			'store' 	=> 'cms.users.store', 
+			'show' 		=> 'cms.users.show', 
+			'edit' 		=> 'cms.users.edit', 
+			'update' 	=> 'cms.users.update', 
+			'destroy' 	=> 'cms.users.destroy'
+	]]);
 });

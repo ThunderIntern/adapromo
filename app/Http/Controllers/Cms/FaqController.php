@@ -59,6 +59,7 @@ class FaqController extends BaseController
         $faq->content                           = ['pertanyaan' => $input['pertanyaan'],
                                                     'jawaban' => $input['jawaban']
                                                   ];
+        $faq->type                              = 'faq';
         $faq->save();
         $this->page_attributes->msg             = 'Data telah disimpan';
         return Redirect::to('/cms/website/faq')->with('msg', 'Data telah disimpan.');
