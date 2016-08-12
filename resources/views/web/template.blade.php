@@ -5,7 +5,7 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-		<title>Home</title>
+		<title>{{ $page_attributes->page_title }}</title>
 		{!! Html::style(elixir('css/appweb.css')) !!}
 
 		<link href="https://fonts.googleapis.com/css?family=Noto+Sans" rel="stylesheet">

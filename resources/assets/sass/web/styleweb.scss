@@ -5,10 +5,11 @@ body{
 .border-left-card{
 	border-left: 1px solid #ccc;
 }
-.underline-menus:hover, .active{
+.nav-item:hover, .active{
 	border-bottom: 2px solid $appweb_color7;
 	text-align: center;
 }
+ .nav-item{text-align: center;}
 
 @media (max-width:768px){
 	.border-left-card{

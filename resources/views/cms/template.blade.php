@@ -1,3 +1,8 @@
+@if(is_null(Session::get('admin')))
+    <script>
+        window.location.href = '{{route("cms.login")}}'; 
+    </script>
+@endif
 <!DOCTYPE html>
 <html lang="en">
     <head>

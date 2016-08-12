@@ -2,6 +2,9 @@
 
 
 Route::group(['namespace' => 'Cms\\', 'prefix' => 'cms'], function(){
+	Route::get('/login',	['uses' => 'LoginController@home', 'as' => 'cms.login']);
+	Route::post('/login/process',	['uses' => 'LoginController@process', 'as' => 'cms.login.process']);
+	Route::get('/logout',	['uses' => 'LoginController@logout', 'as' => 'cms.logout']);
 	Route::get('/',	['uses' => 'DashboardController@home', 'as' => 'cms.home']);
 
 	Route::resource('/promo/promo', 'PromoController', ['names' => [

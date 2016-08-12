@@ -58,7 +58,7 @@ class UsersController extends BaseController
         //save data
         if(is_null($id)){
             if($input['password']==$input['password2']){
-                $users->password                = $input['password'];        
+                $users->password                = hash('md5', $input['password']);
             }
             else{
                 return Redirect::to('/cms/users/create')->with('msg', 'Konfirmasi Password Salah.');        

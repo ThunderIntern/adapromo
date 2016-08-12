@@ -1,3 +1,8 @@
+@if(!is_null(Session::get('user')))
+    <script>
+        window.location.href = '{{route("home")}}'; 
+    </script>
+@endif
         @extends('web.template')
         @section('content')
         <!-- content -->
@@ -17,11 +22,17 @@
                         <h6>Jika sudah mempunyai akun silahkan login di bawah ini</h6><br>
                         <div class="card p-a-2">
                             <center><h5><b>LOGIN USER</b></h5></center>
-                                {!! Form::open() !!}
+                                {!! Form::open(['url' => route('login.procces'), 'method' => 'post']) !!}
+                                @if(Session::has('message-danger'))
+                                    <center><div class="alert alert-danger">{{Session::get('message-danger')}}</div></center>
+                                @endif
+                                @if(Session::has('message-success'))
+                                    <center><div class="alert alert-success">{{Session::get('message-success')}}</div></center>
+                                @endif
                                         <label>Email:</label>
-                                        {!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'Email']) !!}
+                                        {!! Form::text('username', null, ['class' => 'form-control', 'placeholder' => 'Email', 'required' => 'required']) !!}
                                         <label>Password:</label>
-                                        {!! Form::text('password', null, ['class' => 'form-control', 'placeholder' => 'Password']) !!}
+                                        {!! Form::password('password', ['class' => 'form-control', 'placeholder' => 'Password', 'required' => 'required']) !!}
                                         <a href="#">Lupa Password</a><br><br>
                                         {!! Form::submit('LOGIN', ['class' => 'btn btn-block red white-text']) !!}
                                 {!! Form::close() !!}

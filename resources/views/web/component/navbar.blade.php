@@ -10,17 +10,24 @@
     <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
   		<ul class="nav navbar-nav pull-xs-right">
   			<li class="nav-item active">
-  				<a class="nav-link dark-text m-r-2 p-b-0" href="#"><strong>HOME</strong></a>
+  				<a class="nav-link dark-text m-r-2 p-b-0 w-100" href="{{route('home')}}"><strong>HOME</strong></a>
   			</li>
   			<li class="nav-item">
-  				<a class="nav-link dark-text m-r-2 p-b-0" href="#"><strong>PROMO</strong></a>
+  				<a class="nav-link dark-text m-r-2 p-b-0 w-100" href="{{route('promo')}}"><strong>PROMO</strong></a>
   			</li>
+        @if(is_null(Session::get('user')))
   			<li class="nav-item">
-  				<a class="nav-link dark-text m-r-2 p-b-0" href="#"><strong>SIGN UP / SIGN IN</strong></a>
+  				<a class="nav-link dark-text m-r-2 p-b-0 w-100" href="{{route('login')}}"><strong>SIGN UP / SIGN IN</strong></a>
   			</li>
+        @endif
   			<li class="nav-item">
-  				<a class="nav-link dark-text" href="#"><strong>CONTACT US</strong></a>
+  				<a class="nav-link dark-text m-r-2 p-b-0 w-100" href="{{route('aboutUs')}}"><strong>CONTACT US</strong></a>
   			</li>
+        @if(Session::has('username'))
+        <li class="nav-item">
+          <a class="nav-link dark-text m-r-2 p-b-0 w-100" href="{{route('logout')}}" onclick="return confirm('Yakin ingin logout?')"><strong><i class="fa fa-sign-out"></i>Logout</strong></a>
+        </li>
+        @endif
   		</ul>
     </div>
 	</div>
@@ -34,10 +41,15 @@
                       <h4 class="modal-title" id="myModalLabel2">Menu</h4>
                   </div>
                   <div class="modal-body">
-                      <a href=""><div class="modal-menu menu-active2">HOME</div></a>
-                      <a href=""><div class="modal-menu">PROMO</div></a>
-                      <a href=""><div class="modal-menu">SIGN UP / SIGN IN</div></a>
-                      <a href=""><div class="modal-menu">CONTACT US</div></a>
+                      <a href="{{route('home')}}"><div class="modal-menu menu-active2">HOME</div></a>
+                      <a href="{{route('promo')}}"><div class="modal-menu">PROMO</div></a>
+                      @if(is_null(Session::get('user')))
+                      <a href="{{route('login')}}"><div class="modal-menu">SIGN UP / SIGN IN</div></a>
+                      @endif
+                      <a href="{{route('aboutUs')}}"><div class="modal-menu">CONTACT US</div></a>
+                      @if(Session::has('username'))
+                      <a href="{{route('logout')}}"><div class="modal-menu">CONTACT US</div></a>
+                      @endif
                   </div>
               </div><!-- modal-content -->
       </div><!-- modal-dialog -->
