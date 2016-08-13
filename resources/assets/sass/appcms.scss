@@ -11,10 +11,9 @@ $appweb_color_twitter: #39C2F7;
 
 @import "plugins/font-awesome.scss";
 @import "cms/bootstrap/bootstrap";
-@import "plugins/selectize.bootstrap3.scss";
 @import "cms/themes.scss";
-@import "plugins/selectize.bootstrap3.scss";
 @import "cms/spacing.scss";
+@import "plugins/selectize.bootstrap3.scss";
 
 html, body { 
 	padding-top:70px;
