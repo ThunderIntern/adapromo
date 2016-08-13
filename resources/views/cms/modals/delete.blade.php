@@ -11,8 +11,8 @@
                     {!! Form::password('password', ['class' => 'form-control']) !!}
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary-outline" data-dismiss="modal">Cancel</button>
-                    <button type="submit" class="btn btn-danger-outline">Hapus</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-danger">Hapus</button>
                 </div>
             {!! Form::close() !!}
         </div>

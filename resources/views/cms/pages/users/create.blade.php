@@ -29,17 +29,17 @@
 			</fieldset>
 			<fieldset class="form-group">
 				<label for="name">Email</label>
-				{!! Form::text('email', $page_datas->datas['email'], ['class' => 'form-control']) !!}
+				{!! Form::email('email', $page_datas->datas['email'], ['class' => 'form-control']) !!}
 			</fieldset>
 			<fieldset class="form-group">
 				<label for="name">Date of Birth</label>
-				{!! Form::text('dob', $page_datas->datas['dob'], ['class' => 'form-control'])!!}
-				<small>Format: yyyy-mm-dd</small>
+				{!! Form::date('dob', $page_datas->datas['dob'], ['class' => 'form-control'])!!}
+				<small>format: mm/dd/yyyy</small>
 			</fieldset> 
 			<fieldset class="form-group">
 				<label for="name">Role</label>
-				{{ Form::select('role', ['admin' => 'Admin', 'editor' => 'editor', 'user' => 'user'], $page_datas->datas['role'], ['class' => 'form-control c-select']) }}
-			</fieldset> 
+				{{ Form::select('role', ['admin' => 'Admin', 'editor' => 'Editor', 'user' => 'User'], $page_datas->datas['role'], ['class' => 'form-control c-select']) }}
+			</fieldset>
 			@if(is_null($page_datas->id))
 			<fieldset class="form-group">
 				<label for="name">Password</label>

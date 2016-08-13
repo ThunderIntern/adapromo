@@ -91,8 +91,14 @@ class FaqController extends BaseController
 
     public function destroy($id)
     {
-        $promo = WebConfig::find($id)->delete();
-        $this->page_attributes->msg = 'Data telah dihapus.';
-        return Redirect::to('/cms/website/faq/')->with('msg', 'Data telah disimpan.');
+        $faq                        = WebConfig::find($id);
+
+        $password                   = Input::get('password');
+        if(empty($password)){
+            return Redirect::to('/cms/website/faq/')->with('msg', 'Password not valid.');
+        }else{
+            $faq->delete();
+            return Redirect::to('/cms/website/faq/')->with('msg', 'Data telah dihapus.');
+        }
     }
 }

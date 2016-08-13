@@ -10,6 +10,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		{!! Html::style(elixir('css/appcms.css')) !!}
         <title>{{ $page_attributes->page_title }}</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     </head>
     <body>
         @include('cms.widgets.topbar')

@@ -39,14 +39,12 @@
 								{{ $data['published_at'] }}
 							</td>
 							<td class="col-md-2 text-xs-right">
-						        {{ Form::open(['method' => 'DELETE', 'url' => 'cms/promo/promo/'.$data['id']])}}
 						        <a href="{{route('cms.promo.promo.edit', ['id' => $data['id']])}}" class="btn btn-primary btn-sm">
 									<i class="fa fa-pencil" aria-hidden="true"></i>
 						        </a>	
-								<button type="submit" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#modalDelete" data-action="{!! route('cms.promo.promo.destroy', ['id' => $data['id']]) !!}" onClick="return confirm('Yakin ingin menghapus data?');">
+								<a class="btn btn-primary btn-sm" href="#" data-toggle="modal" data-target="#modalDelete" data-action="{!! route('cms.promo.promo.destroy', ['id' => $data['id']]) !!}">
 									<i class="fa fa-times" aria-hidden="true"></i>
-								</button>
-								{{ Form::close() }}
+								</a>
 							</td>
 						</tr>					
 					@empty

@@ -101,6 +101,14 @@ class UsersController extends BaseController
 
     public function destroy($id)
     {
-        //
+        $users                      = Users::find($id);
+
+        $password                   = Input::get('password');
+        if(empty($password)){
+            return Redirect::to('/cms/users')->with('msg', 'Password not valid.');
+        }else{
+            $users->delete();
+            return Redirect::to('/cms/users')->with('msg', 'Data telah dihapus.');
+        }
     }
 }

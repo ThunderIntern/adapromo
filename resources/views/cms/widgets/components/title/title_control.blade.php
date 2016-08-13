@@ -18,7 +18,7 @@
 @endif
 
 @if(isset($component['controls']['delete']))
-<a href="javascript:void(0);" class="btn btn-primary-outline pull-right ml-s" data-toggle="modal" data-target="#modalDelete" data-action="{{$component['controls']['delete']['link']}}">
+<a href="javascript:void(0);" class="btn btn-primary pull-right ml-s" data-toggle="modal" data-target="#modalDelete" data-action="{{$component['controls']['delete']['link']}}">
 	<i class="fa fa-trash"></i>
 	Hapus
 </a>
@@ -30,7 +30,7 @@
 @endif
 
 @if(isset($component['controls']['edit']))
-<a href="{{$component['controls']['edit']['link']}}" class="btn btn-primary-outline pull-right ml-s">
+<a href="{{$component['controls']['edit']['link']}}" class="btn btn-primary pull-right ml-s">
 	<i class="fa fa-pencil"></i>
 	Edit
 </a>

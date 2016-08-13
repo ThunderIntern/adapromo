@@ -34,7 +34,7 @@ class LoginController extends BaseController
 
 		$login_search 	= Users::where('email', $input['username'])->where('password', hash('md5', $input['password']))->count();
 		if($login_search > 0){
-			session(['login' => 'true', 'username' => $input['username']]);
+			session(['admin' => 'true', 'username' => $input['username']]);
 			return Redirect::to('/cms/');
 		}
 		else{

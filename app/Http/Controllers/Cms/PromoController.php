@@ -97,9 +97,14 @@ class PromoController extends BaseController
 
     public function destroy($id)
     {
-        $promo                      = Products::find($id)->delete();
+        $promo                      = Products::find($id);
 
-        $this->page_attributes->msg = 'Data telah dihapus.';
-        return Redirect::to('/cms/promo/promo')->with('msg', 'Data telah disimpan.');
+        $password                   = Input::get('password');
+        if(empty($password)){
+            return Redirect::to('/cms/promo/promo')->with('msg', 'Password not valid.');
+        }else{
+            $promo->delete();
+            return Redirect::to('/cms/promo/promo')->with('msg', 'Data telah dihapus.');
+        }
     }
 }
