@@ -5,7 +5,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-12 col-lg-12">
-                                &copy; 2105 - 2016 adapromo.id
+                                &copy; 2015 - 2016 adapromo.id
                             </div>
                         </div>
                     </div>
