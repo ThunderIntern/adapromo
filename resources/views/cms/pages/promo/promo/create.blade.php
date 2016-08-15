@@ -38,7 +38,7 @@
 				<label for="name">Images</label>
 				{!! Form::text('images1', $page_datas->datas['image'], ['class' => 'form-control']) !!}
 			</fieldset>		
-			<a href="#" onclick="addImage();" id="add"><i class="fa fa-plus"></i> Add new image</a>
+			<a onclick="addImage();" id="add" class="btn btn-secondary"><i class="fa fa-plus"></i> Add new image</a>
 			<fieldset class="form-group">
 				<label for="name">Tags</label>
 				{!! Form::text('tags', $page_datas->datas['tags'], ['class' => 'form-control']) !!}
