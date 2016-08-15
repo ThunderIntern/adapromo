@@ -52,14 +52,19 @@ class PromoController extends BaseController
     public function store($id = null)
     {
         //get input
-        $input                                  = Input::only('title','slug', 'description', 'images', 'tags', 'type', 'start_date', 'end_date', 'users');
+        $input                                  = Input::all();
         //create or edit
         $promo                                  = Products::findOrNew($id);
         //save data
+        if(is_null(Input::get('images2'))) $input['images2'] = "";
+        if(is_null(Input::get('images3'))) $input['images3'] = "";
+
         $promo->title                           = $input['title'];
         $promo->slug                            = $input['slug'];
         $promo->description                     = $input['description'];
-        $promo->images                          = $input['images'];
+        $promo->images                          = ['image1' => $input['images1'],
+                                                    'image2' => $input['images2'],
+                                                    'image3' => $input['images3']];
         $promo->tags                            = $input['tags'];
         $promo->type                            = $input['type'];
         $promo->extra_fields                    = ['start_date' => $input['start_date'], 

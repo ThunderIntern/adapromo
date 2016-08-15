@@ -20,7 +20,7 @@
             @forelse($page_datas->datas as $key => $data)
                 <div class="col-md-4 col-lg-4">
                     <div class="card">
-                        {!! Html::image($data['images'], null, ['class' => 'card-img-top img-fluid']) !!}
+                        {!! Html::image($data['images']['image1'], null, ['class' => 'card-img-top img-fluid']) !!}
                         <div class="card-block">
                             <h5 class="card-title">
                                 <a href="{{route('promo.detail', ['id' => $data['id']])}}" class="dark-blue-text">{{ $data['title'] }}</a>
@@ -36,7 +36,7 @@
                                     ?>
                                     <span class="tag grey dark-text">Iklan Tidak Aktif</span>
                                     <?php }else{ ?>
-                                    <span class="tag dark-blue white-text">Iklan Tidak Aktif</span>
+                                    <span class="tag dark-blue white-text">Iklan Aktif</span>
                                     <?php } ?>
                                 </div>
                             </div>

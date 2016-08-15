@@ -9,18 +9,18 @@
     </button>
     <div class="collapse navbar-toggleable-xs" id="exCollapsingNavbar2">
         <ul class="nav navbar-nav pull-xs-right">
-            <li class="nav-item active">
+            <li class="nav-item <?php if(Request::segment(1)=='home' || Request::segment(1)=='') echo 'active'; ?>">
                 <a class="nav-link white-text m-r-2 p-b-0 w-100" href="{{route('home')}}"><strong>HOME</strong></a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item <?php if(Request::segment(1)=='promo') echo 'active'; ?>">
                 <a class="nav-link white-text m-r-2 p-b-0 w-100" href="{{route('promo')}}"><strong>PROMO</strong></a>
             </li>
             @if(is_null(Session::get('user')))
-            <li class="nav-item">
+            <li class="nav-item <?php if(Request::segment(1)=='login') echo 'active'; ?>">
                 <a class="nav-link white-text m-r-2 p-b-0 w-100" href="{{route('login')}}"><strong>SIGN UP / SIGN IN</strong></a>
             </li>
             @endif
-            <li class="nav-item">
+            <li class="nav-item <?php if(Request::segment(1)=='aboutUs') echo 'active'; ?>">
                 <a class="nav-link white-text m-r-2 p-b-0 w-100" href="{{route('aboutUs')}}"><strong>CONTACT US</strong></a>
             </li>
             @if(Session::has('user'))

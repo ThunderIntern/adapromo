@@ -34,10 +34,11 @@
 				<label for="name">Description</label>
 				{!! Form::textarea('description', $page_datas->datas['description'], ['class' => 'form-control', 'rows' => '5']) !!}
 			</fieldset>
-			<fieldset class="form-group">
+			<fieldset class="form-group" id="image">
 				<label for="name">Images</label>
-				{!! Form::text('images', $page_datas->datas['image'], ['class' => 'form-control']) !!}
+				{!! Form::text('images1', $page_datas->datas['image'], ['class' => 'form-control']) !!}
 			</fieldset>		
+			<a href="#" onclick="addImage();" id="add"><i class="fa fa-plus"></i> Add new image</a>
 			<fieldset class="form-group">
 				<label for="name">Tags</label>
 				{!! Form::text('tags', $page_datas->datas['tags'], ['class' => 'form-control']) !!}
@@ -64,3 +65,13 @@
 	</div>
 {!! Form::close() !!}
 @stop
+<script type="text/javascript">
+	var count = 2;
+	function addImage(){
+		document.getElementById('image').innerHTML += "<input class='form-control' name='images"+count+"' type='text'>";
+		count++;
+		if(count>3){
+			$('#add').hide();
+		}
+	}
+</script>

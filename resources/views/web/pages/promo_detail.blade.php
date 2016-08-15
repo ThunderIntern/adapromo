@@ -11,16 +11,17 @@
                 <div class="col-md-10 col-lg-10">
                     <div class="col-md-8 col-lg-8">
                         <div class="card p-a-2">
-                            <h3>{{ $page_datas->datas['title'] }}</h3>
-                            <hr />
+                            <h3>{{ $page_datas->datas['title'] }}</h3><hr />
+
                             <?php 
                                 $now = date("m/d/Y");
                                 if($now < $page_datas->datas['extra_fields']['start_date'] || $now > $page_datas->datas['extra_fields']['end_date']){
                             ?>
                                 <span class="tag grey dark-text">Iklan Tidak Aktif</span>
                             <?php }else{ ?>
-                                <span class="tag dark-blue white-text">Iklan Tidak Aktif</span>
+                                <span class="tag dark-blue white-text">Iklan Aktif</span>
                             <?php } ?> &nbsp;| 
+
                             <span class="tag red-text">
                                 @if($page_datas->favorite==true)
                                     <i class="fa fa-heart"></i> You tag this promo as favorite.
@@ -42,7 +43,7 @@
                                 </span>
                             </a>
                             <hr />
-                            {!! Html::image($page_datas->datas['images'], null, ['class' => 'card-img-top img-fluid']) !!}
+                            <center>{!! Html::image($page_datas->datas['images']['image1'], null, ['class' => 'card-img-top img-fluid']) !!}</center>
                             <hr />
                             <i class="fa fa-calendar"></i> Jadwal : {{ $page_datas->datas['extra_fields']['start_date'] }} s/d {{ $page_datas->datas['extra_fields']['end_date'] }}
                             <hr />
@@ -56,7 +57,7 @@
                         @foreach($page_datas->related as $key => $related)
                         <div class="col-md-12 col-lg-12">
                             <div class="card">
-                                {!! Html::image($related['images'], null, ['class' => 'card-img-top img-fluid']) !!}
+                                {!! Html::image($related['images']['image1'], null, ['class' => 'card-img-top img-fluid']) !!}
                                 <div class="card-block">
                                     <h5 class="card-title">
                                         <a href="{{route('promo.detail', ['id' => $related['id']])}}" class="dark-blue-text">{{$related['title']}}</a>
@@ -72,7 +73,7 @@
                                             ?>
                                                 <span class="tag grey dark-text">Iklan Tidak Aktif</span>
                                             <?php }else{ ?>
-                                                <span class="tag dark-blue white-text">Iklan Tidak Aktif</span>
+                                                <span class="tag dark-blue white-text">Iklan Aktif</span>
                                             <?php } ?>
                                         </div>
                                     </div>
