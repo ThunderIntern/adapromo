@@ -1,4 +1,4 @@
-@extends('cms.pages.promo.template')
+@extends('cms.pages.website.template')
 @section('page_content')
 
 @if(is_null($page_datas->id))
