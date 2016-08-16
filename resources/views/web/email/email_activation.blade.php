@@ -5,7 +5,7 @@
 </head>
 <body>
 	<div style="width:100%">
-		<div style="width:50%; float:left; padding-top:5px;">
+		<div style="width:50%; float:left; padding-top:10px;">
 			<img src="http://i1364.photobucket.com/albums/r721/Beckz_Dos_Santos_Aveiro/adapromologo_zpsbkd5m2vl.png" style="width:70%;" alt="logo adapromo">
 		</div>
 		<div style="width:50%;  float:left; text-align:right;">
