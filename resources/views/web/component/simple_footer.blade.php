@@ -1,5 +1,6 @@
         @section('simple-footer')
         <!-- footer --> 
+        <footer class="container-fluid">
             <div class="row dark white-text">
                 <div class="col-md-12 col-lg-12">
                     <div class="container">
@@ -11,4 +12,5 @@
                     </div>
                 </div>
             </div>
+        </footer>
         <!-- end footer -->

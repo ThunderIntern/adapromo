@@ -21,7 +21,7 @@
             </li>
             @endif
             <li class="nav-item <?php if(Request::segment(1)=='aboutUs') echo 'active'; ?>">
-                <a class="nav-link white-text m-r-2 p-b-0 w-100" href="{{route('aboutUs')}}"><strong>CONTACT US</strong></a>
+                <a class="nav-link white-text m-r-2 p-b-0 w-100" href="{{route('aboutUs')}}"><strong>ABOUT US</strong></a>
             </li>
             @if(Session::has('user'))
             <li class="nav-item">

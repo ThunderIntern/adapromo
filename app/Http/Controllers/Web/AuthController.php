@@ -32,10 +32,23 @@ class AuthController extends BaseController
 	function login(){
 		$input 			= Input::all();
 
-		$login_search 	= Users::where('email', $input['username'])->where('password', hash('md5', $input['password']))->count();
+		$login_search 	= Users::where('email', $input['username'])
+							->where('password', hash('md5', $input['password']))
+							->where('role', 'user')
+							->count();
 		if($login_search > 0){
-			session(['user' => 'true', 'username' => $input['username']]);
-			return Redirect::to('/');
+			$data_user = Users::where('email', $input['username'])
+						->where('password', hash('md5', $input['password']))
+						->where('role', 'user')
+						->get()['0']['attributes'];
+			if($data_user['activation_token'] != ""){
+				return Redirect::to('/login')
+					->with('message-danger', "Anda belum melakukan aktivasi email, silahkan melakukan aktivasi email terlebih dahulu.");
+			}
+			else{
+				session(['user' => 'true', 'username' => $input['username']]);
+				return Redirect::to('/');
+			}
 		}
 		else{
 			return Redirect::to('/login')->with('message-danger', "Login gagal, pastikan username dan password anda benar.");

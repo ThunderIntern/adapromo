@@ -5,10 +5,9 @@
         @section('content')
         <!-- content -->
         
-        <div class="container-fluid">
+        <div class="container">
             <div class="row p-t-3">
-                <div class="col-md-1 col-lg-1">&nbsp;</div>
-                <div class="col-md-10 col-lg-10">
+                <div class="col-md-12 col-lg-12">
                     <div class="col-md-8 col-lg-8">
                         <div class="card p-a-2">
                             <h3>{{ $page_datas->datas['title'] }}</h3><hr />
@@ -87,7 +86,6 @@
                         @endforeach
                     </div>
                 </div>
-                <div class="col-md-1 col-lg-1">&nbsp;</div>
             </div>
         </div>
         

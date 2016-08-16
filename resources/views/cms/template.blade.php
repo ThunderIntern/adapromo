@@ -16,6 +16,7 @@
         @include('cms.widgets.topbar')
         @yield('content')
 		@yield('modal')
+        @include('cms.modals.logout')
     </body>
     {!! Html::script(elixir('js/appcms.js')) !!}
     <script>

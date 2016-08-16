@@ -30,7 +30,7 @@ class SubscribeController extends BaseController
         $subscribe->code_unsubscribe 			= $code_unsubscribe;
         $subscribe->save();
 
-	    Mail::send('web/pages/email_subscribe', ['code_unsubscribe' => $code_unsubscribe], function ($message) {
+	    Mail::send('web/email/email_subscribe', ['code_unsubscribe' => $code_unsubscribe], function ($message) {
 	        $message->to(Input::get('email'))->subject('Berlangganan Adapromo.id');
 	    });
 	    return Redirect::to('/subscribe')->with('email', Input::get('email'));
@@ -53,7 +53,7 @@ class SubscribeController extends BaseController
         //kirim email unsubscribe
         $subscribe = Subscribes::where('code_unsubscribe', $code_unsubscribe)->get()['0']['attributes'];
         
-        Mail::send('web/pages/email_unsubscribe', ['email' => $subscribe['email']], function ($message) use ($subscribe){
+        Mail::send('web/email/email_unsubscribe', ['email' => $subscribe['email']], function ($message) use ($subscribe){
 	        $message->to($subscribe['email'])->subject('Berhenti Berlangganan Adapromo.id');
 	    });
 

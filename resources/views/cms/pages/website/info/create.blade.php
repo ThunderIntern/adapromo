@@ -13,10 +13,10 @@
 				'title'			=> $page_attributes->page_title,
 				'controls'		=> 	[
 										'back'		=>	[
-															'link'	=> route('cms.website.faq.index')
+															'link'	=> route('cms.website.info.index')
 														],
 										'save'		=> 	[
-															'link'	=> route('cms.website.faq.store')
+															'link'	=> route('cms.website.info.store')
 														]
 									]
 			]])
@@ -29,6 +29,7 @@
 			<fieldset class="form-group">
 				<label for="name">Isi</label>
 				{!! Form::text('Isi', $page_datas->datas['content']['Isi'], ['class' => 'form-control']) !!}
+				{!! Form::hidden('name', $page_datas->datas['content']['name'], ['class' => 'form-control']) !!}
 			</fieldset>
 		</div>
 	</div>

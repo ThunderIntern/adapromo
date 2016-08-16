@@ -21,11 +21,11 @@
   			</li>
         @endif
   			<li class="nav-item <?php if(Request::segment(1)=='abouttUs') echo 'active'; ?>">
-  				<a class="nav-link dark-text m-r-2 p-b-0 w-100" href="{{route('aboutUs')}}"><strong>CONTACT US</strong></a>
+  				<a class="nav-link dark-text m-r-2 p-b-0 w-100" href="{{route('aboutUs')}}"><strong>ABOUT US</strong></a>
   			</li>
         @if(Session::has('user'))
         <li class="nav-item">
-          <a class="nav-link dark-text m-r-2 p-b-0 w-100" href="{{route('logout')}}" onclick="return confirm('Yakin ingin logout?')"><strong><i class="fa fa-sign-out"></i>Logout</strong></a>
+          <a class="nav-link dark-text m-r-2 p-b-0 w-100" href="{{route('logout')}}" data-toggle="modal" data-target="#modalLogout"><strong><i class="fa fa-sign-out"></i>Logout</strong></a>
         </li>
         @endif
   		</ul>

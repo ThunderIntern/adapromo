@@ -7,7 +7,7 @@ return [
 
     'port' => env('MAIL_PORT', 587),
 
-    'from' => ['address' => 'id.kidzo@gmail.com', 'name' => 'Kidzo'],
+    'from' => ['address' => 'id.kidzo@gmail.com', 'name' => 'AdaPromo'],
 
     'encryption' => env('MAIL_ENCRYPTION', 'tls'),
 

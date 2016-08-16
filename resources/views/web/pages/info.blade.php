@@ -5,7 +5,7 @@
         @section('content')
         <!-- content -->
         
-        <div class="container-fluid">
+        <div class="container">
             <div class="row p-t-3">
                 <div class="col-md-1 col-lg-1">&nbsp;</div>
                 <div class="col-md-10 col-lg-10">

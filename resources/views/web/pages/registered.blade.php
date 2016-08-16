@@ -12,7 +12,7 @@
                     <div class="col-md-8 col-lg-8">
                         <div class="card m-t-3 p-a-2">
                             <center>
-                                <h1><b>Anda berhasil subscribe promo-promo terbaru kami ke email anda.<br> Silahkan cek email anda.</b></h1>
+                                <h1><b>Anda berhasil registrasi, silahkan cek email anda untuk aktivasi email.</b></h1>
                                 <div style="clear:both;"></div>
                             </center>
                         </div>

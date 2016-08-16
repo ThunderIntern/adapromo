@@ -52,12 +52,13 @@ class InfoController extends BaseController
     public function store($id = null)
     {
         //get input
-        $input                                  = Input::only('judul', 'Isi');
+        $input                                  = Input::only('judul', 'Isi', 'name');
         //create or edit
         $faq                                    = WebConfig::findOrNew($id);
         //save data
         $faq->content                           = ['judul' => $input['judul'],
-                                                    'Isi' => $input['Isi']
+                                                    'Isi' => $input['Isi'],
+                                                    'name' => $input['name']
                                                   ];
         $faq->type                              = 'info';
         $faq->save();

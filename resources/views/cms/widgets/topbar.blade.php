@@ -2,7 +2,7 @@
 <nav class="navbar navbar-dark navbar-fixed-top navbar-full bg-primary bg-faded main-nav">
 	<a class="navbar-brand" href="#">CMS</a>
 	<div class="nav navbar-nav">
-		<a href="{{route('cms.logout')}}" class="pull-xs-right nav-link" onClick="return confirm('Yakin ingin logout?');">{{ Session::get('username') }} &nbsp;<i class="fa fa-sign-out"></i> Logout
+		<a href="#" class="pull-xs-right nav-link" data-toggle="modal" data-target="#modalLogout">{{ Session::get('username') }} &nbsp;<i class="fa fa-sign-out"></i> Logout
 		</a>
 	</div>
 </nav>

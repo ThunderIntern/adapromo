@@ -14,10 +14,9 @@
             </div>
         </div>
         
-        <div class="container-fluid m-b-3">
+        <div class="container m-b-3">
             <div class="row">        
-                <div class="col-md-1 col-lg-1">&nbsp;</div>
-                <div class="col-md-10 col-lg-10">
+                <div class="col-md-12 col-lg-12">
                     <div class="col-md-6 col-lg-6 p-x-3">
                         <h6>Jika sudah mempunyai akun silahkan login di bawah ini</h6><br>
                         <div class="card p-a-2">
@@ -43,20 +42,15 @@
                         <h6>Jika sudah mempunyai akun silahkan login di bawah ini</h6><br>
                         <div class="card p-a-2">
                             <center><h5><b>DAFTAR USER BARU</b></h5></center>
-                                {!! Form::open() !!}
+                                {!! Form::open(['url' => route('register'), 'method' => 'post']) !!}
                                     <label>Nama Lengkap:</label>
-                                    {!! Form::text('nama', null, ['class' => 'form-control', 'placeholder' => 'Nama Lengkap']) !!}
+                                    {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nama Lengkap', 'required' => 'required']) !!}
                                     <label>Email:</label>
-                                    {!! Form::text('email', null, ['class' => 'form-control', 'placeholder' => 'Email']) !!}
+                                    {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Email', 'required' => 'required']) !!}
                                     <label>Password:</label>
-                                    {!! Form::text('password', null, ['class' => 'form-control', 'placeholder' => 'Password']) !!}
-                                    <label>Email:</label>
-                                    {!! Form::text('konfirmasi-password', null, ['class' => 'form-control', 'placeholder' => 'Konfirmasi Password']) !!}
+                                    {!! Form::password('password', ['class' => 'form-control', 'placeholder' => 'Password', 'required' => 'required']) !!}
                                     <label>Tanggal Lahir:</label>
-                                    {!! Form::text('tanggal-lahir', null, ['class' => 'form-control', 'placeholder' => 'Tanggal Lahir']) !!}
-                                    <label>Jenis Kelamin:</label>
-                                    {!! Form::radio('JK', null, ['class' => 'form-control']) !!} Pria
-                                    {!! Form::radio('JK', null, ['class' => 'form-control']) !!} Wanita<br>
+                                    {!! Form::date('dob', null, ['class' => 'form-control', 'placeholder' => 'Tanggal Lahir (Format: mm/dd/yyyy)', 'required' => 'required']) !!}
                                     <small>
                                     {!! Form::checkbox('syarat', null, ['class' => 'form-control']) !!}
                                     Dengan ini saya menyetujui <a href="#">Syarat dan Ketentuan</a> adapromo untuk mendaftar akun<br><br>
@@ -66,7 +60,6 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-1 col-lg-1">&nbsp;</div>
             </div>
         </div>
         <!-- container -->
