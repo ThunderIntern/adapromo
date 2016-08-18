@@ -23,7 +23,7 @@ class HomeController extends BaseController
 
 	function home()
 	{
-		$datas                                  = Products::paginate(6);
+		$datas                                  = Products::all();
         $this->page_datas->datas                = $datas;
 		$this->page_attributes->page_title 		= $this->page_title;
 

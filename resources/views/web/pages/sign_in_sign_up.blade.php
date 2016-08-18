@@ -52,10 +52,11 @@
                                     <label>Tanggal Lahir:</label>
                                     {!! Form::date('dob', null, ['class' => 'form-control', 'placeholder' => 'Tanggal Lahir (Format: mm/dd/yyyy)', 'required' => 'required']) !!}
                                     <small>
-                                    {!! Form::checkbox('syarat', null, ['class' => 'form-control']) !!}
+                                    <input type="checkbox" name="syarat" id="syarat" value="syarat" required="required">
                                     Dengan ini saya menyetujui <a href="#">Syarat dan Ketentuan</a> adapromo untuk mendaftar akun<br><br>
                                     </small>
-                                    {!! Form::submit('Daftar Baru', ['class' => 'btn btn-block red white-text']) !!}
+                                    <div class="red-text" id="validate"></div>
+                                    {!! Form::submit('Daftar Baru', ['class' => 'btn btn-block red white-text', 'onclick' => "if(!this.form.checkbox.checked){return false;}"]) !!}
                                 {!! Form::close() !!}
                         </div>
                     </div>

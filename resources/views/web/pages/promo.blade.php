@@ -54,40 +54,12 @@
             @endforelse
         </div>
     </div>
-            
-            <!-- pagination -->
-            <div class="container-fluid">
-                <div class="row">        
-                <div class="col-md-1 col-lg-1">&nbsp;</div>
-                <div class="col-md-10 col-lg-10">
-                    <div class="col-md-12 col-lg-12">
-                         <center><nav>
-                          <ul class="pagination">
-                            <li class="page-item">
-                              <a class="page-link" href="#" aria-label="Previous">
-                                <span aria-hidden="true" class="fa fa-step-backward"></span>
-                                <span class="sr-only">Previous</span>
-                              </a>
-                            </li>
-                            <li class="page-item active">
-                              <a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">4</a></li>
-                            <li class="page-item">
-                              <a class="page-link" href="#" aria-label="Next">
-                                <span aria-hidden="true" class="fa fa-step-forward"></span>
-                                <span class="sr-only">Next</span>
-                              </a>
-                            </li>
-                          </ul>
-                        </nav></center>  
-                    </div>       
-                </div>
-                <div class="col-md-1 col-lg-1">&nbsp;</div>
+        <div class="row">
+            <div class="col-md-4 offset-md-4">
+                <center>{{ $page_datas->datas->links() }}</center>
             </div>
         </div>
+            
         <!-- container -->
         <!-- end content -->
         @stop

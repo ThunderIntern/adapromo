@@ -23,7 +23,7 @@ class PromoController extends BaseController
 
 	function promo()
 	{
-		$datas                                  = Products::paginate(12);
+		$datas                                  = Products::paginate(9);
         $this->page_datas->datas                = $datas;
 		$this->page_attributes->page_title 		= 'Promo';
 

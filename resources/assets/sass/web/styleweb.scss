@@ -10,10 +10,19 @@ body{
 	text-align: center;
 }
  .nav-item{text-align: center;}
+ .pagination li{ list-style:none; float:left; padding:5px;}
+ .pagination li a{
+ 	background: #E52127;
+ 	padding:5px 10px;
+ 	color: white;
+ 	border-radius:5px;
+ }
 
 @media (max-width:768px){
 	.border-left-card{
 		border-left: 0px;
 		border-top:1px solid #ccc;
+		margin-top:25px;
+		padding-top:25px;
 	}
 }
