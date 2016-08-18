@@ -2,12 +2,12 @@
 
 
 Route::group(['namespace' => 'Cms\\', 'prefix' => 'cms'], function(){
-	Route::get('/login',	['uses' => 'LoginController@home', 'as' => 'cms.login']);
-	Route::post('/login/process',	['uses' => 'LoginController@process', 'as' => 'cms.login.process']);
-	Route::get('/logout',	['uses' => 'LoginController@logout', 'as' => 'cms.logout']);
-	Route::get('/',	['uses' => 'DashboardController@home', 'as' => 'cms.home']);
+	Route::get('/',								['uses' => 'DashboardController@home', 				'as' => 'cms.home']);
+	Route::get('login',							['uses' => 'LoginController@home', 					'as' => 'cms.login']);
+	Route::post('login/process',				['uses' => 'LoginController@process', 				'as' => 'cms.login.process']);
+	Route::get('logout',						['uses' => 'LoginController@logout', 				'as' => 'cms.logout']);
 
-	Route::resource('/promo/promo', 'PromoController', ['names' => [
+	Route::resource('promo/promo', 'PromoController', ['names' => [
 			'index' 	=> 'cms.promo.promo.index',
 			'create'	=> 'cms.promo.promo.create', 
 			'store' 	=> 'cms.promo.promo.store', 
@@ -17,7 +17,7 @@ Route::group(['namespace' => 'Cms\\', 'prefix' => 'cms'], function(){
 			'destroy' 	=> 'cms.promo.promo.destroy'
 	]]);
 
-	Route::resource('/website/faq', 'FaqController', ['names' => [
+	Route::resource('website/faq', 'FaqController', ['names' => [
 			'index' 	=> 'cms.website.faq.index',
 			'create'	=> 'cms.website.faq.create', 
 			'store' 	=> 'cms.website.faq.store', 
@@ -27,7 +27,7 @@ Route::group(['namespace' => 'Cms\\', 'prefix' => 'cms'], function(){
 			'destroy' 	=> 'cms.website.faq.destroy'
 	]]);
 
-	Route::resource('/website/info', 'InfoController', ['names' => [
+	Route::resource('website/info', 'InfoController', ['names' => [
 			'index' 	=> 'cms.website.info.index',
 			'create'	=> 'cms.website.info.create', 
 			'store' 	=> 'cms.website.info.store', 
@@ -37,7 +37,7 @@ Route::group(['namespace' => 'Cms\\', 'prefix' => 'cms'], function(){
 			'destroy' 	=> 'cms.website.info.destroy'
 	]]);
 
-	Route::resource('/users', 'UsersController', ['names' => [
+	Route::resource('users', 'UsersController', ['names' => [
 			'index' 	=> 'cms.users.index',
 			'create'	=> 'cms.users.create', 
 			'store' 	=> 'cms.users.store', 
