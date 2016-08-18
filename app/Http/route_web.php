@@ -1,8 +1,9 @@
 <?php
-
 Route::group(['namespace' => 'Web\\'], function(){
 	// menu public
+	//webinfo
 	Route::get('/', 								['uses' => 'HomeController@home', 								'as' => 'home']);
+	Route::get('about-us', 							['uses' => 'HomeController@about_us', 							'as' => 'aboutUs']);
 
 	// promo
 	Route::get('promo', 							['uses' => 'PromoController@promo', 							'as' => 'promo']);
@@ -25,11 +26,9 @@ Route::group(['namespace' => 'Web\\'], function(){
 	Route::post('login/process', 					['uses' => 'AuthController@login', 								'as' => 'login.procces']);
 	Route::get('logout', 							['uses' => 'AuthController@logout', 							'as' => 'logout']);
 
-	//webinfo
-	Route::get('about-us', 							['uses' => 'HomeController@about_us', 							'as' => 'aboutUs']);
 
 	// menu private
 	//promo
-	Route::get('favorite/{id}', 					['uses' => 'Web\\PromoController@favorite', 					'as' => 'favorite']);
-	Route::get('unfavorite/{id}', 					['uses' => 'Web\\PromoController@unfavorite', 					'as' => 'unfavorite']);
+	Route::get('favorite/{id}', 					['uses' => 'PromoController@favorite', 							'as' => 'favorite']);
+	Route::get('unfavorite/{id}', 					['uses' => 'PromoController@unfavorite', 						'as' => 'unfavorite']);
 });
