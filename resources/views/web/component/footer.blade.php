@@ -76,10 +76,10 @@
 					<div class="col-md-3 col-lg-3 hidden-sm-down">
 						<h6 class="font-weight-bold">Tentang ADAPROMO.ID</h6>
 						<ul class="list-unstyled">
-							<li><a href="#" class="dark-text">About US</a></li>
-							<li><a href="#" class="dark-text">Contact US</a></li>
-							<li><a href="#" class="dark-text">FAQ</a></li>
-							<li><a href="#" class="dark-text">Syarat dan Ketentuan</a></li>
+							<li><a href="{{route('aboutUs')}}" class="dark-text">About US</a></li>
+							<li><a href="{{route('contactUs')}}" class="dark-text">Contact US</a></li>
+							<li><a href="{{route('faq')}}" class="dark-text">FAQ</a></li>
+							<li><a href="{{route('termAndCondition')}}" class="dark-text">Term and Condition</a></li>
 							<li><a href="#" class="dark-text">Daftarkan Promosi Anda</a></li>
 						</ul>
 					</div>

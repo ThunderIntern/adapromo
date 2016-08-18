@@ -25,7 +25,7 @@
             </li>
             @if(Session::has('user'))
             <li class="nav-item">
-                <a class="nav-link white-text m-r-2 p-b-0 w-100" href="{{route('logout')}}" onclick="return confirm('Yakin ingin logout?')"><strong><i class="fa fa-sign-out"></i>Logout</strong></a>
+              <a class="nav-link white-text m-r-2 p-b-0 w-100" href="{{route('logout')}}" data-toggle="modal" data-target="#modalLogout"><strong><i class="fa fa-sign-out"></i>Logout</strong></a>
             </li>
             @endif
         </ul>

@@ -26,6 +26,11 @@ Route::group(['namespace' => 'Web\\'], function(){
 	Route::post('login/process', 					['uses' => 'AuthController@login', 								'as' => 'login.procces']);
 	Route::get('logout', 							['uses' => 'AuthController@logout', 							'as' => 'logout']);
 
+	//webinfo
+	Route::get('/about-us', 						['uses' => 'Web\\WebController@about_us', 						'as' => 'aboutUs']);
+	Route::get('/contact-us', 						['uses' => 'Web\\WebController@contact_us', 					'as' => 'contactUs']);
+	Route::get('/faq', 								['uses' => 'Web\\WebController@faq', 							'as' => 'faq']);
+	Route::get('/term-and-condition', 				['uses' => 'Web\\WebController@term_and_condition', 			'as' => 'termAndCondition']);
 
 	// menu private
 	//promo
