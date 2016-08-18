@@ -61,7 +61,7 @@ class UsersController extends BaseController
                 $users->password                = hash('md5', $input['password']);
             }
             else{
-                return Redirect::to('/cms/users/create')->with('msg', 'Konfirmasi Password Salah.');        
+                return Redirect::to(route('cms.users.create'))->with('msg', 'Konfirmasi Password Salah.');        
             }
         }
         
@@ -72,7 +72,7 @@ class UsersController extends BaseController
 
         $users->save();
         $this->page_attributes->msg             = 'Data telah disimpan';
-        return Redirect::to('/cms/users')->with('msg', 'Data telah disimpan.');
+        return Redirect::to(route('cms.users.index'))->with('msg', 'Data telah disimpan.');
     }
 
     public function show($id)
@@ -105,10 +105,10 @@ class UsersController extends BaseController
 
         $password                   = Input::get('password');
         if(empty($password)){
-            return Redirect::to('/cms/users')->with('msg', 'Password not valid.');
+            return Redirect::to(route('cms.users.index'))->with('msg', 'Password not valid.');
         }else{
             $users->delete();
-            return Redirect::to('/cms/users')->with('msg', 'Data telah dihapus.');
+            return Redirect::to(route('cms.users.index'))->with('msg', 'Data telah dihapus.');
         }
     }
 }

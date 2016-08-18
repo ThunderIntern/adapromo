@@ -35,14 +35,14 @@ class LoginController extends BaseController
 		$login_search 	= Users::where('email', $input['username'])->where('password', hash('md5', $input['password']))->count();
 		if($login_search > 0){
 			session(['admin' => 'true', 'username' => $input['username']]);
-			return Redirect::to('/cms/');
+			return Redirect::to(route('cms.home'));
 		}
 		else{
-			return Redirect::to('/cms/login')->with('message-danger', "Login gagal, pastikan username dan password anda benar.");
+			return Redirect::to(route('cms.login'))->with('message-danger', "Login gagal, pastikan username dan password anda benar.");
 		}
 	}
 	function logout(){
 		session()->flush();
-		return Redirect::to('/cms/login')->with('message-success', "Anda sudah logout.");
+		return Redirect::to(route('cms.login'))->with('message-success', "Anda sudah logout.");
 	}
 }

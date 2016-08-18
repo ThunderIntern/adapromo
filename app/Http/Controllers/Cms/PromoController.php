@@ -74,7 +74,7 @@ class PromoController extends BaseController
         
         $promo->save();
         $this->page_attributes->msg             = 'Data telah disimpan';
-        return Redirect::to('/cms/promo/promo')->with('msg', 'Data telah disimpan.');
+        return Redirect::to(route('cms.promo.promo.index'))->with('msg', 'Data telah disimpan.');
     }
 
     public function show($id)

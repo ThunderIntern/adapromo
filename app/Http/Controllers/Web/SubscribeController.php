@@ -57,7 +57,7 @@ class SubscribeController extends BaseController
 	        $message->to($subscribe['email'])->subject('Berhenti Berlangganan Adapromo.id');
 	    });
 
-	    return Redirect::to('/unsubscribe');
+	    return Redirect::to(route('unsubscribe_newsletter'));
 	}
 	function unsubscribe_newsletter(){
 		$this->page_attributes->page_title 		= $this->page_title;

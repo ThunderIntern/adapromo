@@ -59,7 +59,7 @@ class PromoController extends BaseController
 	function favorite($id)
 	{
 		if(is_null(session('user'))){
-			return Redirect::to('/login')->with('message-danger', 'Anda harus login terlebih dahulu untuk menandai promo sebagai favorite.');
+			return Redirect::to(route('login'))->with('message-danger', 'Anda harus login terlebih dahulu untuk menandai promo sebagai favorite.');
 		}else{
 			$user_data 				= Users::where('email', session('username'))->get()['0']['attributes'];
 			$promo 					= Products::find($id);
@@ -68,13 +68,13 @@ class PromoController extends BaseController
 			$favorite->user_id		= $user_data['_id'];
 			$favorite->tags 		= $promo['tags'];
 			$favorite->save();
-			return Redirect::to('/promo/detail/'.$id);
+			return Redirect::to(route('promo.detail', ['id' => $id]));
 		}
 	}
 	function unfavorite($id)
 	{
 		$user_data 				= Users::where('email', session('username'))->get()['0']['attributes'];
 		Favorite::where('product_id', $id)->where('user_id', $user_data['_id'])->delete();
-		return Redirect::to('/promo/detail/'.$id);
+		return Redirect::to(route('promo.detail', ['id' => $id]));
 	}
 }

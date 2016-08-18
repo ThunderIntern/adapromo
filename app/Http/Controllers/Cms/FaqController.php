@@ -62,7 +62,7 @@ class FaqController extends BaseController
         $faq->type                              = 'faq';
         $faq->save();
         $this->page_attributes->msg             = 'Data telah disimpan';
-        return Redirect::to('/cms/website/faq')->with('msg', 'Data telah disimpan.');
+        return Redirect::to(route('cms.website.faq.index'))->with('msg', 'Data telah disimpan.');
     }
 
     public function show($id)
@@ -95,10 +95,10 @@ class FaqController extends BaseController
 
         $password                   = Input::get('password');
         if(empty($password)){
-            return Redirect::to('/cms/website/faq/')->with('msg', 'Password not valid.');
+            return Redirect::to(route('cms.website.faq.index'))->with('msg', 'Password not valid.');
         }else{
             $faq->delete();
-            return Redirect::to('/cms/website/faq/')->with('msg', 'Data telah dihapus.');
+            return Redirect::to(route('cms.website.faq.index'))->with('msg', 'Data telah dihapus.');
         }
     }
 }

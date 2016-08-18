@@ -63,7 +63,7 @@ class InfoController extends BaseController
         $faq->type                              = 'info';
         $faq->save();
         $this->page_attributes->msg             = 'Data telah disimpan';
-        return Redirect::to('/cms/website/info')->with('msg', 'Data telah disimpan.');
+        return Redirect::to(route('cms.website.info.index'))->with('msg', 'Data telah disimpan.');
     }
 
     public function show($id)

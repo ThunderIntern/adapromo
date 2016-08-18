@@ -37,7 +37,7 @@ class RegisterController extends BaseController
 	        $message->to(Input::get('email'))->subject('Email Activation Adapromo.id');
 	    });
 
-		return Redirect::to('/registered');
+		return Redirect::to(route('registered'));
 	}
 	function registered()
 	{
@@ -51,7 +51,7 @@ class RegisterController extends BaseController
 	function activation($activation_token)
 	{
 		Users::where('activation_token', $activation_token)->update(['activation_token' => '']);
-		return Redirect::to('/activation');
+		return Redirect::to(route('activation_email'));
 	}
 	function activation_email()
 	{

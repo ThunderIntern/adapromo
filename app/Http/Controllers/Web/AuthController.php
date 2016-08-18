@@ -42,20 +42,20 @@ class AuthController extends BaseController
 						->where('role', 'user')
 						->get()['0']['attributes'];
 			if($data_user['activation_token'] != ""){
-				return Redirect::to('/login')
+				return Redirect::to(route('login'))
 					->with('message-danger', "Anda belum melakukan aktivasi email, silahkan melakukan aktivasi email terlebih dahulu.");
 			}
 			else{
 				session(['user' => 'true', 'username' => $input['username']]);
-				return Redirect::to('/');
+				return Redirect::to(route('home'));
 			}
 		}
 		else{
-			return Redirect::to('/login')->with('message-danger', "Login gagal, pastikan username dan password anda benar.");
+			return Redirect::to(route('login'))->with('message-danger', "Login gagal, pastikan username dan password anda benar.");
 		}
 	}
 	function logout(){
 		session()->flush();
-		return Redirect::to('/');
+		return Redirect::to(route('home'));
 	}
 }
