@@ -25,7 +25,7 @@ class PromoController extends BaseController
 	{
 		$datas                                  = Products::paginate(12);
         $this->page_datas->datas                = $datas;
-		$this->page_attributes->page_title 		= 'Promo';
+		$this->page_attributes->page_title 		= 'Daftar Promo';
 
 		$view_source 	= $this->view_root . '.promo';
 		$route_source 	= Request::route()->getName();

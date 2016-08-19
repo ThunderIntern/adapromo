@@ -62,4 +62,18 @@ class WebController extends BaseController
 
 		return $this->generateView($view_source, $route_source);
 	}
+	function faq()
+	{
+		$datas                                  = WebConfig::where('type', 'faq')->get();
+        $this->page_datas->datas                = $datas;
+        $related                                = Products::paginate(3);
+        $this->page_datas->related              = $related;
+
+		$this->page_attributes->page_title 		= 'Frequently Ask Questions';
+
+		$view_source 	= $this->view_root . '.faq';
+		$route_source 	= Request::route()->getName();
+
+		return $this->generateView($view_source, $route_source);
+	}
 }

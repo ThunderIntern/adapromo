@@ -19,7 +19,7 @@
 			@forelse($page_datas->datas as $key => $data)
 				<div class="col-md-4 col-lg-4">
 				  	<div class="card">
-				  		{!! Html::image($data['images']['image1'], null, ['class' => 'card-img-top img-fluid w-100']) !!}
+				  		{!! Html::image($data['images']['image1'], null, ['class' => 'card-img-top img-fluid w-100 h-250']) !!}
 						<div class="card-block">
 							<h5 class="card-title">
 								<a href="{{route('promo.detail', ['id' => $data['id']])}}" class="dark-blue-text">

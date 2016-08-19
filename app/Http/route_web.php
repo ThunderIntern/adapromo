@@ -32,6 +32,9 @@ Route::group(['namespace' => 'Web\\'], function(){
 	Route::get('/faq', 								['uses' => 'WebController@faq', 								'as' => 'faq']);
 	Route::get('/term-and-condition', 				['uses' => 'WebController@term_and_condition', 					'as' => 'termAndCondition']);
 
+	//search
+	Route::post('/search', 							['uses' => 'HomeController@search', 							'as' => 'search']);
+
 	// menu private
 	//promo
 	Route::get('favorite/{id}', 					['uses' => 'PromoController@favorite', 							'as' => 'favorite']);

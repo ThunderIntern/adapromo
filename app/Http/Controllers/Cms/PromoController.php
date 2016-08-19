@@ -15,7 +15,7 @@ class PromoController extends BaseController
 
     public function index()
     {
-        $datas                                  = Products::paginate(10);
+        $datas                                  = Products::paginate(2);
         $this->page_datas->datas                = $datas;
         $this->page_datas->id                   = null;
         //page attributes
