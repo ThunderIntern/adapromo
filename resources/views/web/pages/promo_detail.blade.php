@@ -11,7 +11,6 @@
                     <div class="col-md-8 col-lg-8">
                         <div class="card p-a-2">
                             <h3>{{ $page_datas->datas['title'] }}</h3><hr />
-
                             <?php 
                                 $now = date("m/d/Y");
                                 if($now < $page_datas->datas['extra_fields']['start_date'] || $now > $page_datas->datas['extra_fields']['end_date']){
@@ -56,7 +55,7 @@
                         @foreach($page_datas->related as $key => $related)
                         <div class="col-md-12 col-lg-12">
                             <div class="card">
-                                {!! Html::image($related['images']['image1'], null, ['class' => 'card-img-top img-fluid']) !!}
+                                {!! Html::image($related['images']['image1'], null, ['class' => 'card-img-top img-fluid w-100']) !!}
                                 <div class="card-block">
                                     <h5 class="card-title">
                                         <a href="{{route('promo.detail', ['id' => $related['id']])}}" class="dark-blue-text">{{$related['title']}}</a>

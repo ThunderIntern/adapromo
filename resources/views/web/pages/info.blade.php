@@ -19,7 +19,7 @@
                         @foreach($page_datas->related as $key => $related)
                         <div class="col-md-12 col-lg-12">
                             <div class="card">
-                                {!! Html::image($related['images']['image1'], null, ['class' => 'card-img-top img-fluid']) !!}
+                                {!! Html::image($related['images']['image1'], null, ['class' => 'card-img-top img-fluid w-100']) !!}
                                 <div class="card-block">
                                     <h5 class="card-title">
                                         <a href="{{route('promo.detail', ['id' => $related['id']])}}" class="dark-blue-text">{{$related['title']}}</a>

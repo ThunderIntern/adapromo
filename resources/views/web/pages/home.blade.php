@@ -22,7 +22,18 @@
 				  		{!! Html::image($data['images']['image1'], null, ['class' => 'card-img-top img-fluid w-100']) !!}
 						<div class="card-block">
 							<h5 class="card-title">
-								<a href="{{route('promo.detail', ['id' => $data['id']])}}" class="dark-blue-text">{{ $data['title'] }}</a>
+								<a href="{{route('promo.detail', ['id' => $data['id']])}}" class="dark-blue-text">
+								<?php 
+									$title = explode(' ', $data['title']); 
+									$length = count($title);
+									for($i=0; $i<$length; $i++){
+										echo $title[$i];
+										if($i==5) break;
+										echo ' ';
+									}
+									if($length>5) echo ' ...';
+								?>
+								</a>
 							</h5>
 							<div class="row">
 								<div class="col-md-6 col-lg-6">
@@ -41,7 +52,18 @@
 								</div>
 							</div>
 							<p class="tag dark-text"><i class="fa fa-calendar"></i> {{ $data['extra_fields']['start_date'] }} s/d {{ $data['extra_fields']['end_date'] }}</p>
-							<p class="card-text">{{ $data['slug'] }}</p>
+							<p class="card-text">
+								<?php 
+                                    $slug   = explode(' ', $data['slug']); 
+                                    $length = count($slug);
+                                    for($i=0; $i<$length; $i++){
+                                        echo $slug[$i];
+                                        if($i==8) break;
+                                        echo ' ';
+                                    }
+                                    if($length>8) echo ' ...';
+                                ?>
+							</p>
 							<p class="card-text"><small class="dark-blue-text"><i class="fa fa-tag dark-blue-text"></i> {{ $data['tags'] }}</small></p>
 							<a href="{{route('promo.detail', ['id' => $data['id']])}}" class="btn btn-block red white-text">Lihat Promo</a>
 						</div>
