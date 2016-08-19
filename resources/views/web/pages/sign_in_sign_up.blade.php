@@ -42,6 +42,7 @@
                         <h6>Jika sudah mempunyai akun silahkan login di bawah ini</h6><br>
                         <div class="card p-a-2">
                             <center><h5><b>DAFTAR USER BARU</b></h5></center>
+                                <div id="notif"></div>
                                 {!! Form::open(['url' => route('register'), 'method' => 'post']) !!}
                                     <label>Nama Lengkap:</label>
                                     {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nama Lengkap', 'required' => 'required']) !!}
@@ -49,14 +50,30 @@
                                     {!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Email', 'required' => 'required']) !!}
                                     <label>Password:</label>
                                     {!! Form::password('password', ['class' => 'form-control', 'placeholder' => 'Password', 'required' => 'required']) !!}
+                                    <label>Password:</label>
+                                    {!! Form::password('konf_password', ['class' => 'form-control', 'placeholder' => 'Konfirmasi Password', 'required' => 'required']) !!}
                                     <label>Tanggal Lahir:</label>
                                     {!! Form::date('dob', null, ['class' => 'form-control', 'placeholder' => 'Tanggal Lahir (Format: mm/dd/yyyy)', 'required' => 'required']) !!}
                                     <small>
                                     {!! Form::checkbox('syarat', 'syarat', ['class' => 'form-control']) !!}
                                     Dengan ini saya menyetujui <a href="#">Syarat dan Ketentuan</a> adapromo untuk mendaftar akun<br><br>
                                     </small>
-                                    <div id="notif" class="red-text"></div>
-                                    {!! Form::submit('Daftar Baru', ['class' => 'btn btn-block red white-text', 'onClick' => "if(!this.form.syarat.checked){document.getElementById('notif').innerHTML = '<small>Anda harus menyetujui syarat dan ketentuan.</small>';return false;}"]) !!}
+                                    {!! Form::submit('Daftar Baru', ['class' => 'btn btn-block red white-text', 'onClick' => "if(!(this.form.password.value==this.form.konf_password.value)){
+                                            document.getElementById('notif').innerHTML = '<small>Konfirmasi password tidak sesuai.</small>';
+                                            document.getElementById('notif').setAttribute('class', 'alert alert-danger');
+                                            return false;
+                                        }
+                                        else if(!this.form.syarat.checked){
+                                            document.getElementById('notif').innerHTML = '<small>Anda harus menyetujui syarat dan ketentuan.</small>';
+                                            document.getElementById('notif').setAttribute('class', 'alert alert-danger');
+                                            return false;
+                                        }
+                                        else{
+                                            document.getElementById('notif').innerHTML = '';
+                                            document.getElementById('notif').setAttribute('class', '');
+                                            return true;
+                                        }"
+                                    ]) !!}
                                 {!! Form::close() !!}
                         </div>
                     </div>
