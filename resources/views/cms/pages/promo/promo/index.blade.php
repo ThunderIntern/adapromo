@@ -16,7 +16,8 @@
 					<tr>
 						<th class="col-md-1">#</th>
 						<th class="col-md-3">Title</th>
-						<th class="col-md-4">Slug</th>
+						<th class="col-md-3">Slug</th>
+						<th class="col-md-1">Favorites</th>
 						<th class="col-md-2">Published at</th>
 						<th class="col-md-2 text-xs-right">Control</th>
 					</tr>
@@ -32,8 +33,11 @@
 									{{ $data['title'] }}
 								</a>
 							</td>
-							<td class="col-md-4">
+							<td class="col-md-3">
 								{{ $data['slug'] }}
+							</td>
+							<td class="col-md-1">
+								{{ $data['extra_fields']['favorites'] }}
 							</td>
 							<td class="col-md-2">
 								{{ $data['published_at'] }}

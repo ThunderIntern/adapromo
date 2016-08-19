@@ -61,6 +61,7 @@
 				<label for="name">User</label>
 				{!! Form::text('users', $page_datas->datas['users'], ['class' => 'form-control']) !!}
 			</fieldset>
+			{!! Form::hidden('favorites', $page_datas->datas['extra_fields']['favorites'], ['class' => 'form-control']) !!}
 		</div>
 	</div>
 {!! Form::close() !!}

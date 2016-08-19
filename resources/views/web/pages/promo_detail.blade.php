@@ -47,7 +47,7 @@
                             <i class="fa fa-calendar"></i> Jadwal : {{ $page_datas->datas['extra_fields']['start_date'] }} s/d {{ $page_datas->datas['extra_fields']['end_date'] }}
                             <hr />
                             {{ $page_datas->datas['description'] }}<br /><br />
-                            <i class="fa fa-tag"></i> Fashion<br /><br />
+                            <i class="fa fa-tag"></i> {{ $page_datas->datas['tags'] }}<br /><br />
                             <a href="#" class="btn red white-text">Promo Selengkapnya</a>
                         </div>
                     </div>

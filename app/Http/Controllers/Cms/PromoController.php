@@ -67,8 +67,15 @@ class PromoController extends BaseController
                                                     'image3' => $input['images3']];
         $promo->tags                            = $input['tags'];
         $promo->type                            = $input['type'];
-        $promo->extra_fields                    = ['start_date' => $input['start_date'], 
-                                                    'end_date' => $input['end_date']];
+        if(is_null($id)){
+            $promo->extra_fields                = ['start_date' => $input['start_date'], 
+                                                  'end_date' => $input['end_date'],
+                                                  'favorites' => 0];    
+        }else{
+            $promo->extra_fields                = ['start_date' => $input['start_date'], 
+                                                  'end_date' => $input['end_date'],
+                                                  'favorites' => $input['favorites']];    
+        }
         $promo->users                           = $input['users'];
         $promo->published_at                    = date('Y-m-d H:m:s');
         
