@@ -77,7 +77,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-4 offset-md-4">
-			  	<a href="#" class="btn btn-block red white-text m-t-2">Lihat Semua Promo</a>
+			  	<a href="{{route('promo')}}" class="btn btn-block red white-text m-t-2">Lihat Semua Promo</a>
 			</div>
 		</div>
 	</div>
