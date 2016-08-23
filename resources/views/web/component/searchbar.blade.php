@@ -25,13 +25,20 @@
 	  						{!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Ketik nama promo']) !!}	
 		  				</div>
 		  				<div class="col-md-2 col-lg-2">
-	  						{!! Form::text('location', null, ['class' => 'form-control icon-awesome-placeholder', 'placeholder' => '&#xf041; Lokasi']) !!}	
+	  						<select name="category" class="form-control">
+	  							@foreach($page_datas->tags as $key => $data)
+	  							<option value="{{ $data['tags'] }}">{{ $data['tags'] }}</option>
+	  							@endforeach
+	  						</select>
 		  				</div>
 		  				<div class="col-md-2 col-lg-2">
-	  						{!! Form::text('category', null, ['class' => 'form-control icon-awesome-placeholder', 'placeholder' => '&#xf02b; Kategori']) !!}	
+	  						{!! Form::text('date', date('m-d-Y'), ['class' => 'form-control icon-awesome-placeholder', 'placeholder' => '&#xf073; Tanggal', 'data-inputmask' => "'mask':'m/d/y'"]) !!}		
 		  				</div>
 		  				<div class="col-md-2 col-lg-2">
-	  						{!! Form::date('date', null, ['class' => 'form-control icon-awesome-placeholder', 'placeholder' => '&#xf073; Tanggal']) !!}		
+	  						<select name="sort" class="form-control">
+	  							<option value="Terbaru">Terbaru</option>
+	  							<option value="Terfavorite">Terfavorite</option>
+	  						</select>
 		  				</div>
 		  				<div class="col-md-2 col-lg-2">
 		  					<button type="submit" class="btn btn-block dark-blue white-text"><i class="fa fa-search"></i> Cari</button>

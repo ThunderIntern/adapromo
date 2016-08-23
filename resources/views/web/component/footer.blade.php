@@ -7,7 +7,7 @@
 			<small class="text-muted">Dapatkan informasi promo-promo terbaru dengan subscribe email anda.</small>
 			{!! Form::open(['url' => route('subscribe'), 'method' => 'post']) !!}
 				<div class="col-md-12 col-lg-12">
-						{!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'alamat email anda']) !!}
+						{!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'alamat email anda', 'required' => 'required']) !!}
 						{!! Form::submit('Subscribe', ['class' => 'btn red white-text', "style" => "width:100%"]) !!}
 				</div>				
 			{!! Form::close() !!}
@@ -94,7 +94,7 @@
 								{!! Form::open(['url' => route('subscribe'), 'method' => 'post']) !!}
 									<fieldset class="form-group">
 										<div class="input-group">
-										  	{!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'alamat email anda']) !!}
+										  	{!! Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'alamat email anda', 'required' => 'required']) !!}
 											<div class="input-group-btn">
 												{!! Form::submit('Subscribe', ['class' => 'btn red white-text']) !!}
 											</div>

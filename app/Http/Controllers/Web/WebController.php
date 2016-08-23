@@ -5,6 +5,7 @@ namespace app\Http\Controllers\Web;
 use app\Http\Controllers\BaseController;
 use app\Models\WebConfig;
 use app\Models\Products;
+use app\Models\Tags;
 use Request, Input, URL, Redirect;
 
 
@@ -24,6 +25,8 @@ class WebController extends BaseController
 	{
 		$datas                                  = WebConfig::where('content.name', 'aboutus')->get()['0']['attributes'];
         $this->page_datas->datas                = $datas;
+        $tags                                   = Tags::all();
+        $this->page_datas->tags                 = $tags;
         $related                                = Products::paginate(3);
         $this->page_datas->related              = $related;
 
@@ -38,6 +41,8 @@ class WebController extends BaseController
 	{
 		$datas                                  = WebConfig::where('content.name', 'contactus')->get()['0']['attributes'];
         $this->page_datas->datas                = $datas;
+        $tags                                   = Tags::all();
+        $this->page_datas->tags                 = $tags;
         $related                                = Products::paginate(3);
         $this->page_datas->related              = $related;
 
@@ -52,6 +57,8 @@ class WebController extends BaseController
 	{
 		$datas                                  = WebConfig::where('content.name', 'termandcondition')->get()['0']['attributes'];
         $this->page_datas->datas                = $datas;
+        $tags                                   = Tags::all();
+        $this->page_datas->tags                 = $tags;
         $related                                = Products::paginate(3);
         $this->page_datas->related              = $related;
 
@@ -66,6 +73,8 @@ class WebController extends BaseController
 	{
 		$datas                                  = WebConfig::where('type', 'faq')->get();
         $this->page_datas->datas                = $datas;
+        $tags                                   = Tags::all();
+        $this->page_datas->tags                 = $tags;
         $related                                = Products::paginate(3);
         $this->page_datas->related              = $related;
 

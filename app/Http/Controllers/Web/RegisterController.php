@@ -5,6 +5,7 @@ namespace app\Http\Controllers\Web;
 use app\Http\Controllers\BaseController;
 use Request, Redirect, Input, Mail;
 use app\Models\Users;
+use app\Models\Tags;
 
 
 
@@ -42,6 +43,8 @@ class RegisterController extends BaseController
 	function registered()
 	{
 		$this->page_attributes->page_title 		= $this->page_title;
+		$tags                                   = Tags::all();
+        $this->page_datas->tags                 = $tags;
 
 		$view_source 	= $this->view_root . '.registered';
 		$route_source 	= Request::route()->getName();
@@ -56,6 +59,8 @@ class RegisterController extends BaseController
 	function activation_email()
 	{
 		$this->page_attributes->page_title 		= 'Email Activation Successfully';
+		$tags                                   = Tags::all();
+        $this->page_datas->tags                 = $tags;
 
 		$view_source 	= $this->view_root . '.activation';
 		$route_source 	= Request::route()->getName();

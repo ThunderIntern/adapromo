@@ -3,7 +3,7 @@
 namespace app\Http\Controllers\Web;
 
 use app\Http\Controllers\BaseController;
-use Request, Redirect, Input;
+use Request, Redirect, Input, Mail;
 use app\Models\Users;
 
 
@@ -57,5 +57,41 @@ class AuthController extends BaseController
 	function logout(){
 		session()->flush();
 		return Redirect::to(route('home'));
+	}
+	function forgot_password()
+	{
+		$this->page_attributes->page_title 		= 'Lupa Password';
+
+		$view_source 	= $this->view_root . '.forgot_password';
+		$route_source 	= Request::route()->getName();
+
+		return $this->generateView($view_source, $route_source);
+	}
+	function email_forgot_password(){
+		$user 		= Users::where('email', Input::get('email'))->first();
+		if(is_null($user['_id'])){
+			return Redirect::to(route('forgot_password'))->with('message-danger', "Email anda belum terdaftar.");
+		}else{
+			Mail::send('web/email/email_forgot_password', ['id' => $user['_id']], function ($message){
+		        $message->to(Input::get('email'))->subject('Forgot Password Adapromo.id');
+		    });
+		    return Redirect::to(route('forgot_password'))->with('message-success', "Permintaan pemulihan password telah dikirim ke email anda. Silahkan cek email anda.");
+		}
+	}
+	function change_forgot_password($id = null){
+		if(is_null(Input::get('id'))){
+			$this->page_attributes->page_title 		= 'Pemulihan Password';
+			$this->page_attributes->datas 			= Users::find($id);
+
+			$view_source 	= $this->view_root . '.change_forgot_password';
+			$route_source 	= Request::route()->getName();
+
+			return $this->generateView($view_source, $route_source);
+		}else{
+			$user							= Users::find(Input::get('id'));
+			$user->password 				= hash('md5', Input::get('password'));
+			$user->save();
+			return Redirect::to(route('login'))->with('message-success', "Password berhasil dirubah, silahkan login kembali untuk mengakses akun anda.");
+		}
 	}
 }

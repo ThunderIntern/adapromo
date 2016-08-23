@@ -6,6 +6,7 @@ use app\Http\Controllers\BaseController;
 use app\Models\Products;
 use app\Models\Users;
 use app\Models\Favorite;
+use app\Models\Tags;
 use Request, Input, URL, Redirect;
 
 
@@ -21,11 +22,22 @@ class PromoController extends BaseController
 	protected $page_title	= 'Promo';
 	protected $breadcrumb 	= [];
 
-	function promo()
+	function promo($category=null)
 	{
-		$datas                                  = Products::paginate(12);
-        $this->page_datas->datas                = $datas;
-		$this->page_attributes->page_title 		= 'Daftar Promo';
+		if(is_null($category)){
+			$datas                              = Products::paginate(12);
+	        $this->page_datas->datas            = $datas;
+	        $this->page_attributes->page_title 	= 'Semua Promo';
+    	}
+    	else{
+    		$datas                              = Products::where('tags', $category)->paginate(12);
+	        $this->page_datas->datas            = $datas;	
+	        $this->page_attributes->page_title 	= $category;
+    	}
+        $tags                                   = Tags::all();
+        $this->page_datas->tags                 = $tags;
+		
+
 
 		$view_source 	= $this->view_root . '.promo';
 		$route_source 	= Request::route()->getName();
@@ -37,6 +49,8 @@ class PromoController extends BaseController
 		//detail promo
 		$datas                                  = Products::find($id);
         $this->page_datas->datas                = $datas;
+        $tags                                   = Tags::all();
+        $this->page_datas->tags                 = $tags;
         //related promo
         $related                                = Products::paginate(3);
         $this->page_datas->related              = $related;

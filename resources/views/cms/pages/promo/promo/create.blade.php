@@ -49,12 +49,12 @@
 			</fieldset>
 			<fieldset class="form-group">
 				<label for="name">Start Date</label>
-				{!! Form::date('start_date', $page_datas->datas['extra_fields']['start_date'], ['class' => 'form-control']) !!}
+				{!! Form::date('start_date', $page_datas->datas['extra_fields']['start_date'], ['class' => 'form-control', 'data-inputmask' => "'mask':'m/d/y'"]) !!}
 				<small>format: mm/dd/yyyy</small>
 			</fieldset>
 			<fieldset class="form-group">
 				<label for="name">End Date</label>
-				{!! Form::date('end_date', $page_datas->datas['extra_fields']['end_date'], ['class' => 'form-control']) !!}
+				{!! Form::date('end_date', $page_datas->datas['extra_fields']['end_date'], ['class' => 'form-control', 'data-inputmask' => "'mask':'m/d/y'"]) !!}
 				<small>format: mm/dd/yyy</small>
 			</fieldset>
 			<fieldset class="form-group">

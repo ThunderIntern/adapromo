@@ -7,6 +7,7 @@ Route::group(['namespace' => 'Web\\'], function(){
 
 	// promo
 	Route::get('promo', 							['uses' => 'PromoController@promo', 							'as' => 'promo']);
+	Route::get('promo/category/{category}', 		['uses' => 'PromoController@promo', 							'as' => 'promo.category']);
 	Route::get('promo/detail/{id}', 				['uses' => 'PromoController@promo_detail', 						'as' => 'promo.detail']);
 	
 	//subscribe
@@ -25,6 +26,10 @@ Route::group(['namespace' => 'Web\\'], function(){
 	Route::get('login', 							['uses' => 'AuthController@index', 								'as' => 'login']);
 	Route::post('login/process', 					['uses' => 'AuthController@login', 								'as' => 'login.procces']);
 	Route::get('logout', 							['uses' => 'AuthController@logout', 							'as' => 'logout']);
+	Route::get('forgot_password', 					['uses' => 'AuthController@forgot_password',					'as' => 'forgot_password']);
+	Route::post('forgot_password', 					['uses' => 'AuthController@email_forgot_password',				'as' => 'forgot_password']);
+	Route::get('change_forgot_password/{id}', 		['uses' => 'AuthController@change_forgot_password',				'as' => 'change_forgot_password']);
+	Route::post('change_forgot_password', 			['uses' => 'AuthController@change_forgot_password',				'as' => 'change_forgot_password']);
 
 	//webinfo
 	Route::get('/about-us', 						['uses' => 'WebController@about_us', 							'as' => 'aboutUs']);
@@ -39,4 +44,9 @@ Route::group(['namespace' => 'Web\\'], function(){
 	//promo
 	Route::get('favorite/{id}', 					['uses' => 'PromoController@favorite', 							'as' => 'favorite']);
 	Route::get('unfavorite/{id}', 					['uses' => 'PromoController@unfavorite', 						'as' => 'unfavorite']);
+
+	//account
+	Route::get('account', 							['uses' => 'UserController@account', 							'as' => 'account']);
+	Route::post('account_setting', 					['uses' => 'UserController@account_setting', 					'as' => 'account_setting']);
+	Route::post('change_password', 					['uses' => 'UserController@change_password', 					'as' => 'change_password']);
 });

@@ -70,8 +70,8 @@
                     </div>
                 </div>
             @empty
-                <div class="col-md-4 col-lg-4">
-                Tidak Ada Promo.
+                <div class="col-md-4 col-lg-4 offset-md-4 m-b-3">
+                <center>Tidak Ada Promo.</center>
                 </div>
             @endforelse
         </div>

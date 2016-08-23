@@ -5,6 +5,7 @@ namespace app\Http\Controllers\Web;
 use app\Http\Controllers\BaseController;
 use Request, Redirect, Input, Mail;
 use app\Models\Subscribes;
+use app\Models\Tags;
 
 
 class SubscribeController extends BaseController 
@@ -39,6 +40,8 @@ class SubscribeController extends BaseController
 	function subscribe_success()
 	{
 		$this->page_attributes->page_title 		= $this->page_title;
+		$tags                                   = Tags::all();
+        $this->page_datas->tags                 = $tags;
 
 		$view_source 	= $this->view_root . '.subscribe';
 		$route_source 	= Request::route()->getName();
@@ -61,6 +64,8 @@ class SubscribeController extends BaseController
 	}
 	function unsubscribe_newsletter(){
 		$this->page_attributes->page_title 		= $this->page_title;
+		$tags                                   = Tags::all();
+        $this->page_datas->tags                 = $tags;
 
 		$view_source 	= $this->view_root . '.unsubscribe';
 		$route_source 	= Request::route()->getName();

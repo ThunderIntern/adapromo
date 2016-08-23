@@ -33,7 +33,7 @@
 			</fieldset>
 			<fieldset class="form-group">
 				<label for="name">Date of Birth</label>
-				{!! Form::date('dob', $page_datas->datas['dob'], ['class' => 'form-control'])!!}
+				{!! Form::date('dob', $page_datas->datas['dob'], ['class' => 'form-control', 'data-inputmask' => "'mask':'m/d/y'"])!!}
 				<small>format: mm/dd/yyyy</small>
 			</fieldset> 
 			<fieldset class="form-group">
