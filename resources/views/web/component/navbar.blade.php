@@ -1,7 +1,7 @@
 <!-- menu -->
 <nav class="navbar navbar-light bg-faded" style="line-height: 50px;">
 	<div class="container">
-		<a class="navbar-brand" href="#">
+		<a class="navbar-brand" href="{{ route('home') }}">
 			{!! Html::image('images/adapromologo.png', null, ['class' => 'img-fluid'] ) !!}
 		</a>
     <button class="navbar-toggler hidden-sm-up" type="button" data-toggle="modal" data-target="#myModal2">

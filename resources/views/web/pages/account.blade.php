@@ -25,6 +25,9 @@
                               <li class="nav-item">
                                 <a class="nav-link" data-toggle="tab" href="#changepassword" role="tab">Change Password</a>
                               </li>
+                              <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#favorites" role="tab">Favorite Promo</a>
+                              </li>
                             </ul>
 
                             <!-- Tab panes -->
@@ -75,6 +78,14 @@
                                         }"
                                     ]) !!}
                                   {!! Form::close() !!}
+                               </div>
+
+                               <div class="tab-pane" id="favorites" role="tabpanel">
+                                    <div class="text-xs-left p-a-2">
+                                    @foreach($page_attributes->favorites as $favorite)
+                                        <i class="fa fa-heart red-text"></i> &nbsp;<a href="{{route('promo.detail', ['id' => $favorite['id']])}}">{{ $favorite['title']}}</a><br>
+                                    @endforeach
+                                    </div>
                                </div>
                             </div>
 

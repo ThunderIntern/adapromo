@@ -9,7 +9,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 col-lg-12 p-y-2">
-                    <center>{!! Html::image('images/adapromologo.png', null, ['class' => 'img-fluid'] ) !!}</center>
+                    <center><a href="{{ route('home') }}"> {!! Html::image('images/adapromologo.png', null, ['class' => 'img-fluid'] ) !!}</a></center>
                 </div>
             </div>
         </div>

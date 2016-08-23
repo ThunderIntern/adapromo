@@ -32,7 +32,10 @@ class LoginController extends BaseController
 	function process(){
 		$input 			= Input::all();
 
-		$login_search 	= Users::where('email', $input['username'])->where('password', hash('md5', $input['password']))->count();
+		$login_search 	= Users::where('email', $input['username'])
+							->where('password', hash('md5', $input['password']))
+							->where('role', 'admin')
+							->count();
 		if($login_search > 0){
 			session(['admin' => 'true', 'username' => $input['username']]);
 			return Redirect::to(route('cms.home'));

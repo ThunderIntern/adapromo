@@ -6,8 +6,8 @@ use app\Http\Controllers\BaseController;
 use Request, Redirect, Input, Mail;
 use app\Models\Users;
 use app\Models\Tags;
-
-
+use app\Models\Favorite;
+use app\Models\Products;
 
 class UserController extends BaseController 
 {
@@ -24,7 +24,16 @@ class UserController extends BaseController
 	function account(){
 		$detailAccount							= Users::where('email', session('username'))->get()['0']['attributes'];
 		$this->page_attributes->detail  		= $detailAccount;
+		$data_favorite							= Favorite::where('user_id', $detailAccount['_id'])->get();
+		$favorites 								= [];
+		foreach($data_favorite as $key => $f){
+			$promo			= Products::find($f->product_id);
+			$favorites		= array_prepend($favorites, $promo);
+		}
+		$this->page_attributes->favorites  		= $favorites;
+		
 		$this->page_attributes->page_title 		= $this->page_title;
+
 		$tags                                   = Tags::all();
         $this->page_datas->tags                 = $tags;
 
