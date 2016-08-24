@@ -15,7 +15,7 @@ class UsersController extends BaseController
 
     public function index()
     {
-        $datas                                  = Users::paginate(10);
+        $datas                                  = Users::where('email', '!=', session('username'))->paginate(10);
         $this->page_datas->datas                = $datas;
         $this->page_datas->id                   = null;
         //page attributes

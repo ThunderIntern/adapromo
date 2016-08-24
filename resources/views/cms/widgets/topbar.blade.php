@@ -31,6 +31,11 @@
 					<i class="fa fa-users fa-2x fa-fw"></i><br>User
 				</a>
 			</li>
+			<li class="list-inline-item text-xs-center pull-right">
+				<a href="{{ route('cms.account') }}" class="block p-y-1 p-x-0 ">
+					<i class="fa fa-gear fa-2x fa-fw"></i><br>Settings
+				</a>
+			</li>
 		</ul>
 	</div>
 </nav>

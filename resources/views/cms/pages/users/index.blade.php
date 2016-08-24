@@ -15,8 +15,8 @@
 				<thead>
 					<tr>
 						<th class="col-md-1">#</th>
-						<th class="col-md-3">Nama</th>
-						<th class="col-md-2">Email</th>
+						<th class="col-md-2">Nama</th>
+						<th class="col-md-3">Email</th>
 						<th class="col-md-2">DoB</th>
 						<th class="col-md-2">Role</th>
 						<th class="col-md-2 text-xs-right">Control</th>

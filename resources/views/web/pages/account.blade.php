@@ -33,25 +33,15 @@
                             <div class="tab-content">
                               <div class="tab-pane active p-b-2" id="account" role="tabpanel">
                                 <h3 class="text-xs-left m-t-2 dark-blue-text">Account Setting</h3>
-                                  {!! Form::open(['url' => route('account_setting'), 'method' => 'post', 'class' => 'text-xs-left']) !!}
+                                  {!! Form::open(['url' => route('account_setting'), 'method' => 'post', 'class' => 'text-xs-left', 'onsubmit' => 'return validate();']) !!}
                                     {!! Form::hidden('id', $page_attributes->detail['_id']) !!}
                                     <label>Email:</label>
                                     {!! Form::text('email', $page_attributes->detail['email'], ['class' => 'form-control', 'placeholder' => 'Email', 'required' => 'required', 'readonly' => 'yes']) !!}
                                     <label>Nama:</label>
                                     {!! Form::text('name', $page_attributes->detail['name'], ['class' => 'form-control', 'placeholder' => 'Name', 'required' => 'required']) !!}
                                     <label>Tanggal Lahir:</label>
-                                    {!! Form::text('dob', $page_attributes->detail['dob'], ['class' => 'form-control icon-awesome-placeholder', 'placeholder' => 'Date of Birth', 'data-inputmask' => "'mask':'m/d/y'", 'required' => 'required']) !!}
-                                    {!! Form::submit('Save', ['class' => 'btn btn-block dark-blue white-text m-t-1', 'onClick' => 
-                                        "if((this.form.dob.value).search('_')<0){
-                                            document.getElementById('notif').innerHTML = '';
-                                            document.getElementById('notif').setAttribute('class', '');
-                                            return true;
-                                        }
-                                        else{
-                                            document.getElementById('notif').innerHTML = '<small>Inputan <b>Tanggal Lahir</b> tidak sesuai.</small>';
-                                            document.getElementById('notif').setAttribute('class', 'alert alert-danger');
-                                            return false;
-                                        }"]) !!}
+                                    {!! Form::text('dob', $page_attributes->detail['dob'], ['class' => 'form-control icon-awesome-placeholder', 'placeholder' => 'Date of Birth', 'data-inputmask' => "'mask':'m/d/y'", 'required' => 'required', 'id' => 'dob']) !!}
+                                    {!! Form::submit('Save', ['class' => 'btn btn-block dark-blue white-text m-t-1']) !!}
                                   {!! Form::close() !!}
                               </div>
                               <div class="tab-pane" id="changepassword" role="tabpanel">
@@ -100,6 +90,18 @@
                         document.getElementById('notif').innerHTML = '';
                         document.getElementById('notif').setAttribute('class', '');
                         return true;
+                    }
+                }
+                function validate(){
+                    if((document.getElementById('dob').value).search('_')<0){
+                        document.getElementById('notif').innerHTML = '';
+                        document.getElementById('notif').setAttribute('class', '');
+                        return true;
+                    }
+                    else{
+                        document.getElementById('notif').innerHTML = '<small>Inputan <b>Tanggal Lahir</b> tidak sesuai.</small>';
+                        document.getElementById('notif').setAttribute('class', 'alert alert-danger');
+                        return false;
                     }
                 }
             </script>

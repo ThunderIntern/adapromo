@@ -58,6 +58,9 @@
                   <div class="modal-body">
                       <a href="{{route('home')}}"><div class="modal-menu menu-active2">HOME</div></a>
                       <a href="{{route('promo')}}"><div class="modal-menu">PROMO</div></a>
+                      @foreach($page_datas->tags as $key => $data)
+                        <a href="{{route('promo.category', ['category' => $data['tags']])}}"><div class="modal-menu p-l-2">{{ $data['tags'] }}</div></a>
+                      @endforeach
                       @if(is_null(Session::get('user')))
                       <a href="{{route('login')}}"><div class="modal-menu">SIGN UP / SIGN IN</div></a>
                       @endif

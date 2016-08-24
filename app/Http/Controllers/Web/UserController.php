@@ -22,6 +22,11 @@ class UserController extends BaseController
 	protected $breadcrumb 	= [];
 
 	function account(){
+		//redirect bila blm login
+		if(is_null(session('user'))){
+			return Redirect::to(route('login'))->with('message-danger', 'Silahkan login terlebih dahulu.');
+		}
+
 		$detailAccount							= Users::where('email', session('username'))->get()['0']['attributes'];
 		$this->page_attributes->detail  		= $detailAccount;
 		$data_favorite							= Favorite::where('user_id', $detailAccount['_id'])->get();

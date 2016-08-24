@@ -38,7 +38,7 @@
 			</fieldset> 
 			<fieldset class="form-group">
 				<label for="name">Role</label>
-				{{ Form::select('role', ['admin' => 'Admin', 'editor' => 'Editor'], $page_datas->datas['role'], ['class' => 'form-control c-select']) }}
+				{{ Form::select('role', ['admin' => 'Admin', 'editor' => 'Editor', 'user' => 'User'], $page_datas->datas['role'], ['class' => 'form-control c-select']) }}
 			</fieldset>
 			@if(is_null($page_datas->id))
 			<fieldset class="form-group">

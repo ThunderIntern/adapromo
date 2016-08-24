@@ -1,9 +1,15 @@
 <?php
 Route::group(['namespace' => 'Cms\\', 'prefix' => 'cms'], function(){
-	Route::get('/',								['uses' => 'DashboardController@home', 				'as' => 'cms.home']);
-	Route::get('login',							['uses' => 'LoginController@home', 					'as' => 'cms.login']);
-	Route::post('login/process',				['uses' => 'LoginController@process', 				'as' => 'cms.login.process']);
-	Route::get('logout',						['uses' => 'LoginController@logout', 				'as' => 'cms.logout']);
+	Route::get('/',						['uses' => 'DashboardController@home', 				'as' => 'cms.home']);
+	//profile
+	Route::get('account',				['uses' => 'AccountController@account',				'as' => 'cms.account']);
+	Route::post('account',				['uses' => 'AccountController@account_save', 		'as' => 'cms.account.save']);
+	Route::get('change-password',		['uses' => 'AccountController@password',			'as' => 'cms.password']);
+	Route::post('change-password',		['uses' => 'AccountController@password_save', 		'as' => 'cms.password.save']);
+
+	Route::get('login',					['uses' => 'LoginController@home', 					'as' => 'cms.login']);
+	Route::post('login',				['uses' => 'LoginController@process', 				'as' => 'cms.login.process']);
+	Route::get('logout',				['uses' => 'LoginController@logout', 				'as' => 'cms.logout']);
 
 	Route::resource('promo/promo', 'PromoController', ['names' => [
 			'index' 	=> 'cms.promo.promo.index',
