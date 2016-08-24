@@ -18,7 +18,7 @@
 				</div>
 				<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 border-all p-x-1 p-y-2">
-						{!! Html::image('images/adapromologo-login.jpg', null, ['class' => 'img-fluid p-y-2 p-x-3'] ) !!}
+						<a href="{{route('home')}}"> {!! Html::image('images/adapromologo-login.jpg', null, ['class' => 'img-fluid p-y-2 p-x-3'] ) !!} </a>
 						@if(Session::has('message-danger'))
 							<center><div class="alert alert-danger">{{Session::get('message-danger')}}</div></center>
 						@endif

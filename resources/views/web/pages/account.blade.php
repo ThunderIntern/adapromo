@@ -57,25 +57,15 @@
                               </div>
                               <div class="tab-pane" id="changepassword" role="tabpanel">
                                 <h3 class="text-xs-left m-t-2 dark-blue-text">Change Password</h3>
-                                  {!! Form::open(['url' => route('change_password'), 'method' => 'post', 'class' => 'text-xs-left']) !!}
+                                  {!! Form::open(['url' => route('change_password'), 'method' => 'post', 'class' => 'text-xs-left', 'onsubmit' => "return validate_password();"]) !!}
                                     {!! Form::hidden('id', $page_attributes->detail['_id']) !!}
                                     <label>Password Lama:</label>
                                     {!! Form::password('old', ['class' => 'form-control', 'placeholder' => 'Password Lama', 'required' => 'required']) !!}
                                     <label>Password Baru:</label>
-                                    {!! Form::password('new', ['class' => 'form-control', 'placeholder' => 'Password Baru', 'required' => 'required']) !!}
+                                    {!! Form::password('new', ['class' => 'form-control', 'placeholder' => 'Password Baru', 'required' => 'required', 'id' => 'password']) !!}
                                     <label>Konfirmasi Password Baru:</label>
-                                    {!! Form::password('konf_new', ['class' => 'form-control', 'placeholder' => 'Konfirmasi Password Baru', 'required' => 'required']) !!}
-                                    {!! Form::submit('Ubah Password', ['class' => 'btn btn-block dark-blue white-text m-t-1 m-b-2', 'onClick' => 
-                                        "if(!(this.form.new.value==this.form.konf_new.value)){
-                                            document.getElementById('notif').innerHTML = '<small>Konfirmasi password tidak sesuai.</small>';
-                                            document.getElementById('notif').setAttribute('class', 'alert alert-danger');
-                                            return false;
-                                        }
-                                        else{
-                                            document.getElementById('notif').innerHTML = '';
-                                            document.getElementById('notif').setAttribute('class', '');
-                                            return true;
-                                        }"
+                                    {!! Form::password('konf_new', ['class' => 'form-control', 'placeholder' => 'Konfirmasi Password Baru', 'required' => 'required', 'id' => 'konf_password']) !!}
+                                    {!! Form::submit('Ubah Password', ['class' => 'btn btn-block dark-blue white-text m-t-1 m-b-2'
                                     ]) !!}
                                   {!! Form::close() !!}
                                </div>
@@ -98,4 +88,20 @@
         @stop
         @section('simple-footer')
             @include('web.component.footer')
+        @stop
+        @section('js')
+            <script>
+                function validate_password(){
+                    if(!(document.getElementById('password').value==document.getElementById('konf_password').value)){
+                        document.getElementById('notif').innerHTML = '<small>Konfirmasi password tidak sesuai.</small>';
+                        document.getElementById('notif').setAttribute('class', 'alert alert-danger');
+                        return false;
+                    }
+                    else{
+                        document.getElementById('notif').innerHTML = '';
+                        document.getElementById('notif').setAttribute('class', '');
+                        return true;
+                    }
+                }
+            </script>
         @stop

@@ -36,12 +36,16 @@
 			</fieldset>
 			<fieldset class="form-group" id="image">
 				<label for="name">Images</label>
-				{!! Form::text('images1', $page_datas->datas['image'], ['class' => 'form-control']) !!}
+				{!! Form::url('images1', $page_datas->datas['image'], ['class' => 'form-control']) !!}
 			</fieldset>		
 			<a onclick="addImage();" id="add" class="btn btn-secondary"><i class="fa fa-plus"></i> Add new image</a>
 			<fieldset class="form-group">
 				<label for="name">Tags</label>
-				{!! Form::text('tags', $page_datas->datas['tags'], ['class' => 'form-control']) !!}
+				<select name="tags" class="form-control">
+				@foreach($page_datas->tags as $key => $tags)
+					<option value="{{ $tags['tags'] }}" <?php if($page_datas->datas['tags']==$tags['tags']) echo 'selected' ?>>{{ $tags['tags'] }}</option>
+				@endforeach
+				</select>
 			</fieldset>
 			<fieldset class="form-group">
 				<label for="name">Type</label>
@@ -59,7 +63,11 @@
 			</fieldset>
 			<fieldset class="form-group">
 				<label for="name">User</label>
-				{!! Form::text('users', $page_datas->datas['users'], ['class' => 'form-control']) !!}
+				<select name="users" class="form-control">
+				@foreach($page_datas->users as $key => $users)
+					<option value="{{ $users['name'] }}" <?php if($page_datas->datas['users']==$users['name']) echo 'selected' ?>>{{ $users['name'] }}</option>
+				@endforeach
+				</select>
 			</fieldset>
 			{!! Form::hidden('favorites', $page_datas->datas['extra_fields']['favorites'], ['class' => 'form-control']) !!}
 		</div>
@@ -69,7 +77,7 @@
 <script type="text/javascript">
 	var count = 2;
 	function addImage(){
-		document.getElementById('image').innerHTML += "<input class='form-control' name='images"+count+"' type='text'>";
+		document.getElementById('image').innerHTML += "<input class='form-control' name='images"+count+"' type='url'>";
 		count++;
 		if(count>3){
 			$('#add').hide();

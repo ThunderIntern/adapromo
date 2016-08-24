@@ -4,6 +4,8 @@ namespace app\Http\Controllers\Cms;
 
 use app\Http\Controllers\BaseController;
 use app\Models\Products;
+use app\Models\Tags;
+use app\Models\Users;
 use Request, Input, URL, Redirect;
 
 class PromoController extends BaseController
@@ -15,7 +17,7 @@ class PromoController extends BaseController
 
     public function index()
     {
-        $datas                                  = Products::paginate(2);
+        $datas                                  = Products::paginate(10);
         $this->page_datas->datas                = $datas;
         $this->page_datas->id                   = null;
         //page attributes
@@ -37,12 +39,15 @@ class PromoController extends BaseController
         //set data
         $this->page_datas->datas                = $datas;
         //page attributes
-        if($id != null){
-            $this->page_attributes->page_title  = 'Edit '. $this->page_title;
-        }else{
-            $this->page_attributes->page_title  = $this->page_title . ' Baru';
-        }
+        if($id != null){ $this->page_attributes->page_title  = 'Edit '. $this->page_title; }
+        else{ $this->page_attributes->page_title  = $this->page_title . ' Baru'; }
+
+        $tags                                   = Tags::all();
+        $this->page_datas->tags                 = $tags;
+        $users                                  = Users::all();
+        $this->page_datas->users                = $users;
         $this->page_datas->id                   = $id;
+        
         //generate view
         $view_source                            = $this->view_root . '.promo.promo.create';
         $route_source                           = Request::route()->getName();        
@@ -114,7 +119,7 @@ class PromoController extends BaseController
 
         $password                   = Input::get('password');
         if(empty($password)){
-            return Redirect::to('/cms/promo/promo')->with('msg', 'Password not valid.');
+            return Redirect::to('/cms/promo/promo')->with('msg-danger', 'Password not valid.');
         }else{
             $promo->delete();
             return Redirect::to('/cms/promo/promo')->with('msg', 'Data telah dihapus.');

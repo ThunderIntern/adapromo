@@ -25,15 +25,15 @@
 			
 			<fieldset class="form-group">
 				<label for="name">Name</label>
-				{!! Form::text('name', $page_datas->datas['name'], ['class' => 'form-control']) !!}
+				{!! Form::text('name', $page_datas->datas['name'], ['class' => 'form-control', 'required' => 'required']) !!}
 			</fieldset>
 			<fieldset class="form-group">
 				<label for="name">Email</label>
-				{!! Form::email('email', $page_datas->datas['email'], ['class' => 'form-control']) !!}
+				{!! Form::email('email', $page_datas->datas['email'], ['class' => 'form-control', 'required' => 'required']) !!}
 			</fieldset>
 			<fieldset class="form-group">
 				<label for="name">Date of Birth</label>
-				{!! Form::date('dob', $page_datas->datas['dob'], ['class' => 'form-control', 'data-inputmask' => "'mask':'m/d/y'"])!!}
+				{!! Form::date('dob', $page_datas->datas['dob'], ['class' => 'form-control', 'data-inputmask' => "'mask':'m/d/y'", 'required' => 'required'])!!}
 				<small>format: mm/dd/yyyy</small>
 			</fieldset> 
 			<fieldset class="form-group">
@@ -43,11 +43,11 @@
 			@if(is_null($page_datas->id))
 			<fieldset class="form-group">
 				<label for="name">Password</label>
-				{!! Form::password('password', ['class' => 'form-control']) !!}
+				{!! Form::password('password', ['class' => 'form-control', 'required' => 'required']) !!}
 			</fieldset>
 			<fieldset class="form-group">
 				<label for="name">Konfirmasi Password</label>
-				{!! Form::password('password2', ['class' => 'form-control']) !!}
+				{!! Form::password('password2', ['class' => 'form-control', 'required' => 'required']) !!}
 			</fieldset>
 			@endif
 			

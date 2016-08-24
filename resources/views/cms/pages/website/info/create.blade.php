@@ -24,11 +24,11 @@
 			
 			<fieldset class="form-group">
 				<label for="name">Judul</label>
-				{!! Form::text('judul', $page_datas->datas['content']['judul'], ['class' => 'form-control']) !!}
+				{!! Form::text('judul', $page_datas->datas['content']['judul'], ['class' => 'form-control', 'required' => 'required']) !!}
 			</fieldset>
 			<fieldset class="form-group">
 				<label for="name">Isi</label>
-				{!! Form::text('Isi', $page_datas->datas['content']['Isi'], ['class' => 'form-control']) !!}
+				{!! Form::textarea('Isi', $page_datas->datas['content']['Isi'], ['class' => 'form-control', 'required' => 'required']) !!}
 				{!! Form::hidden('name', $page_datas->datas['content']['name'], ['class' => 'form-control']) !!}
 			</fieldset>
 		</div>

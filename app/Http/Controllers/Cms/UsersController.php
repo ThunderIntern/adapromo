@@ -61,7 +61,7 @@ class UsersController extends BaseController
                 $users->password                = hash('md5', $input['password']);
             }
             else{
-                return Redirect::to(route('cms.users.create'))->with('msg', 'Konfirmasi Password Salah.');        
+                return Redirect::to(route('cms.users.create'))->with('msg-danger', 'Konfirmasi Password Salah.');        
             }
         }
         
@@ -105,7 +105,7 @@ class UsersController extends BaseController
 
         $password                   = Input::get('password');
         if(empty($password)){
-            return Redirect::to(route('cms.users.index'))->with('msg', 'Password not valid.');
+            return Redirect::to(route('cms.users.index'))->with('msg-danger', 'Password not valid.');
         }else{
             $users->delete();
             return Redirect::to(route('cms.users.index'))->with('msg', 'Data telah dihapus.');

@@ -95,7 +95,7 @@ class FaqController extends BaseController
 
         $password                   = Input::get('password');
         if(empty($password)){
-            return Redirect::to(route('cms.website.faq.index'))->with('msg', 'Password not valid.');
+            return Redirect::to(route('cms.website.faq.index'))->with('msg-danger', 'Password not valid.');
         }else{
             $faq->delete();
             return Redirect::to(route('cms.website.faq.index'))->with('msg', 'Data telah dihapus.');
