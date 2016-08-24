@@ -11,7 +11,7 @@
                     <div class="col-md-8 col-lg-8">
                         <div class="card p-a-2">
                             <h3 class="dark-blue-text"><b>{{ $page_datas->datas['content']['judul'] }}</b></h3><hr />
-                            <div class="text-justify"> {{ $page_datas->datas['content']['Isi'] }}</div>
+                            <div class="text-justify"> <?php echo $page_datas->datas['content']['Isi']; ?></div>
                         </div>
                     </div>
                     <div class="col-md-4 col-lg-4">

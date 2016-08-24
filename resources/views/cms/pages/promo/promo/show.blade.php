@@ -41,8 +41,8 @@
 			'content'	=>  ucfirst($page_datas->datas['type'])
 		]])
 		@include('cms.widgets.components.detail.detail-text',['component' => [
-			'title'		=> 'Extra Fields',
-			'content'	=>  ucfirst($page_datas->datas['extra_fields'])
+			'title'		=> 'Date',
+			'content'	=>  ucfirst($page_datas->datas['extra_fields.start_date']." - ".$page_datas->datas['extra_fields.end_date'])
 		]])
 		@include('cms.widgets.components.detail.detail-text',['component' => [
 			'title'		=> 'Users',

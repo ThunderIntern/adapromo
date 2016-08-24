@@ -13,7 +13,7 @@
                             <h3 class="dark-blue-text"><b>Frequently Ask Questions</b></h3><hr />
                             @foreach($page_datas->datas as $key => $data)
                                 <div class="text-primary m-t-1"> {{ $data['content']['pertanyaan'] }}</div>
-                                <div class="text-justify p-l-2"> {{ $data['content']['jawaban'] }}</div>
+                                <div class="text-justify p-l-2"> <?php echo $data['content']['jawaban']; ?></div>
                             @endforeach
                         </div>
                     </div>
