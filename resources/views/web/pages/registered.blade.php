@@ -1,3 +1,8 @@
+@if(!is_null(Session::get('user')))
+    <script>
+        window.location.href = '{{route("home")}}'; 
+    </script>
+@endif
         @extends('web.template')
         @section('navbar-red')
             @include('web.component.navbar-red')

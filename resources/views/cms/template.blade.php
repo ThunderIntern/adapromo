@@ -11,14 +11,16 @@
 		{!! Html::style(elixir('css/appcms.css')) !!}
         <title>{{ $page_attributes->page_title }}</title>
     </head>
+
     <body>
         @include('cms.widgets.topbar')
         @yield('content')
 		@yield('modal')
         @include('cms.modals.logout')
     </body>
-    {!! Html::script(elixir('js/appcms.js')) !!}
+    
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    {!! Html::script(elixir('js/appcms.js')) !!}
     <script type="text/javascript" src='//cdn.tinymce.com/4/tinymce.min.js'></script>
       <script type="text/javascript">
       tinymce.init({
