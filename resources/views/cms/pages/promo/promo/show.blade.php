@@ -62,13 +62,22 @@
 		]])
 
 		@if($page_datas->datas['status']=='pending')
-			<b>Kode Pembayaran: {{$page_datas->datas['kode_pembayaran']}}</b><br>
-			<b>Bukti Pembayaran:</b><br>
-			@if(!is_null($page_datas->datas['bukti_pembayaran']))
-			{{ Html::image("bukti_pembayaran/".$page_datas->datas['bukti_pembayaran']) }}
-			@else
-			Belum Upload Bukti Pembayaran.
-			@endif
+			<div class="row">
+				<div class="col-md-3"><span class="text-uppercase"><strong>Kode Pembayaran</strong></span></div>
+				<div class="col-md-9">{{$page_datas->datas['kode_pembayaran']}}</div>
+				<div class="col-md-12"><hr></div>
+			</div>
+
+			<div class="row">
+				<div class="col-md-3"><span class="text-uppercase"><strong>Bukti Pembayaran</strong></span></div>
+				<div class="col-md-9">
+					@if(!is_null($page_datas->datas['bukti_pembayaran']))
+					{{ Html::image("bukti_pembayaran/".$page_datas->datas['bukti_pembayaran']) }}
+					@else
+					Belum Upload Bukti Pembayaran.
+					@endif
+				</div>
+			</div>
 		@endif
 	</div>
 </div>
