@@ -64,9 +64,9 @@
                                     {!! Form::date('end_date', null, ['class' => 'form-control', 'data-inputmask' => "'mask':'m/d/y'", 'placeholder' => 'Tanggal Akhir Promo', 'required' => 'required']) !!}
                                     <small>format: mm/dd/yyy</small><br><br>
 
-                                    <label for="name" class="red-text"><b>Biaya Promo: Rp. 50.000-,</b></label><br>
+                                    <label for="name"><b>Biaya Promo: <i class="red-text">Rp. 50.000-,</i></b></label><br>
                                     <?php $date = date("mdHis"); ?>
-                                    <label for="name" class="red-text"><b>Kode Pembayaran: <?php echo $date; ?></b></label>
+                                    <label for="name"><b>Kode Pembayaran: <i class="red-text"><?php echo $date; ?></i></b></label>
                                     {!! Form::hidden('kode', $date) !!}
 
                                     {!! Form::submit('Daftarkan Promo', ['class' => 'btn btn-block red white-text m-t-1']) !!}
