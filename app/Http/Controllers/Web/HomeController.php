@@ -24,7 +24,7 @@ class HomeController extends BaseController
 
 	function home()
 	{
-		$datas                                  = Products::paginate(12);
+		$datas                                  = Products::where('status', 'aktif')->paginate(12);
         $this->page_datas->datas                = $datas;
         $tags                                   = Tags::all();
         $this->page_datas->tags                 = $tags;
@@ -46,11 +46,13 @@ class HomeController extends BaseController
 		if($input['name']=="" && ($date==false)){
 			if($input['sort']=='Terbaru'){
 				$datas                      = Products::where('tags', $input['category'])
+												->where('status', 'aktif')
 												->orderBy('published_at', 'desc')
 												->paginate(12);
 	        	$this->page_datas->datas    = $datas;
 	        }else{
 	        	$datas                      = Products::where('tags', $input['category'])
+	        									->where('status', 'aktif')
 	        									->orderBy('extra_fields.favorites', 'desc')
 	        									->paginate(12);
 	        	$this->page_datas->datas    = $datas;
@@ -58,6 +60,7 @@ class HomeController extends BaseController
 		}else if($input['name']=="" && ($date==true)){
 			if($input['sort']=='Terbaru'){
 				$datas                      = Products::where('tags', $input['category'])
+												->where('status', 'aktif')
 												->where('extra_fields.start_date', '<=', $input['date'])
 												->where('extra_fields.end_date', '>=', $input['date'])
 												->orderBy('published_at', 'desc')
@@ -67,6 +70,7 @@ class HomeController extends BaseController
 	        	$datas                      = Products::where('tags', $input['category'])
 	        									->where('extra_fields.start_date', '<=', $input['date'])
 												->where('extra_fields.end_date', '>=', $input['date'])
+												->where('status', 'aktif')
 	        									->orderBy('extra_fields.favorites', 'desc')
 	        									->paginate(12);
 	        	$this->page_datas->datas    = $datas;
@@ -75,12 +79,14 @@ class HomeController extends BaseController
 			if($input['sort']=='Terbaru'){
 				$datas                      = Products::where('tags', $input['category'])
 												->where('title', 'like', '%'.$input['name'].'%')
+												->where('status', 'aktif')
 												->orderBy('published_at', 'desc')
 												->paginate(12);
 	        	$this->page_datas->datas    = $datas;
 	        }else{
 	        	$datas                      = Products::where('tags', $input['category'])
 	        									->where('title', 'like', '%'.$input['name'].'%')
+	        									->where('status', 'aktif')
 	        									->orderBy('extra_fields.favorites', 'desc')
 	        									->paginate(12);
 	        	$this->page_datas->datas    = $datas;
@@ -91,6 +97,7 @@ class HomeController extends BaseController
 												->where('extra_fields.start_date', '<=', $input['date'])
 												->where('extra_fields.end_date', '>=', $input['date'])
 												->where('title', 'like', '%'.$input['name'].'%')
+												->where('status', 'aktif')
 												->orderBy('published_at', 'desc')
 												->paginate(12);
 	        	$this->page_datas->datas    = $datas;
@@ -99,6 +106,7 @@ class HomeController extends BaseController
 	        									->where('extra_fields.start_date', '<=', $input['date'])
 												->where('extra_fields.end_date', '>=', $input['date'])
 												->where('title', 'like', '%'.$input['name'].'%')
+												->where('status', 'aktif')
 	        									->orderBy('extra_fields.favorites', 'desc')
 	        									->paginate(12);
 	        	$this->page_datas->datas    = $datas;

@@ -44,7 +44,7 @@ class PromoController extends BaseController
 
         $tags                                   = Tags::all();
         $this->page_datas->tags                 = $tags;
-        $users                                  = Users::all();
+        $users                                  = Users::where('role', 'user')->get();
         $this->page_datas->users                = $users;
         $this->page_datas->id                   = $id;
         
@@ -82,6 +82,7 @@ class PromoController extends BaseController
                                                   'favorites' => $input['favorites']];    
         }
         $promo->users                           = $input['users'];
+        $promo->status                          = 'aktif';
         $promo->published_at                    = date('Y-m-d H:m:s');
         
         $promo->save();
@@ -119,10 +120,16 @@ class PromoController extends BaseController
 
         $password                   = Input::get('password');
         if(empty($password)){
-            return Redirect::to('/cms/promo/promo')->with('msg-danger', 'Password not valid.');
+            return Redirect::to(route('cms.promo.promo.index'))->with('msg-danger', 'Password not valid.');
         }else{
             $promo->delete();
-            return Redirect::to('/cms/promo/promo')->with('msg', 'Data telah dihapus.');
+            return Redirect::to(route('cms.promo.promo.index'))->with('msg', 'Data telah dihapus.');
         }
+    }
+    public function aktivasi($id){
+        $promo                                  = Products::find($id);
+        $promo->status                          = 'aktif';
+        $promo->save();
+        return Redirect::to(route('cms.promo.promo.index'))->with('msg', 'Promo berhasil di aktifkan.');
     }
 }

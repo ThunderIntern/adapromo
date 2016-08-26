@@ -16,7 +16,7 @@ class AccountController extends BaseController
 
     public function account()
     {
-        $account_details                        = Users::where('email', session('username'))->get();
+        $account_details                        = Users::where('email', session('username-admin'))->get();
         $this->page_datas->account              = $account_details;
         //page attributes
         $this->page_attributes->page_title      = $this->page_title;
@@ -27,9 +27,12 @@ class AccountController extends BaseController
     }
     public function account_save(){
         $input                  = Input::all();
-        $data                   = ['email' => $input['email'], 'name' => $input['name'], 'dob' => $input['dob'], 'role' => $input['role']];
-        Users::where('email', session('username'))->update($data);
-        session(['username' => $input['email']]);
+        $data                   = ['email' => $input['email'], 
+                                    'name' => $input['name'], 
+                                    'dob' => $input['dob'], 
+                                    'role' => $input['role']];
+        Users::where('email', session('username-admin'))->update($data);
+        session(['username-admin' => $input['email']]);
 
         return Redirect::to(route('cms.account'))->with('msg', 'Perubahan berhasil disimpan.');
     }
@@ -44,11 +47,11 @@ class AccountController extends BaseController
     }
     public function password_save(){
         $input                  = Input::all();
-        $account_details        = Users::where('email', session('username'))->get()['0']['attributes'];
+        $account_details        = Users::where('email', session('username-admin'))->get()['0']['attributes'];
         if(hash('md5', $input['old'])==$account_details['password']){
             if($input['password'] == $input['konf_password']){
                 $data               = ['password' => hash('md5', $input['password'])];
-                Users::where('email', session('username'))->update($data);
+                Users::where('email', session('username-admin'))->update($data);
                 return Redirect::to(route('cms.password'))->with('msg', 'Perubahan berhasil disimpan.');
             }
             else{

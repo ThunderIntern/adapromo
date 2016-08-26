@@ -24,19 +24,19 @@
 			
 			<fieldset class="form-group">
 				<label for="name">Title</label>
-				{!! Form::text('title', $page_datas->datas['title'], ['class' => 'form-control']) !!}
+				{!! Form::text('title', $page_datas->datas['title'], ['class' => 'form-control', 'required' => 'required']) !!}
 			</fieldset>
 			<fieldset class="form-group">
 				<label for="name">Slug</label>
-				{!! Form::text('slug', $page_datas->datas['slug'], ['class' => 'form-control']) !!}
+				{!! Form::text('slug', $page_datas->datas['slug'], ['class' => 'form-control', 'required' => 'required']) !!}
 			</fieldset>
 			<fieldset class="form-group">
 				<label for="name">Description</label>
-				{!! Form::textarea('description', $page_datas->datas['description'], ['class' => 'form-control', 'rows' => '5', 'id' => 'myTextarea']) !!}
+				{!! Form::textarea('description', $page_datas->datas['description'], ['class' => 'form-control', 'rows' => '5', 'id' => 'myTextarea', 'required' => 'required']) !!}
 			</fieldset>
 			<fieldset class="form-group" id="image">
 				<label for="name">Images</label>
-				{!! Form::url('images1', $page_datas->datas['image'], ['class' => 'form-control']) !!}
+				{!! Form::url('images1', $page_datas->datas['image'], ['class' => 'form-control', 'required' => 'required']) !!}
 			</fieldset>		
 			<a onclick="addImage();" id="add" class="btn btn-secondary"><i class="fa fa-plus"></i> Add new image</a>
 			<fieldset class="form-group">
@@ -49,23 +49,23 @@
 			</fieldset>
 			<fieldset class="form-group">
 				<label for="name">Type</label>
-				{!! Form::text('type', $page_datas->datas['type'], ['class' => 'form-control']) !!}
+				{!! Form::text('type', $page_datas->datas['type'], ['class' => 'form-control', 'required' => 'required']) !!}
 			</fieldset>
 			<fieldset class="form-group">
 				<label for="name">Start Date</label>
-				{!! Form::date('start_date', $page_datas->datas['extra_fields']['start_date'], ['class' => 'form-control', 'data-inputmask' => "'mask':'m/d/y'"]) !!}
+				{!! Form::date('start_date', $page_datas->datas['extra_fields']['start_date'], ['class' => 'form-control', 'data-inputmask' => "'mask':'m/d/y'", 'required' => 'required']) !!}
 				<small>format: mm/dd/yyyy</small>
 			</fieldset>
 			<fieldset class="form-group">
 				<label for="name">End Date</label>
-				{!! Form::date('end_date', $page_datas->datas['extra_fields']['end_date'], ['class' => 'form-control', 'data-inputmask' => "'mask':'m/d/y'"]) !!}
+				{!! Form::date('end_date', $page_datas->datas['extra_fields']['end_date'], ['class' => 'form-control', 'data-inputmask' => "'mask':'m/d/y'", 'required' => 'required']) !!}
 				<small>format: mm/dd/yyy</small>
 			</fieldset>
 			<fieldset class="form-group">
 				<label for="name">User</label>
 				<select name="users" class="form-control">
 				@foreach($page_datas->users as $key => $users)
-					<option value="{{ $users['name'] }}" <?php if($page_datas->datas['users']==$users['name']) echo 'selected' ?>>{{ $users['name'] }}</option>
+					<option value="{{ $users['email'] }}" <?php if($page_datas->datas['users']==$users['name']) echo 'selected' ?>>{{ $users['name'] }}</option>
 				@endforeach
 				</select>
 			</fieldset>

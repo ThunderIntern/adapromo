@@ -27,6 +27,7 @@ class UserController extends BaseController
 			return Redirect::to(route('login'))->with('message-danger', 'Silahkan login terlebih dahulu.');
 		}
 
+		//favorites
 		$detailAccount							= Users::where('email', session('username'))->get()['0']['attributes'];
 		$this->page_attributes->detail  		= $detailAccount;
 		$data_favorite							= Favorite::where('user_id', $detailAccount['_id'])->get();
@@ -36,6 +37,10 @@ class UserController extends BaseController
 			$favorites		= array_prepend($favorites, $promo);
 		}
 		$this->page_attributes->favorites  		= $favorites;
+
+		//my promo
+		$my_promo								= Products::where('users', session('username'))->get();
+		$this->page_attributes->my_promo  		= $my_promo;		
 		
 		$this->page_attributes->page_title 		= $this->page_title;
 

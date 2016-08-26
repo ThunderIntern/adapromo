@@ -80,7 +80,7 @@
 							<li><a href="{{route('contactUs')}}" class="dark-text">Contact US</a></li>
 							<li><a href="{{route('faq')}}" class="dark-text">FAQ</a></li>
 							<li><a href="{{route('termAndCondition')}}" class="dark-text">Term and Condition</a></li>
-							<li><a href="#" class="dark-text">Daftarkan Promosi Anda</a></li>
+							<li><a href="{{route('promo.register')}}" class="dark-text">Daftarkan Promosi Anda</a></li>
 						</ul>
 					</div>
 					<div class="col-md-4 col-lg-4 hidden-sm-down">

@@ -37,7 +37,7 @@ class LoginController extends BaseController
 							->where('role', 'admin')
 							->count();
 		if($login_search > 0){
-			session(['admin' => 'true', 'username' => $input['username']]);
+			session(['admin' => 'true', 'username-admin' => $input['username']]);
 			return Redirect::to(route('cms.home'));
 		}
 		else{

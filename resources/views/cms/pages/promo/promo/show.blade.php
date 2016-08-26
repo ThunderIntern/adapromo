@@ -59,7 +59,17 @@
 		@include('cms.widgets.components.detail.detail-date',['component' => [
 			'title'		=> 'Create Time',
 			'content'	=>  $page_datas->datas['created_at']
-		]])			
+		]])
+
+		@if($page_datas->datas['status']=='pending')
+			<b>Kode Pembayaran: {{$page_datas->datas['kode_pembayaran']}}</b><br>
+			<b>Bukti Pembayaran:</b><br>
+			@if(!is_null($page_datas->datas['bukti_pembayaran']))
+			{{ Html::image("bukti_pembayaran/".$page_datas->datas['bukti_pembayaran']) }}
+			@else
+			Belum Upload Bukti Pembayaran.
+			@endif
+		@endif
 	</div>
 </div>
 @stop

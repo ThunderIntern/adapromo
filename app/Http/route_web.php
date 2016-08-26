@@ -9,6 +9,10 @@ Route::group(['namespace' => 'Web\\'], function(){
 	Route::get('promo', 							['uses' => 'PromoController@promo', 							'as' => 'promo']);
 	Route::get('promo/category/{category}', 		['uses' => 'PromoController@promo', 							'as' => 'promo.category']);
 	Route::get('promo/detail/{id}', 				['uses' => 'PromoController@promo_detail', 						'as' => 'promo.detail']);
+	Route::get('promo/register', 					['uses' => 'PromoController@register_promo', 					'as' => 'promo.register']);
+	Route::post('promo/register', 					['uses' => 'PromoController@register_promo', 					'as' => 'promo.register']);
+	Route::get('promo/konfirmasi/{id}', 			['uses' => 'PromoController@konfirmasi',	 					'as' => 'promo.konfirmasi']);
+	Route::post('promo/konfirmasi/{id}', 			['uses' => 'PromoController@konfirmasi',	 					'as' => 'promo.konfirmasi']);
 	
 	//subscribe
 	Route::post('subscribe', 						['uses' => 'SubscribeController@subscribe', 					'as' => 'subscribe']);

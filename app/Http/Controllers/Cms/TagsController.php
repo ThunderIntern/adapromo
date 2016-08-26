@@ -3,27 +3,25 @@
 namespace app\Http\Controllers\Cms;
 
 use app\Http\Controllers\BaseController;
-use app\Models\Users;
+use app\Models\Tags;
 use Request, Input, URL, Redirect;
 
-class UsersController extends BaseController
+class TagsController extends BaseController
 {
     // init
     protected $view_root    = 'cms.pages';
-    protected $page_title   = 'Data User';
+    protected $page_title   = 'Tags [Category Promo]';
     protected $breadcrumb   = [];
 
     public function index()
     {
-        $datas                                  = Users::where('email', '!=', session('username-admin'))
-                                                    ->where('role', 'user')
-                                                    ->paginate(10);
+        $datas                                  = Tags::paginate(10);
         $this->page_datas->datas                = $datas;
         $this->page_datas->id                   = null;
         //page attributes
         $this->page_attributes->page_title      = $this->page_title;
         //generate view
-        $view_source                            = $this->view_root . '.users.index';
+        $view_source                            = $this->view_root . '.tags.index';
         $route_source                           = Request::route()->getName();        
         return $this->generateView($view_source , $route_source);
     }
@@ -34,7 +32,7 @@ class UsersController extends BaseController
         $datas                                  = null;
         
         if($id != null){
-            $datas                              = Users::find($id);
+            $datas                              = Tags::find($id);
         }
         //set data
         $this->page_datas->datas                = $datas;
@@ -46,7 +44,7 @@ class UsersController extends BaseController
         }
         $this->page_datas->id                   = $id;
         //generate view
-        $view_source                            = $this->view_root . '.users.create';
+        $view_source                            = $this->view_root . '.tags.create';
         $route_source                           = Request::route()->getName();        
         return $this->generateView($view_source , $route_source);
     }
@@ -54,39 +52,29 @@ class UsersController extends BaseController
     public function store($id = null)
     {
         //get input
-        $input                                  = Input::only('name', 'email', 'dob', 'role', 'password', 'password2');
+        $input                                  = Input::only('tags', 'type');
         //create or edit
-        $users                                  = Users::findOrNew($id);
+        $users                                  = Tags::findOrNew($id);
         //save data
-        if(is_null($id)){
-            if($input['password']==$input['password2']){
-                $users->password                = hash('md5', $input['password']);
-            }
-            else{
-                return Redirect::to(route('cms.users.create'))->with('msg-danger', 'Konfirmasi Password Salah.');        
-            }
-        }
         
-        $users->name                            = $input['name'];
-        $users->email                           = $input['email']; 
-        $users->dob                             = $input['dob']; 
-        $users->role                            = $input['role']; 
-
+        $users->tags                            = $input['tags'];
+        $users->type                            = $input['type']; 
         $users->save();
+
         $this->page_attributes->msg             = 'Data telah disimpan';
-        return Redirect::to(route('cms.users.index'))->with('msg', 'Data telah disimpan.');
+        return Redirect::to(route('cms.tags.index'))->with('msg', 'Data telah disimpan.');
     }
 
     public function show($id)
     {
         //get data
-        $datas                                  = Users::find($id);
+        $datas                                  = Tags::find($id);
         $this->page_datas->datas                = $datas;
         $this->page_datas->id                   = $id;
         //page attributes
         $this->page_attributes->page_title      = 'Detail ' . $this->page_title;
         //generate view
-        $view_source                            = $this->view_root . '.users.show';
+        $view_source                            = $this->view_root . '.tags.show';
         $route_source                           = Request::route()->getName();        
         return $this->generateView($view_source , $route_source);
     }
@@ -103,14 +91,14 @@ class UsersController extends BaseController
 
     public function destroy($id)
     {
-        $users                      = Users::find($id);
+        $users                      = Tags::find($id);
 
         $password                   = Input::get('password');
         if(empty($password)){
-            return Redirect::to(route('cms.users.index'))->with('msg-danger', 'Password not valid.');
+            return Redirect::to(route('cms.tags.index'))->with('msg-danger', 'Password not valid.');
         }else{
             $users->delete();
-            return Redirect::to(route('cms.users.index'))->with('msg', 'Data telah dihapus.');
+            return Redirect::to(route('cms.tags.index'))->with('msg', 'Data telah dihapus.');
         }
     }
 }

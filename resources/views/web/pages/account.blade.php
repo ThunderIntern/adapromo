@@ -27,6 +27,9 @@
                               <li class="nav-item">
                                 <a class="nav-link" data-toggle="tab" href="#favorites" role="tab">Favorite Promo</a>
                               </li>
+                              <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab" href="#mypromo" role="tab">My Promo</a>
+                              </li>
                             </ul>
 
                             <!-- Tab panes -->
@@ -61,9 +64,26 @@
 
                                <div class="tab-pane" id="favorites" role="tabpanel">
                                     <div class="text-xs-left p-a-2">
-                                    @foreach($page_attributes->favorites as $favorite)
+                                    @forelse($page_attributes->favorites as $favorite)
                                         <i class="fa fa-heart red-text"></i> &nbsp;<a href="{{route('promo.detail', ['id' => $favorite['id']])}}">{{ $favorite['title']}}</a><br>
-                                    @endforeach
+                                    @empty
+                                        Tidak ada promo favorite
+                                    @endforelse
+                                    </div>
+                               </div>
+
+                               <div class="tab-pane" id="mypromo" role="tabpanel">
+                                    <div class="text-xs-left p-a-2">
+                                    <a href="{{route('promo.register')}}" class="btn btn-primary"><i class="fa fa-plus"></i> Daftarkan promo baru</a><br><br>
+                                    @forelse($page_attributes->my_promo as $my_promo)
+                                        <i class="fa fa-arrow-right red-text"></i> &nbsp;<a href="{{route('promo.detail', ['id' => $my_promo['id']])}}">{{ $my_promo['title']}}</a>
+                                        @if($my_promo['status']=='pending')
+                                            <a href="{{route('promo.konfirmasi', ['id' => $my_promo['id']])}}" class="text-danger"><small><b>[Konfirmasi pembayaran]</b></small></a>
+                                        @endif
+                                        <br>
+                                    @empty
+                                        Anda tidak mempunyai promo yang terdaftar
+                                    @endforelse
                                     </div>
                                </div>
                             </div>

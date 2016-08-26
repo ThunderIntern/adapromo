@@ -31,7 +31,10 @@
 							<td class="col-md-3">
 								<a href="{{route('cms.promo.promo.show', ['id' => $data['id']])}}">
 									{{ $data['title'] }}
-								</a>
+								</a><br>
+								@if($data['status']=='pending')
+									<small class="text-danger">[Pending]</small>
+								@endif
 							</td>
 							<td class="col-md-3">
 								{{ $data['slug'] }}
@@ -43,6 +46,11 @@
 								{{ $data['published_at'] }}
 							</td>
 							<td class="col-md-2 text-xs-right">
+								@if($data['status']=='pending')
+								<a href="{{route('cms.promo.promo.aktivasi', ['id' => $data['id']])}}" class="btn btn-primary btn-sm" alt="Aktifkan">
+									<i class="fa fa-check" aria-hidden="true"></i>
+						        </a>
+						        @endif
 						        <a href="{{route('cms.promo.promo.edit', ['id' => $data['id']])}}" class="btn btn-primary btn-sm">
 									<i class="fa fa-pencil" aria-hidden="true"></i>
 						        </a>	

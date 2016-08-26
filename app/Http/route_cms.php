@@ -20,6 +20,7 @@ Route::group(['namespace' => 'Cms\\', 'prefix' => 'cms'], function(){
 			'update' 	=> 'cms.promo.promo.update', 
 			'destroy' 	=> 'cms.promo.promo.destroy'
 	]]);
+	Route::get('promo/aktivasi/{id}',	['uses' => 'PromoController@aktivasi', 				'as' => 'cms.promo.promo.aktivasi']);
 
 	Route::resource('website/faq', 'FaqController', ['names' => [
 			'index' 	=> 'cms.website.faq.index',
@@ -49,5 +50,14 @@ Route::group(['namespace' => 'Cms\\', 'prefix' => 'cms'], function(){
 			'edit' 		=> 'cms.users.edit', 
 			'update' 	=> 'cms.users.update', 
 			'destroy' 	=> 'cms.users.destroy'
+	]]);
+	Route::resource('tags', 'TagsController', ['names' => [
+			'index' 	=> 'cms.tags.index',
+			'create'	=> 'cms.tags.create', 
+			'store' 	=> 'cms.tags.store', 
+			'show' 		=> 'cms.tags.show', 
+			'edit' 		=> 'cms.tags.edit', 
+			'update' 	=> 'cms.tags.update', 
+			'destroy' 	=> 'cms.tags.destroy'
 	]]);
 });
