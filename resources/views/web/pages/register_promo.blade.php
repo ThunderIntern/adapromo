@@ -13,18 +13,19 @@
                             <h3 class="dark-blue-text"><b>Pendaftaran Promo Baru</b></h3><hr />
                             <div class="text-justify">
                                 @if(Session::has('message-danger'))
-                                    <center><div class="alert alert-danger"><small>{{Session::get('message-danger')}}</small></div></center>
+                                    <div class="alert alert-danger"><small><?php echo Session::get('message-danger'); ?></small></div>
                                 @endif
                                 @if(Session::has('message-success'))
-                                    <center><div class="alert alert-success"><small>{{Session::get('message-success')}}</small></div></center>
+                                    <div class="alert alert-success"><small><?php echo Session::get('message-success'); ?></small></div>
                                 @endif
                                 Anda bisa mendaftarkan promo-promo di Adapromo.id dengan sangat mudah. Melalui Adapromo.id anda bisa menyebarluaskan info promo anda kepada masyarakat luas. Kami mengundang kalian para brand owner untuk berpartisipasi bersama kami dengan cara mengirimkan materi promosi Anda beserta deskripisi materi promosinya secara lengkap (mekanisme promo, periode promo, lokasi outlet yang melakukan promo).<br><br>
                                 <h5 class="dark-blue-text">Langkah-langkah pendaftaran promo:</h5>
                                 <ul>
                                     <li>Isi form yang sudah tersedia dibawah.</li>
-                                    <li>Lakukan pembayaran biaya promosi ke rekening Adapromo.id (nomor rekening 720-3133-131-1 a/n Adapromo) dengan mencantumkan <b>Kode Pembayaran</b> yang sesuai, <b class="red-text">maksimal 24 jam setelah pendafataran</b>. Jika melebihi batas waktu melakukan pembayaran, maka akan promo dianggap dibatalkan.</li>
-                                    <li>Lakukan konfirmasi pembayaran dengan cara upload bukti transfer di menu <a href="{{route('account')}}">Account</a> > My Promo. Klik link "Konfirmasi Pembayaran".</li>
-                                    <li>Setelah admin melakukan pengecekan dan promosi sudah sesuai dengan ketentuan, maka promosi anda akan tampil di halaman promo.</li>
+                                    <li>Jika promosi yang anda sesuai dengan syarat dan ketentuan, maka Admin akan melakukan approval terhadap promo yang anda daftarkan dan promo anda akan tampil dalam pencarian.</li>
+                                    <li>Jika anda tertarik untuk menambahkan fitur premium pada promosi anda, lakukan pembayaran biaya promosi ke rekening Adapromo.id (nomor rekening 720-3133-131-1 a/n Adapromo) dengan mencantumkan <b>Kode Pembayaran</b> yang sesuai (Kode Pembayaran dan Biaya Promosi tercantum pada menu <b>'Account' > 'My Promo'</b>) </li>
+                                    <li>Lakukan konfirmasi pembayaran dengan cara upload bukti transfer di menu <a href="{{route('account')}}">Account</a> > My Promo. Klik link "Request Premium Promo".</li>
+                                    <li>Setelah admin melakukan pengecekan dan promosi sudah sesuai dengan ketentuan, maka promosi anda akan ditandai sebagai <b>'Premium Promo'</b>.</li>
                                 </ul><br>                                
 
                                 @if(!is_null(Session::get('username')))
@@ -64,9 +65,7 @@
                                     {!! Form::date('end_date', null, ['class' => 'form-control', 'data-inputmask' => "'mask':'m/d/y'", 'placeholder' => 'Tanggal Akhir Promo', 'required' => 'required']) !!}
                                     <small>format: mm/dd/yyy</small><br><br>
 
-                                    <label for="name"><b>Biaya Promo: <i class="red-text">Rp. 50.000-,</i></b></label><br>
                                     <?php $date = date("mdHis"); ?>
-                                    <label for="name"><b>Kode Pembayaran: <i class="red-text"><?php echo $date; ?></i></b></label>
                                     {!! Form::hidden('kode', $date) !!}
 
                                     {!! Form::submit('Daftarkan Promo', ['class' => 'btn btn-block red white-text m-t-1']) !!}

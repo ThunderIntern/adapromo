@@ -9,6 +9,12 @@
             <div class="row p-t-3">
                 <div class="col-md-12 col-lg-12">
                     <div class="col-md-8 col-lg-8">
+                        @if($page_datas->datas['status']=='pending')
+                        <div class="card p-a-2">
+                            <h3>{{ $page_datas->datas['title'] }}</h3><hr />
+                            <center><div class="alert alert-danger">Maaf, promo masih dalam proses approval.</div></center>
+                        </div>
+                        @else
                         <div class="card p-a-2">
                             <h3>{{ $page_datas->datas['title'] }}</h3><hr />
                             <?php 
@@ -49,6 +55,7 @@
                             <i class="fa fa-tag"></i> {{ $page_datas->datas['tags'] }}<br /><br />
                             <a href="#" class="btn red white-text">Promo Selengkapnya</a>
                         </div>
+                        @endif
                     </div>
                     <div class="col-md-4 col-lg-4">
                         <h4><b>RELATED PROMO:</b></h4>

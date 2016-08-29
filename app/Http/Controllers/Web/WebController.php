@@ -27,7 +27,7 @@ class WebController extends BaseController
         $this->page_datas->datas                = $datas;
         $tags                                   = Tags::all();
         $this->page_datas->tags                 = $tags;
-        $related                                = Products::paginate(3);
+        $related                                = Products::where('status', 'aktif')->paginate(3);
         $this->page_datas->related              = $related;
 
 		$this->page_attributes->page_title 		= 'About Us';
@@ -43,7 +43,7 @@ class WebController extends BaseController
         $this->page_datas->datas                = $datas;
         $tags                                   = Tags::all();
         $this->page_datas->tags                 = $tags;
-        $related                                = Products::paginate(3);
+        $related                                = Products::where('status', 'aktif')->paginate(3);
         $this->page_datas->related              = $related;
 
 		$this->page_attributes->page_title 		= 'Contact Us';
@@ -59,7 +59,7 @@ class WebController extends BaseController
         $this->page_datas->datas                = $datas;
         $tags                                   = Tags::all();
         $this->page_datas->tags                 = $tags;
-        $related                                = Products::paginate(3);
+        $related                                = Products::where('status', 'aktif')->paginate(3);
         $this->page_datas->related              = $related;
 
 		$this->page_attributes->page_title 		= 'Term And Condition';
@@ -75,7 +75,7 @@ class WebController extends BaseController
         $this->page_datas->datas                = $datas;
         $tags                                   = Tags::all();
         $this->page_datas->tags                 = $tags;
-        $related                                = Products::paginate(3);
+        $related                                = Products::where('status', 'aktif')->paginate(3);
         $this->page_datas->related              = $related;
 
 		$this->page_attributes->page_title 		= 'Frequently Ask Questions';

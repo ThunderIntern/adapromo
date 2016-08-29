@@ -20,7 +20,17 @@ Route::group(['namespace' => 'Cms\\', 'prefix' => 'cms'], function(){
 			'update' 	=> 'cms.promo.promo.update', 
 			'destroy' 	=> 'cms.promo.promo.destroy'
 	]]);
-	Route::get('promo/aktivasi/{id}',	['uses' => 'PromoController@aktivasi', 				'as' => 'cms.promo.promo.aktivasi']);
+
+	//registered
+	Route::get('promo/registered',					['uses' => 'RegisteredPromoController@index', 		'as' => 'cms.promo.registered.index']);
+	Route::get('promo/aktivasi/{id}',				['uses' => 'RegisteredPromoController@aktivasi', 	'as' => 'cms.promo.registered.aktivasi']);
+	Route::delete('promo/registered/delete/{id}',	['uses' => 'RegisteredPromoController@destroy', 	'as' => 'cms.promo.registered.destroy']);
+
+	//premium
+	Route::get('promo/premium',						['uses' => 'PremiumPromoController@index', 			'as' => 'cms.promo.premium.index']);
+	Route::get('promo/premium/accept/{id}',			['uses' => 'PremiumPromoController@accept',			'as' => 'cms.promo.premium.accept']);
+	Route::get('promo/premium/remove/{id}',			['uses' => 'PremiumPromoController@remove',			'as' => 'cms.promo.premium.remove']);
+
 
 	Route::resource('website/faq', 'FaqController', ['names' => [
 			'index' 	=> 'cms.website.faq.index',

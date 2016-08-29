@@ -42,7 +42,11 @@
                         <h6>Silahkan Registrasi jika belum memiliki akun</h6><br>
                         <div class="card p-a-2">
                             <center><h5><b>DAFTAR USER BARU</b></h5></center>
-                                <div id="notif"></div>
+                                <div id="notif">
+                                    @if(Session::has('message-register'))
+                                        <center><div class="alert alert-danger"><small>{{Session::get('message-register')}}</small></div></center>
+                                    @endif
+                                </div>
                                 {!! Form::open(['url' => route('register'), 'method' => 'post']) !!}
                                     <label>Nama Lengkap:</label>
                                     {!! Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nama Lengkap', 'required' => 'required']) !!}

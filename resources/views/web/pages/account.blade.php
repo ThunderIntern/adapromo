@@ -19,16 +19,24 @@
 
                             <ul class="nav nav-tabs" role="tablist">
                               <li class="nav-item">
-                                <a class="nav-link active" data-toggle="tab" href="#account" role="tab">Account Setting</a>
+                                <a class="nav-link active" data-toggle="tab" href="#account" role="tab">
+                                    <i class="fa fa-user"></i> Account Setting
+                                </a>
                               </li>
                               <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#changepassword" role="tab">Change Password</a>
+                                <a class="nav-link" data-toggle="tab" href="#changepassword" role="tab">
+                                    <i class="fa fa-key"></i> Change Password
+                                </a>
                               </li>
                               <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#favorites" role="tab">Favorite Promo</a>
+                                <a class="nav-link" data-toggle="tab" href="#favorites" role="tab">
+                                    <i class="fa fa-heart"></i> Favorite Promo
+                                </a>
                               </li>
                               <li class="nav-item">
-                                <a class="nav-link" data-toggle="tab" href="#mypromo" role="tab">My Promo</a>
+                                <a class="nav-link" data-toggle="tab" href="#mypromo" role="tab">
+                                    My Promo
+                                </a>
                               </li>
                             </ul>
 
@@ -75,15 +83,29 @@
                                <div class="tab-pane" id="mypromo" role="tabpanel">
                                     <div class="text-xs-left p-a-2">
                                     <a href="{{route('promo.register')}}" class="btn btn-primary"><i class="fa fa-plus"></i> Daftarkan promo baru</a><br><br>
+                                    <table>
+                                    <tr>
+                                        <th class="col-md-6">Promo</th>
+                                        <th class="col-md-2">Status</th>
+                                        <th class="col-md-4">Action</th>
+                                    </tr>
+                                    <tr><td colspan="3"><hr></td></tr>
                                     @forelse($page_attributes->my_promo as $my_promo)
+                                        <tr>
+                                        <td class="col-md-6">
                                         <i class="fa fa-arrow-right red-text"></i> &nbsp;<a href="{{route('promo.detail', ['id' => $my_promo['id']])}}">{{ $my_promo['title']}}</a>
-                                        @if($my_promo['status']=='pending')
-                                            <a href="{{route('promo.konfirmasi', ['id' => $my_promo['id']])}}" class="text-danger"><small><b>[Konfirmasi pembayaran]</b></small></a>
+                                        </td>
+                                        <td class="col-md-2"><small>{{$my_promo['status']}}</small></td>
+                                        <td class="col-md-4">
+                                        @if($my_promo['is_premium']==false || $my_promo['is_premium']==null)
+                                            <a href="{{route('promo.konfirmasi', ['id' => $my_promo['id']])}}" class="text-danger"><small><b>[Request Premium Promo]</b></small></a>
                                         @endif
-                                        <br>
+                                        </td>
+                                        </tr>
                                     @empty
-                                        Anda tidak mempunyai promo yang terdaftar
+                                        <tr><td>Anda tidak mempunyai promo yang terdaftar</td></tr>
                                     @endforelse
+                                    </table>
                                     </div>
                                </div>
                             </div>

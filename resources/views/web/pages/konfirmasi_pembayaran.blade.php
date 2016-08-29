@@ -10,10 +10,17 @@
                 <div class="col-md-12 col-lg-12">
                     <div class="col-md-8 col-lg-8">
                         <div class="card p-a-2">
-                            <h3 class="dark-blue-text"><b>Konfirmasi Pembayaran</b></h3><hr />
+                            <h3 class="dark-blue-text"><b>Permintaan Premium Promo</b></h3><hr />
                             <div class="text-justify">
                                 {!! Form::open(['url' => route('promo.konfirmasi', ['id' => $page_datas->datas->id]), 'method' => 'post', 'class' => 'text-xs-left', 'enctype' => "multipart/form-data"]) !!}
-                                    <b>Promo</b>: <a href="{{route('promo.detail', ['id'=>$page_datas->datas->id])}}" target="_blank"> {{$page_datas->datas->title}} </a><br>
+                                    <label><b>Promo:</b></label>
+                                    <a href="{{route('promo.detail', ['id'=>$page_datas->datas->id])}}" target="_blank" class="pull-right"> {{$page_datas->datas->title}} </a><br>
+                                    <label><b>Biaya:</b></label>
+                                    <div class="pull-right"> 
+                                        Rp. {{number_format($page_datas->datas->extra_fields['price'],0)}} 
+                                    </div><br>
+                                    <label><b>Kode Pembayaran:</b></label>
+                                    <div class="pull-right"> {{$page_datas->datas->kode_pembayaran}} </div><br>
                                     {!! Form::hidden('id', $page_datas->datas->id) !!}
                                     <label><b>Bukti Pembayaran:</b></label>
                                     <input type="file" name="file" multiple="" required="required"><br>

@@ -7,6 +7,7 @@ use app\Models\Products;
 use app\Models\Users;
 use app\Models\Favorite;
 use app\Models\Tags;
+use app\Models\TopUpAds;
 use Input, URL, Redirect, Request;
 use Illuminate\Http\Request as Request1;
 
@@ -53,7 +54,7 @@ class PromoController extends BaseController
         $tags                                   = Tags::all();
         $this->page_datas->tags                 = $tags;
         //related promo
-        $related                                = Products::paginate(3);
+        $related                                = Products::where('status', 'aktif')->paginate(3);
         $this->page_datas->related              = $related;
 		$this->page_attributes->page_title 		= $datas['title'];
 
@@ -105,7 +106,7 @@ class PromoController extends BaseController
 		if(is_null(Input::get('title'))){
 			$tags                                   = Tags::all();
 	        $this->page_datas->tags                 = $tags;
-			$related                                = Products::paginate(3);
+			$related                                = Products::where('status', 'aktif')->paginate(3);
 			$this->page_datas->related              = $related;
 			$this->page_attributes->page_title 		= 'Register New Promo';
 
@@ -116,8 +117,18 @@ class PromoController extends BaseController
 		}else{
 			//get input
 	        $input                                  = Input::all();
-	        //create or edit
+	        //add to product collection
 	        $promo                                  = new Products();
+
+	        //hitung biaya
+	        $start = explode('/', $input['start_date']);
+	        $end   = explode('/', $input['end_date']);
+	        $awal  = $start[2].'-'.$start[0].'-'.$start[1];
+	        $akhir = $end[2].'-'.$end[0].'-'.$end[1];
+	        $start = strtotime($awal);
+	        $end   = strtotime($akhir);
+	        $selisih = ($end-$start)/(60*60*24);
+
 	        //save data
 	        if(is_null(Input::get('images2'))) $input['images2'] = "";
 	        if(is_null(Input::get('images3'))) $input['images3'] = "";
@@ -132,26 +143,31 @@ class PromoController extends BaseController
 	        $promo->type                            = $input['type'];
             $promo->extra_fields                	= ['start_date' => $input['start_date'], 
                                                   	'end_date' => $input['end_date'],
-                                                  	'favorites' => 0];    
+                                                  	'favorites' => 0,
+                                                  	'price' => $selisih*10000];
+
 	        $promo->users                           = session('username');
 	        $promo->status                          = 'pending';
 	        $promo->kode_pembayaran                 = $input['kode'];
 	        $promo->published_at                    = date('Y-m-d H:m:s');
 	        
 	        $promo->save();
-	        $this->page_attributes->msg             = 'Data telah disimpan';
-	        return Redirect::to(route('promo.register'))->with('message-success', "Promo anda berhasil disimpan. Silahkan lakukan pembayaran dan upload bukti transfer melalui menu 'My Promo'");
+	        return Redirect::to(route('promo.register'))->with('message-success', "Promo anda berhasil disimpan. Jika promo anda sesuai dengan ketentuan, maka promo akan diaktifkan oleh Admin. Jika anda ingin melakukan permintaan premium promo, anda bisa melakukan pembayaran di menu 'My Promo' > 'Request Premium Promo' dengan detail sebagai berikut:<br> <b>Biaya promo: ".($selisih*10000)."<br> Kode Promo: ".$input['kode']."</b>");
 		}
 	}
 	function konfirmasi($id, Request1 $request)
 	{
+		//redirect bila blm login
+		if(is_null(session('user'))){
+			return Redirect::to(route('login'))->with('message-danger', 'Silahkan login terlebih dahulu.');
+		}
 		if(is_null(Input::get('id'))){
 			$datas                              	= Products::find($id);
 	        $this->page_datas->datas            	= $datas;
 	        $this->page_attributes->page_title 		= 'Konfirmasi Pembayaran';
 	        $tags                                   = Tags::all();
 	        $this->page_datas->tags                 = $tags;
-	        $related                                = Products::paginate(3);
+	        $related                                = Products::where('status', 'aktif')->paginate(3);
 			$this->page_datas->related              = $related;
 			
 			$view_source 	= $this->view_root . '.konfirmasi_pembayaran';

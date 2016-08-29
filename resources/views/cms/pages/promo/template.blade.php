@@ -14,6 +14,8 @@
 			'description' 	=> 'Pengaturan Promo',
 			'components' => [
 								'0' => ['link' => route('cms.promo.promo.index'), 'caption' => 'Promo'],
+								'1' => ['link' => route('cms.promo.registered.index'), 'caption' => 'Registered Promo by User'],
+								'2' => ['link' => route('cms.promo.premium.index'), 'caption' => 'Request Premium Promo by User'],
 		]])
 		</div>
  

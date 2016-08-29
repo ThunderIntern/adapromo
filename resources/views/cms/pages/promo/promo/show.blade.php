@@ -61,7 +61,7 @@
 			'content'	=>  $page_datas->datas['created_at']
 		]])
 
-		@if($page_datas->datas['status']=='pending')
+		@if(!is_null($page_datas->datas['bukti_pembayaran']))
 			<div class="row">
 				<div class="col-md-3"><span class="text-uppercase"><strong>Kode Pembayaran</strong></span></div>
 				<div class="col-md-9">{{$page_datas->datas['kode_pembayaran']}}</div>

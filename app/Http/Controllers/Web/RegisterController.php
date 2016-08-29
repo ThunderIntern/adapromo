@@ -24,6 +24,10 @@ class RegisterController extends BaseController
 	function register()
 	{
 		$input 							= Input::all();
+		$user 							= Users::where('email', $input['email'])->count();
+		if($user>0){
+			return Redirect::to(route('login'))->with('message-register', 'Email yang anda daftarkan sudah digunakan.');			
+		}
 		$new_user						= new Users();
 		$new_user->name 				= $input['name'];
 		$new_user->email 				= $input['email'];

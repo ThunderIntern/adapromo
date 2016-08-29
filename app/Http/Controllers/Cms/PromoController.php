@@ -17,7 +17,7 @@ class PromoController extends BaseController
 
     public function index()
     {
-        $datas                                  = Products::paginate(10);
+        $datas                                  = Products::where('status', 'aktif')->paginate(10);
         $this->page_datas->datas                = $datas;
         $this->page_datas->id                   = null;
         //page attributes
@@ -125,11 +125,5 @@ class PromoController extends BaseController
             $promo->delete();
             return Redirect::to(route('cms.promo.promo.index'))->with('msg', 'Data telah dihapus.');
         }
-    }
-    public function aktivasi($id){
-        $promo                                  = Products::find($id);
-        $promo->status                          = 'aktif';
-        $promo->save();
-        return Redirect::to(route('cms.promo.promo.index'))->with('msg', 'Promo berhasil di aktifkan.');
     }
 }
