@@ -5,7 +5,7 @@
 	@include('cms.widgets.components.title.title_add_search', ['component' => [
 		'title'			=> 'Tags ' . $page_datas->datas->currentPage(),
 		'link-add'		=> route('cms.tags.create'),
-		'link-search'	=> '#',
+		'link-search'	=> route('cms.tags.search'),
 	]])
 	</div>
 	@include('cms.widgets.alertbox')

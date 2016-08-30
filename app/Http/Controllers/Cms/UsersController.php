@@ -113,4 +113,18 @@ class UsersController extends BaseController
             return Redirect::to(route('cms.users.index'))->with('msg', 'Data telah dihapus.');
         }
     }
+    public function search(){
+        $search_result                          = Users::where('email', '!=', session('username-admin'))
+                                                    ->where('role', 'user')
+                                                    ->where('name', 'like', '%'.Input::get('search').'%')
+                                                    ->paginate();
+        $this->page_datas->datas                = $search_result;
+        $this->page_datas->id                   = null;
+        //page attributes
+        $this->page_attributes->page_title      = 'Search Result: '.Input::get('search');
+        //generate view
+        $view_source                            = $this->view_root . '.users.index';
+        $route_source                           = Request::route()->getName();        
+        return $this->generateView($view_source , $route_source);
+    }
 }

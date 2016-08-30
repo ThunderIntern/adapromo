@@ -18,22 +18,22 @@
                             @endif
 
                             <ul class="nav nav-tabs" role="tablist">
-                              <li class="nav-item">
+                              <li class="nav-item tabmenu">
                                 <a class="nav-link active" data-toggle="tab" href="#account" role="tab">
                                     <i class="fa fa-user"></i> Account Setting
                                 </a>
                               </li>
-                              <li class="nav-item">
+                              <li class="nav-item tabmenu">
                                 <a class="nav-link" data-toggle="tab" href="#changepassword" role="tab">
                                     <i class="fa fa-key"></i> Change Password
                                 </a>
                               </li>
-                              <li class="nav-item">
+                              <li class="nav-item tabmenu">
                                 <a class="nav-link" data-toggle="tab" href="#favorites" role="tab">
                                     <i class="fa fa-heart"></i> Favorite Promo
                                 </a>
                               </li>
-                              <li class="nav-item">
+                              <li class="nav-item tabmenu">
                                 <a class="nav-link" data-toggle="tab" href="#mypromo" role="tab">
                                     My Promo
                                 </a>
@@ -93,12 +93,14 @@
                                     @forelse($page_attributes->my_promo as $my_promo)
                                         <tr>
                                         <td class="col-md-6">
-                                        <i class="fa fa-arrow-right red-text"></i> &nbsp;<a href="{{route('promo.detail', ['id' => $my_promo['id']])}}">{{ $my_promo['title']}}</a>
+                                        <small><i class="fa fa-arrow-right red-text"></i> &nbsp;<a href="{{route('promo.detail', ['id' => $my_promo['id']])}}">{{ $my_promo['title']}}</a></small>
                                         </td>
-                                        <td class="col-md-2"><small>{{$my_promo['status']}}</small></td>
+                                        <td class="col-md-2"><small>{{ucfirst($my_promo['status'])}}</small></td>
                                         <td class="col-md-4">
                                         @if($my_promo['is_premium']==false || $my_promo['is_premium']==null)
                                             <a href="{{route('promo.konfirmasi', ['id' => $my_promo['id']])}}" class="text-danger"><small><b>[Request Premium Promo]</b></small></a>
+                                        @else
+                                            <small class="text-primary"><b><i class="fa fa-star"></i> Premium Promo</b></small>
                                         @endif
                                         </td>
                                         </tr>

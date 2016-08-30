@@ -101,4 +101,16 @@ class TagsController extends BaseController
             return Redirect::to(route('cms.tags.index'))->with('msg', 'Data telah dihapus.');
         }
     }
+    public function search(){
+        $search_result                          = Tags::where('tags', 'like', '%'.Input::get('search').'%')
+                                                    ->paginate();
+        $this->page_datas->datas                = $search_result;
+        $this->page_datas->id                   = null;
+        //page attributes
+        $this->page_attributes->page_title      = 'Search Result: '.Input::get('search');
+        //generate view
+        $view_source                            = $this->view_root . '.tags.index';
+        $route_source                           = Request::route()->getName();        
+        return $this->generateView($view_source , $route_source);
+    }
 }

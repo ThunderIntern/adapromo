@@ -101,4 +101,17 @@ class FaqController extends BaseController
             return Redirect::to(route('cms.website.faq.index'))->with('msg', 'Data telah dihapus.');
         }
     }
+    public function search(){
+        $search_result                          = WebConfig::where('type', 'faq')
+                                                    ->where('content.pertanyaan', 'like', '%'.Input::get('search').'%')
+                                                    ->paginate();
+        $this->page_datas->datas                = $search_result;
+        $this->page_datas->id                   = null;
+        //page attributes
+        $this->page_attributes->page_title      = 'Search Result: '.Input::get('search');
+        //generate view
+        $view_source                            = $this->view_root . '.website.faq.index';
+        $route_source                           = Request::route()->getName();        
+        return $this->generateView($view_source , $route_source);
+    }
 }

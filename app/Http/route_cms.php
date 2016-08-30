@@ -11,6 +11,7 @@ Route::group(['namespace' => 'Cms\\', 'prefix' => 'cms'], function(){
 	Route::post('login',				['uses' => 'LoginController@process', 				'as' => 'cms.login.process']);
 	Route::get('logout',				['uses' => 'LoginController@logout', 				'as' => 'cms.logout']);
 
+	//promo
 	Route::resource('promo/promo', 'PromoController', ['names' => [
 			'index' 	=> 'cms.promo.promo.index',
 			'create'	=> 'cms.promo.promo.create', 
@@ -40,7 +41,7 @@ Route::group(['namespace' => 'Cms\\', 'prefix' => 'cms'], function(){
 	Route::post('promo/request_premium/search',		['uses' => 'RequestPremiumPromoController@search',	'as' => 'cms.promo.request_premium.search']);
 	Route::post('promo/premium/search',				['uses' => 'PremiumPromoController@search',			'as' => 'cms.promo.premium.search']);
 
-
+	//faq
 	Route::resource('website/faq', 'FaqController', ['names' => [
 			'index' 	=> 'cms.website.faq.index',
 			'create'	=> 'cms.website.faq.create', 
@@ -51,6 +52,10 @@ Route::group(['namespace' => 'Cms\\', 'prefix' => 'cms'], function(){
 			'destroy' 	=> 'cms.website.faq.destroy'
 	]]);
 
+	//search faq
+	Route::post('website/faq/search',				['uses' => 'FaqController@search',					'as' => 'cms.website.faq.search']);
+
+	//web info
 	Route::resource('website/info', 'InfoController', ['names' => [
 			'index' 	=> 'cms.website.info.index',
 			'create'	=> 'cms.website.info.create', 
@@ -61,6 +66,7 @@ Route::group(['namespace' => 'Cms\\', 'prefix' => 'cms'], function(){
 			'destroy' 	=> 'cms.website.info.destroy'
 	]]);
 
+	//users
 	Route::resource('users', 'UsersController', ['names' => [
 			'index' 	=> 'cms.users.index',
 			'create'	=> 'cms.users.create', 
@@ -70,6 +76,11 @@ Route::group(['namespace' => 'Cms\\', 'prefix' => 'cms'], function(){
 			'update' 	=> 'cms.users.update', 
 			'destroy' 	=> 'cms.users.destroy'
 	]]);
+
+	//search users
+	Route::post('users/search',						['uses' => 'UsersController@search',				'as' => 'cms.users.search']);
+
+	//tags
 	Route::resource('tags', 'TagsController', ['names' => [
 			'index' 	=> 'cms.tags.index',
 			'create'	=> 'cms.tags.create', 
@@ -79,4 +90,7 @@ Route::group(['namespace' => 'Cms\\', 'prefix' => 'cms'], function(){
 			'update' 	=> 'cms.tags.update', 
 			'destroy' 	=> 'cms.tags.destroy'
 	]]);
+
+	//search tags
+	Route::post('tags/search',						['uses' => 'TagsController@search',					'as' => 'cms.tags.search']);
 });
