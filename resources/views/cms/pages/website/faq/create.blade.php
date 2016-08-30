@@ -28,7 +28,7 @@
 			</fieldset>
 			<fieldset class="form-group">
 				<label for="name">Jawaban</label>
-				{!! Form::textarea('jawaban', $page_datas->datas['content']['jawaban'], ['class' => 'form-control', 'required' => 'required', 'id' => 'myTextarea']) !!}
+				{!! Form::textarea('jawaban', $page_datas->datas['content']['jawaban'], ['class' => 'form-control', 'id' => 'myTextarea']) !!}
 			</fieldset>
 		</div>
 	</div>

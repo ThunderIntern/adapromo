@@ -32,7 +32,7 @@
 			</fieldset>
 			<fieldset class="form-group">
 				<label for="name">Description</label>
-				{!! Form::textarea('description', $page_datas->datas['description'], ['class' => 'form-control', 'rows' => '5', 'id' => 'myTextarea', 'required' => 'required']) !!}
+				{!! Form::textarea('description', $page_datas->datas['description'], ['class' => 'form-control', 'rows' => '5', 'id' => 'myTextarea']) !!}
 			</fieldset>
 			<fieldset class="form-group" id="image">
 				<label for="name">Images</label>
