@@ -26,6 +26,9 @@ body{
  .h-50px{
  	height:50px;
  }
+ .tabmenu:hover{
+ 	border-bottom: none;
+ }
 
 @media (max-width:768px){
 	.border-left-card{
