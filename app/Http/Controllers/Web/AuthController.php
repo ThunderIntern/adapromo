@@ -55,7 +55,8 @@ class AuthController extends BaseController
 		}
 	}
 	function logout(){
-		session()->flush();
+		session()->pull('user', 'default');
+		session()->pull('username', 'default');
 		return Redirect::to(route('home'));
 	}
 	function forgot_password()

@@ -45,7 +45,8 @@ class LoginController extends BaseController
 		}
 	}
 	function logout(){
-		session()->flush();
+		session()->pull('admin', 'default');
+		session()->pull('username-admin', 'default');
 		return Redirect::to(route('cms.login'))->with('message-success', "Anda sudah logout.");
 	}
 }

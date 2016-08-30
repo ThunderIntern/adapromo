@@ -47,11 +47,11 @@
 							</td>
 							<td class="col-md-2 text-xs-right">
 								@if($data['is_premium']==true)
-									<a href="{{route('cms.promo.premium.remove', ['id' => $data['id']])}}" class="btn btn-secondary btn-sm" title="Remove Premium" onclick="return confirm('Yakin ingin menjadikan promo ini sebagai premium promo?')">
+									<a href="{{route('cms.promo.premium.remove', ['id' => $data['id']])}}" class="btn btn-secondary btn-sm" title="Remove Premium" onclick="return confirm('Yakin ingin menghapus promo ini sebagai premium promo?')">
 										<i class="fa fa-star" aria-hidden="true"></i>
 							        </a>
 						        @else
-							        <a href="{{route('cms.promo.premium.accept', ['id' => $data['id']])}}" class="btn btn-danger btn-sm" title="Add to Premium" onclick="return confirm('Yakin ingin menghapus promo ini sebagai premium promo?')">
+							        <a href="{{route('cms.promo.premium.accept', ['id' => $data['id']])}}" class="btn btn-danger btn-sm" title="Add to Premium" onclick="return confirm('Yakin ingin menjadikan promo ini sebagai premium promo?')">
 										<i class="fa fa-star" aria-hidden="true"></i>
 							        </a>
 						        @endif
