@@ -60,6 +60,16 @@ class PromoController extends BaseController
         $input                                  = Input::all();
         //create or edit
         $promo                                  = Products::findOrNew($id);
+
+        //hitung biaya
+        $start = explode('/', $input['start_date']);
+        $end   = explode('/', $input['end_date']);
+        $awal  = $start[2].'-'.$start[0].'-'.$start[1];
+        $akhir = $end[2].'-'.$end[0].'-'.$end[1];
+        $start = strtotime($awal);
+        $end   = strtotime($akhir);
+        $selisih = ($end-$start)/(60*60*24);
+
         //save data
         if(is_null(Input::get('images2'))) $input['images2'] = "";
         if(is_null(Input::get('images3'))) $input['images3'] = "";
@@ -75,15 +85,18 @@ class PromoController extends BaseController
         if(is_null($id)){
             $promo->extra_fields                = ['start_date' => $input['start_date'], 
                                                   'end_date' => $input['end_date'],
-                                                  'favorites' => 0];    
+                                                  'favorites' => 0,
+                                                  'price' => $selisih*10000];    
         }else{
             $promo->extra_fields                = ['start_date' => $input['start_date'], 
                                                   'end_date' => $input['end_date'],
-                                                  'favorites' => $input['favorites']];    
+                                                  'favorites' => $input['favorites'],
+                                                  'price' => $selisih*10000];    
         }
         $promo->users                           = $input['users'];
         $promo->status                          = 'aktif';
-        $promo->published_at                    = date('Y-m-d H:m:s');
+        $promo->kode_pembayaran                 = date('mdHis');
+        $promo->published_at                    = date('Y-m-d H:i:s');
         
         $promo->save();
         $this->page_attributes->msg             = 'Data telah disimpan';
