@@ -3,9 +3,9 @@
 <div class="card">
 	<div class="card-block">
 	@include('cms.widgets.components.title.title_add_search', ['component' => [
-		'title'			=> 'Premium Promo ' . $page_datas->datas->currentPage(),
+		'title'			=> 'Request Premium Promo by User ' . $page_datas->datas->currentPage(),
 		'link-add'		=> route('cms.promo.promo.create'),
-		'link-search'	=> route('cms.promo.premium.search'),
+		'link-search'	=> route('cms.promo.request_premium.search'),
 	]])
 	</div>
 	@include('cms.widgets.alertbox')
@@ -16,10 +16,8 @@
 					<tr>
 						<th class="col-md-1">#</th>
 						<th class="col-md-3">Title</th>
-						<th class="col-md-3">Slug</th>
-						<th class="col-md-1">Favorites</th>
-						<th class="col-md-2">Published at</th>
-						<th class="col-md-2 text-xs-right">Control</th>
+						<th class="col-md-4">Slug</th>
+						<th class="col-md-4 text-xs-right">Control</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -32,29 +30,14 @@
 								<a href="{{route('cms.promo.promo.show', ['id' => $data['id']])}}">
 									{{ $data['title'] }}
 								</a><br>
-								@if($data['is_premium']==true)
-									<small class="text-danger"><b>[Premium]</b></small>
-								@endif
 							</td>
-							<td class="col-md-3">
+							<td class="col-md-4">
 								{{ $data['slug'] }}
 							</td>
-							<td class="col-md-1">
-								{{ $data['extra_fields']['favorites'] }}
-							</td>
-							<td class="col-md-2">
-								{{ $data['published_at'] }}
-							</td>
-							<td class="col-md-2 text-xs-right">
-								<a href="{{route('cms.promo.request_premium.remove', ['id' => $data['id']])}}" class="btn btn-secondary btn-sm" title="Remove Premium" onclick="return confirm('Yakin ingin menghapus promo ini sebagai premium promo?')">
-									<i class="fa fa-star" aria-hidden="true"></i>
+							<td class="col-md-4 text-xs-right">
+								<a href="{{route('cms.promo.request_premium.accept', ['id' => $data['id']])}}" class="btn btn-primary btn-sm" title="Add to Premium Promo" onclick="return confirm('Yakin ingin menambahkan promo ini sebagai premium promo?');">
+									Add to Premium Promo
 						        </a>
-						        <a href="{{route('cms.promo.promo.edit', ['id' => $data['id']])}}" class="btn btn-primary btn-sm">
-									<i class="fa fa-pencil" aria-hidden="true"></i>
-						        </a>	
-								<a class="btn btn-primary btn-sm" href="#" data-toggle="modal" data-target="#modalDelete" data-action="{!! route('cms.promo.promo.destroy', ['id' => $data['id']]) !!}">
-									<i class="fa fa-times" aria-hidden="true"></i>
-								</a>
 							</td>
 						</tr>					
 					@empty

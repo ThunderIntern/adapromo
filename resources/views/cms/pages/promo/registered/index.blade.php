@@ -5,7 +5,7 @@
 	@include('cms.widgets.components.title.title_add_search', ['component' => [
 		'title'			=> 'Registered Promo by User ' . $page_datas->datas->currentPage(),
 		'link-add'		=> route('cms.promo.promo.create'),
-		'link-search'	=> '#',
+		'link-search'	=> route('cms.promo.registered.search'),
 	]])
 	</div>
 	@include('cms.widgets.alertbox')

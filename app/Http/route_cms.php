@@ -21,15 +21,24 @@ Route::group(['namespace' => 'Cms\\', 'prefix' => 'cms'], function(){
 			'destroy' 	=> 'cms.promo.promo.destroy'
 	]]);
 
-	//registered
+	//registered promo
 	Route::get('promo/registered',					['uses' => 'RegisteredPromoController@index', 		'as' => 'cms.promo.registered.index']);
 	Route::get('promo/aktivasi/{id}',				['uses' => 'RegisteredPromoController@aktivasi', 	'as' => 'cms.promo.registered.aktivasi']);
 	Route::delete('promo/registered/delete/{id}',	['uses' => 'RegisteredPromoController@destroy', 	'as' => 'cms.promo.registered.destroy']);
 
-	//premium
+	//request premium promo
+	Route::get('promo/request_premium',				['uses' => 'RequestPremiumPromoController@index', 	'as' => 'cms.promo.request_premium.index']);
+	Route::get('promo/request_premium/accept/{id}',	['uses' => 'RequestPremiumPromoController@accept',	'as' => 'cms.promo.request_premium.accept']);
+	Route::get('promo/request_premium/remove/{id}',	['uses' => 'RequestPremiumPromoController@remove',	'as' => 'cms.promo.request_premium.remove']);
+
+	//premium promo
 	Route::get('promo/premium',						['uses' => 'PremiumPromoController@index', 			'as' => 'cms.promo.premium.index']);
-	Route::get('promo/premium/accept/{id}',			['uses' => 'PremiumPromoController@accept',			'as' => 'cms.promo.premium.accept']);
-	Route::get('promo/premium/remove/{id}',			['uses' => 'PremiumPromoController@remove',			'as' => 'cms.promo.premium.remove']);
+
+	//search promo
+	Route::post('promo/promo/search',				['uses' => 'PromoController@search',				'as' => 'cms.promo.promo.search']);
+	Route::post('promo/registered/search',			['uses' => 'RegisteredPromoController@search',		'as' => 'cms.promo.registered.search']);
+	Route::post('promo/request_premium/search',		['uses' => 'RequestPremiumPromoController@search',	'as' => 'cms.promo.request_premium.search']);
+	Route::post('promo/premium/search',				['uses' => 'PremiumPromoController@search',			'as' => 'cms.promo.premium.search']);
 
 
 	Route::resource('website/faq', 'FaqController', ['names' => [
