@@ -98,7 +98,7 @@
                                         <td class="col-md-2"><small>{{ucfirst($my_promo['status'])}}</small></td>
                                         <td class="col-md-4">
                                         @if($my_promo['is_premium']==false || $my_promo['is_premium']==null)
-                                            <a href="{{route('promo.konfirmasi', ['id' => $my_promo['id']])}}" class="text-danger"><small><b>[Request Premium Promo]</b></small></a>
+                                            <a href="{{route('promo.konfirmasi', ['id' => $my_promo['id']])}}" class="btn btn-danger btn-sm"><small><b>[Request Premium Promo]</b></small></a>
                                         @else
                                             <small class="text-primary"><b><i class="fa fa-star"></i> Premium Promo</b></small>
                                         @endif
