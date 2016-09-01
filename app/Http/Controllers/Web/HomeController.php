@@ -24,7 +24,13 @@ class HomeController extends BaseController
 
 	function home()
 	{
-		$datas                                  = Products::where('status', 'aktif')->paginate(12);
+		//premium
+		$premium                                = Products::where('is_premium', true)
+													->orderBy('rand()')
+													->take(6)->get();
+        $this->page_datas->premium              = $premium;
+
+		$datas                                  = Products::where('status', 'aktif')->paginate(6);
         $this->page_datas->datas                = $datas;
         $tags                                   = Tags::all();
         $this->page_datas->tags                 = $tags;
