@@ -34,13 +34,13 @@
                                     <a href="{{ route('favorite', ['id' => $page_datas->datas['id']])}}" class="dark-text"><i class="fa fa-heart"></i> Favorite</a>
                                 @endif
                             </span> |
-                            <a href="#">
+                            <a href="" onclick="window.open('https://www.facebook.com/sharer.php?u={{Request::fullUrl()}}', 'Share Promo', 'width=600, height=600'); return false;">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x facebook-text"></i>
                                     <i class="fa fa-facebook fa-stack-1x white-text"></i>
                                 </span>
                             </a>
-                            <a href="#">
+                            <a href="" onclick="window.open('https://twitter.com/intent/tweet?url={{Request::fullUrl()}}', 'Share Promo', 'width=600, height=600'); return false;">
                                 <span class="fa-stack fa-lg">
                                     <i class="fa fa-circle fa-stack-2x twitter-text"></i>
                                     <i class="fa fa-twitter fa-stack-1x white-text"></i>
